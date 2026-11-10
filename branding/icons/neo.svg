@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 76" role="img" aria-label="نئو">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6c4cf1" />
+      <stop offset="1" stop-color="#5cd6ff" />
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="76" height="76" rx="23" fill="#121016" />
+  <path d="M23 52V24l30 28V24" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+</svg>

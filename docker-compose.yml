@@ -1,0 +1,20 @@
+# Postgres محلی برای توسعه (اختیاری)
+# اگر Docker داری: docker compose up -d
+# سپس در .env.local:
+#   DATABASE_URL=postgres://gadget:gadget@localhost:5432/gadgetland
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: gadgetland-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gadget
+      POSTGRES_PASSWORD: gadget
+      POSTGRES_DB: gadgetland
+    ports:
+      - "5432:5432"
+    volumes:
+      - gadgetland_pgdata:/var/lib/postgresql/data
+
+volumes:
+  gadgetland_pgdata:

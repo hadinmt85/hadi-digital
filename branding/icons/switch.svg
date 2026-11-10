@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 76" role="img" aria-label="سوییچ">
+  <rect width="76" height="76" rx="23" fill="#d9ff3f" />
+  <rect x="14" y="27" width="48" height="22" rx="11" fill="#121016" />
+  <circle cx="51" cy="38" r="8" fill="#fffdf8" />
+  <circle cx="25" cy="38" r="2.2" fill="#d9ff3f" />
+</svg>

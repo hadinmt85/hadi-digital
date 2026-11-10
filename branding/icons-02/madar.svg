@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="MADAR">
+  <rect width="120" height="120" rx="32" fill="#0f0e13" />
+  <rect x="26" y="26" width="68" height="68" rx="16" fill="none" stroke="#5cd6ff" stroke-width="3" opacity="0.4" />
+  <g stroke="#5cd6ff" stroke-width="3" stroke-linecap="round" opacity="0.4">
+    <path d="M44 26v-8M60 26v-8M76 26v-8M44 94v8M60 94v8M76 94v8" />
+  </g>
+  <path d="M36 82V38l24 26 24-26v44" fill="none" stroke="#d9ff3f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

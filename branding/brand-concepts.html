@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>پیشنهاد برند و لوگو | گجت‌لند</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #121016;
+        --ink-soft: #37323f;
+        --cream: #f6f2e9;
+        --paper: #fffdf8;
+        --violet: #6c4cf1;
+        --lime: #d9ff3f;
+        --coral: #ff6b4a;
+        --sky: #5cd6ff;
+        --line: #e4ded1;
+        --mute: #77717f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Vazirmatn, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .grid-lines {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(18, 16, 22, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(18, 16, 22, 0.04) 1px, transparent 1px);
+        background-size: 48px 48px;
+        z-index: 0;
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 48px 24px 90px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: rgba(18, 16, 22, 0.06);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .eyebrow i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--coral);
+      }
+
+      h1 {
+        margin: 20px 0 0;
+        font-size: clamp(2rem, 4.4vw, 3.3rem);
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      h1 mark {
+        background: var(--lime);
+        border-radius: 12px;
+        padding: 0 10px;
+        color: var(--ink);
+      }
+
+      .lead {
+        max-width: 620px;
+        margin: 18px 0 0;
+        font-size: 14px;
+        line-height: 2.1;
+        color: var(--ink-soft);
+      }
+
+      .criteria {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 26px;
+      }
+
+      .criteria span {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink-soft);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 13px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 52px 0 18px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .section-title p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--mute);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      @media (max-width: 860px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 26px;
+        overflow: hidden;
+      }
+
+      .card::after {
+        content: attr(data-index);
+        position: absolute;
+        top: 18px;
+        left: 22px;
+        font-size: 11px;
+        font-weight: 900;
+        color: var(--mute);
+        letter-spacing: 0.14em;
+      }
+
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .lockup svg {
+        flex: 0 0 auto;
+        filter: drop-shadow(0 12px 22px rgba(18, 16, 22, 0.14));
+      }
+
+      .name {
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+
+      .latin {
+        margin-top: 7px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        color: var(--mute);
+      }
+
+      .tagline {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink-soft);
+      }
+
+      .desc {
+        margin: 0;
+        font-size: 12px;
+        line-height: 2;
+        color: var(--mute);
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-top: 1px dashed var(--line);
+        padding-top: 14px;
+        margin-top: auto;
+        font-size: 11px;
+        color: var(--mute);
+      }
+
+      .palette {
+        display: flex;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid var(--paper);
+        box-shadow: 0 0 0 1px var(--line);
+      }
+
+      .domain {
+        font-family: ui-monospace, monospace;
+        direction: ltr;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink-soft);
+        background: rgba(18, 16, 22, 0.05);
+        padding: 5px 9px;
+        border-radius: 8px;
+      }
+
+      /* ---------- featured pick ---------- */
+      .pick {
+        margin-top: 56px;
+        border-radius: 34px;
+        background: var(--ink);
+        color: #fff;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pick::before {
+        content: "";
+        position: absolute;
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        background: var(--violet);
+        filter: blur(110px);
+        opacity: 0.55;
+        top: -160px;
+        left: -80px;
+      }
+
+      .pick-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .pick-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .pick h2 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 900;
+      }
+
+      .pick p {
+        margin: 12px 0 0;
+        font-size: 13px;
+        line-height: 2;
+        color: rgba(255, 255, 255, 0.62);
+        max-width: 460px;
+      }
+
+      .pick .pill {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--lime);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      /* mini site mock */
+      .site-mock {
+        border-radius: 22px;
+        background: var(--cream);
+        color: var(--ink);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+      }
+
+      .mock-ticker {
+        background: var(--ink);
+        color: var(--lime);
+        font-size: 9px;
+        font-weight: 700;
+        padding: 7px 12px;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+      }
+
+      .mock-ticker b {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--lime);
+        display: inline-block;
+        margin-inline-end: 6px;
+        vertical-align: middle;
+      }
+
+      .mock-nav {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 13px 14px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .mock-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .mock-logo svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .mock-logo b {
+        font-size: 17px;
+        font-weight: 900;
+        display: block;
+        line-height: 1;
+      }
+
+      .mock-logo small {
+        font-size: 6px;
+        letter-spacing: 0.26em;
+        color: var(--mute);
+        font-weight: 700;
+      }
+
+      .mock-links {
+        display: flex;
+        gap: 10px;
+        font-size: 9px;
+        font-weight: 700;
+        color: var(--ink-soft);
+      }
+
+      .mock-links span:first-child {
+        background: var(--ink);
+        color: #fff;
+        padding: 5px 9px;
+        border-radius: 999px;
+      }
+
+      .mock-search {
+        flex: 1;
+        height: 28px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        font-size: 8px;
+        color: #b3aeba;
+      }
+
+      .mock-cart {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 8px;
+        font-weight: 800;
+      }
+
+      .mock-cart em {
+        font-style: normal;
+        background: var(--lime);
+        color: var(--ink);
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 7px;
+        font-weight: 900;
+      }
+
+      .mock-hero {
+        position: relative;
+        padding: 22px 16px 18px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 12px;
+        align-items: center;
+        background: radial-gradient(circle at 80% 20%, rgba(108, 76, 241, 0.16), transparent 60%);
+      }
+
+      .mock-hero h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .mock-hero h3 mark {
+        background: var(--lime);
+        border-radius: 7px;
+        padding: 0 5px;
+      }
+
+      .mock-hero p {
+        margin: 7px 0 0;
+        font-size: 8.5px;
+        line-height: 1.9;
+        color: var(--mute);
+      }
+
+      .mock-cta {
+        display: inline-flex;
+        margin-top: 11px;
+        background: var(--violet);
+        color: #fff;
+        border-radius: 999px;
+        padding: 7px 13px;
+        font-size: 8.5px;
+        font-weight: 800;
+        box-shadow: 0 10px 18px -10px rgba(108, 76, 241, 0.9);
+      }
+
+      .mock-products {
+        display: flex;
+        gap: 8px;
+      }
+
+      .mock-tile {
+        flex: 1;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 6px;
+      }
+
+      .mock-art {
+        height: 58px;
+        border-radius: 9px;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+      }
+
+      .mock-tile span {
+        display: block;
+        margin-top: 5px;
+        font-size: 6.5px;
+        font-weight: 800;
+      }
+
+      .mock-tile b {
+        display: block;
+        font-size: 7px;
+        margin-top: 2px;
+      }
+
+      /* ---------- usage row ---------- */
+      .usage {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      @media (max-width: 760px) {
+        .usage {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .usage-box {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 120px;
+      }
+
+      .usage-box small {
+        font-size: 9px;
+        font-weight: 700;
+        color: var(--mute);
+      }
+
+      .round-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: var(--ink);
+        display: grid;
+        place-items: center;
+      }
+
+      .round-icon svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .mono {
+        font-size: 26px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .mono small {
+        display: block;
+        font-size: 7px;
+        letter-spacing: 0.3em;
+        color: var(--mute);
+        margin-top: 3px;
+      }
+
+      .favicon {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .favicon svg {
+        display: block;
+      }
+
+      .note {
+        margin-top: 34px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--mute);
+        line-height: 2;
+      }
+
+      .note b {
+        color: var(--ink);
+      }
+
+      .swatches {
+        display: flex;
+        gap: 8px;
+        margin-top: 18px;
+        flex-wrap: wrap;
+      }
+
+      .swatch {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--ink-soft);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+
+      .swatch i {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-lines"></div>
+    <div class="wrap">
+      <span class="eyebrow"><i></i> Brand explorations · پاییز ۱۴۰۵</span>
+      <h1>
+        فروشگاهت را
+        <mark>اسم‌دار</mark>
+        کنیم
+      </h1>
+      <p class="lead">
+        شش مسیر برند برای فروشگاه گجت؛ از کوتاه و برقی تا فارسی و مهندسی. هر کانسپت با لوگو،
+        پالت رنگ و حس‌وحال خودش آمده تا انتخاب راحت‌تر شود.
+      </p>
+
+      <div class="criteria">
+        <span>کوتاه و به‌یادماندنی</span>
+        <span>قابل تلفظ در فارسی و انگلیسی</span>
+        <span>مرتبط با گجت و تکنولوژی</span>
+        <span>قابل تبدیل به لوگو</span>
+        <span>دامنه‌اش پیدا شود</span>
+      </div>
+
+      <div class="section-title">
+        <h2>شش کانسپت</h2>
+        <p>هر کارت = یک مسیر برند</p>
+      </div>
+
+      <div class="grid">
+        <!-- 1. ZAP -->
+        <article class="card" data-index="۰۱">
+          <div class="lockup">
+            <svg width="76" height="76" viewBox="0 0 76 76" aria-label="لوگوی زپ">
+              <rect width="76" height="76" rx="23" fill="#121016" />
+              <path d="M42.5 11 21 44.5h13.4L31.6 65 55 31.5H41.6z" fill="#d9ff3f" />
+            </svg>
+            <div>
+              <div class="name">زَپ</div>
+              <div class="latin">ZAP</div>
+            </div>
+          </div>
+          <div>
+            <div class="tagline">سریع، برقی، باحال</div>
+            <p class="desc">
+              کوتاه‌ترین گزینه؛ همان رعدوبرق فعلی سایت را به یک اسم تبدیل می‌کند. در فارسی و
+              انگلیسی یکسان خوانده می‌شود و برای استیکر، اپلیکیشن و تیزر تبلیغاتی عالی است.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="palette">
+              <i class="dot" style="background: #d9ff3f"></i>
+              <i class="dot" style="background: #121016"></i>
+              <i class="dot" style="background: #6c4cf1"></i>
+            </div>
+            <span class="domain">zap.shop</span>
+          </div>
+        </article>
+
+        <!-- 2. MADAR -->
+        <article class="card" data-index="۰۲">
+          <div class="lockup">
+            <svg width="76" height="76" viewBox="0 0 76 76" aria-label="لوگوی مدار">
+              <defs>
+                <linearGradient id="madarGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#6c4cf1" />
+                  <stop offset="1" stop-color="#5cd6ff" />
+                </linearGradient>
+              </defs>
+              <rect width="76" height="76" rx="23" fill="#121016" />
+              <circle cx="38" cy="38" r="19" fill="none" stroke="url(#madarGradient)" stroke-width="5" />
+              <path d="M38 12v9M38 55v9M12 38h9M55 38h9" stroke="#f6f2e9" stroke-width="4" stroke-linecap="round" />
+              <circle cx="38" cy="38" r="7" fill="#d9ff3f" />
+            </svg>
+            <div>
+              <div class="name">مدار</div>
+              <div class="latin">MADAR</div>
+            </div>
+          </div>
+          <div>
+            <div class="tagline">مسیر تازه تکنولوژی</div>
+            <p class="desc">
+              یک اسم فارسیِ اصیل با حس مهندسی و دقت. «مدار» هم فنی است هم شاعرانه؛ برای برندی که
+              می‌خواهد حرفه‌ای‌تر و متمایزتر دیده شود، بهترین انتخاب است.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="palette">
+              <i class="dot" style="background: #6c4cf1"></i>
+              <i class="dot" style="background: #5cd6ff"></i>
+              <i class="dot" style="background: #d9ff3f"></i>
+            </div>
+            <span class="domain">madar.store</span>
+          </div>
+        </article>
+
+        <!-- 3. GADGETINO -->
+        <article class="card" data-index="۰۳">
+          <div class="lockup">
+            <svg width="76" height="76" viewBox="0 0 76 76" aria-label="لوگوی گجتینو">
+              <rect width="76" height="76" rx="23" fill="#ff6b4a" />
+              <g stroke="#121016" stroke-width="3.4" stroke-linecap="round">
+                <path d="M22 29h-7M22 38h-7M22 47h-7M54 29h7M54 38h7M54 47h7" />
+              </g>
+              <rect x="22" y="21" width="32" height="34" rx="11" fill="#fffdf8" />
+              <circle cx="32" cy="35" r="2.6" fill="#121016" />
+              <circle cx="44" cy="35" r="2.6" fill="#121016" />
+              <path d="M33 45c2.5 2 7.5 2 10 0" stroke="#121016" stroke-width="2.8" stroke-linecap="round" fill="none" />
+              <path d="M38 14v6" stroke="#121016" stroke-width="3.4" stroke-linecap="round" />
+            </svg>
+            <div>
+              <div class="name">گجتینو</div>
+              <div class="latin">GADGETINO</div>
+            </div>
+          </div>
+          <div>
+            <div class="tagline">گجت‌های دوست‌داشتنی</div>
+            <p class="desc">
+              پسوند «-ینو» حس کوچک، تازه و دوست‌داشتنی می‌دهد. مناسب مخاطب جوان و خانواده؛
+              شخصیت برند می‌تواند بازیگوش و صمیمی باشد.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="palette">
+              <i class="dot" style="background: #ff6b4a"></i>
+              <i class="dot" style="background: #d9ff3f"></i>
+              <i class="dot" style="background: #121016"></i>
+            </div>
+            <span class="domain">gadgetino.ir</span>
+          </div>
+        </article>
+
+        <!-- 4. SWITCH -->
+        <article class="card" data-index="۰۴">
+          <div class="lockup">
+            <svg width="76" height="76" viewBox="0 0 76 76" aria-label="لوگوی سوییچ">
+              <rect width="76" height="76" rx="23" fill="#d9ff3f" />
+              <rect x="14" y="27" width="48" height="22" rx="11" fill="#121016" />
+              <circle cx="51" cy="38" r="8" fill="#fffdf8" />
+              <circle cx="25" cy="38" r="2.2" fill="#d9ff3f" />
+            </svg>
+            <div>
+              <div class="name">سوییچ</div>
+              <div class="latin">SWITCH</div>
+            </div>
+          </div>
+          <div>
+            <div class="tagline">همه‌چیز را عوض کن</div>
+            <p class="desc">
+              یک کلمهٔ تک‌هجایی و تکنولوژیک که معنی «تغییر» هم می‌دهد. برای کمپین‌ها و پیام‌های
+              کوتاه فوق‌العاده است و لوگوی ساده‌اش در هر اندازه‌ای خوانا می‌ماند.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="palette">
+              <i class="dot" style="background: #121016"></i>
+              <i class="dot" style="background: #d9ff3f"></i>
+              <i class="dot" style="background: #5cd6ff"></i>
+            </div>
+            <span class="domain">switch.shop</span>
+          </div>
+        </article>
+
+        <!-- 5. NEO -->
+        <article class="card" data-index="۰۵">
+          <div class="lockup">
+            <svg width="76" height="76" viewBox="0 0 76 76" aria-label="لوگوی نئو">
+              <defs>
+                <linearGradient id="neoGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#6c4cf1" />
+                  <stop offset="1" stop-color="#5cd6ff" />
+                </linearGradient>
+                <filter id="neoGlow" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              <rect width="76" height="76" rx="23" fill="#121016" />
+              <path
+                d="M23 52V24l30 28V24"
+                fill="none"
+                stroke="url(#neoGradient)"
+                stroke-width="7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                filter="url(#neoGlow)"
+              />
+            </svg>
+            <div>
+              <div class="name">نئو</div>
+              <div class="latin">NEO</div>
+            </div>
+          </div>
+          <div>
+            <div class="tagline">نسل بعدی</div>
+            <p class="desc">
+              کوتاه، بین‌المللی و آینده‌نگر. با پالت نئونی سایت هم‌خوان است و در ذهن مخاطب
+              «نسل جدید گجت‌ها» را می‌نشاند.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="palette">
+              <i class="dot" style="background: #121016"></i>
+              <i class="dot" style="background: #6c4cf1"></i>
+              <i class="dot" style="background: #5cd6ff"></i>
+            </div>
+            <span class="domain">neo.shop</span>
+          </div>
+        </article>
+
+        <!-- 6. DIGIVOLT -->
+        <article class="card" data-index="۰۶">
+          <div class="lockup">
+            <svg width="76" height="76" viewBox="0 0 76 76" aria-label="لوگوی دیجی‌ولت">
+              <rect width="76" height="76" rx="23" fill="#121016" />
+              <rect x="19" y="25" width="33" height="26" rx="7" fill="none" stroke="#f6f2e9" stroke-width="4" />
+              <rect x="55" y="33" width="5" height="10" rx="2.5" fill="#f6f2e9" />
+              <path d="M39 27 30 41h6.6l-1.8 8 9.6-14h-6.4z" fill="#d9ff3f" />
+            </svg>
+            <div>
+              <div class="name">دیجی‌ولت</div>
+              <div class="latin">DIGIVOLT</div>
+            </div>
+          </div>
+          <div>
+            <div class="tagline">انرژی دیجیتال</div>
+            <p class="desc">
+              ترکیب «دیجیتال» و «ولت»؛ حس قدرت و انرژی. برای محصولات شارژی، پاوربانک و گجت‌های
+              پرمصرف بسیار مناسب است و اسم در ذهن می‌ماند.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="palette">
+              <i class="dot" style="background: #f59e0b"></i>
+              <i class="dot" style="background: #121016"></i>
+              <i class="dot" style="background: #d9ff3f"></i>
+            </div>
+            <span class="domain">digivolt.ir</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- FEATURED -->
+      <div class="pick">
+        <div class="pick-grid">
+          <div>
+            <span class="pill">پیشنهاد اصلی</span>
+            <h2 style="margin-top: 14px">زَپ — همان رعد، کوتاه‌تر</h2>
+            <p>
+              چون لوگوی فعلی سایت یک رعدوبرق است، «زَپ» کمترین هزینهٔ تغییر و بیشترین
+              به‌یادماندنی‌بودن را دارد: دو حرف، یک تصویر، و یک حس. اگر دنبال مسیر متمایزتر و
+              ایرانی‌تر هستی، «مدار» گزینهٔ دوم پیشنهادی است.
+            </p>
+            <div class="swatches">
+              <span class="swatch"><i style="background: #d9ff3f"></i>لیمویی #D9FF3F</span>
+              <span class="swatch"><i style="background: #121016"></i>مشکی #121016</span>
+              <span class="swatch"><i style="background: #6c4cf1"></i>بنفش #6C4CF1</span>
+              <span class="swatch"><i style="background: #ff6b4a"></i>مرجانی #FF6B4A</span>
+            </div>
+          </div>
+
+          <div class="site-mock">
+            <div class="mock-ticker">
+              <span><b></b>ارسال رایگان بالای ۲ میلیون</span>
+              <span><b></b>گارانتی ۱۸ ماهه</span>
+            </div>
+            <div class="mock-nav">
+              <div class="mock-logo">
+                <svg viewBox="0 0 76 76" aria-hidden="true">
+                  <rect width="76" height="76" rx="23" fill="#121016" />
+                  <path d="M42.5 11 21 44.5h13.4L31.6 65 55 31.5H41.6z" fill="#d9ff3f" />
+                </svg>
+                <div>
+                  <b>زَپ</b>
+                  <small>ZAP.SHOP</small>
+                </div>
+              </div>
+              <div class="mock-search">جستجوی گجت، برند یا دسته…</div>
+              <div class="mock-cart">سبد خرید <em>۲</em></div>
+            </div>
+            <div class="mock-hero">
+              <div>
+                <h3>گجت بعدی‌ات را <mark>اینجا</mark> پیدا کن</h3>
+                <p>هدفون، ساعت هوشمند و گیمینگ؛ اصل با گارانتی و ارسال سریع.</p>
+                <span class="mock-cta">دیدن محصولات ←</span>
+              </div>
+              <div class="mock-products">
+                <div class="mock-tile">
+                  <div class="mock-art" style="background: linear-gradient(145deg, #7a5af8, #2e1065)">🎧</div>
+                  <span>آیریس پرو</span>
+                  <b>۴٬۸۹۰٬۰۰۰</b>
+                </div>
+                <div class="mock-tile">
+                  <div class="mock-art" style="background: linear-gradient(145deg, #d9ff3f, #65a30d)">⌨️</div>
+                  <span>هایپر K87</span>
+                  <b>۳٬۴۵۰٬۰۰۰</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="usage">
+          <div class="usage-box">
+            <div class="round-icon">
+              <svg viewBox="0 0 76 76" aria-hidden="true">
+                <path d="M42.5 11 21 44.5h13.4L31.6 65 55 31.5H41.6z" fill="#d9ff3f" />
+              </svg>
+            </div>
+            <small>آواتار شبکه‌های اجتماعی</small>
+          </div>
+          <div class="usage-box">
+            <div class="mono">زَپ<small>ZAP.SHOP</small></div>
+            <small>لوگوتایپ بدون آیکون</small>
+          </div>
+          <div class="usage-box">
+            <div class="favicon">
+              <svg width="48" height="48" viewBox="0 0 76 76" aria-hidden="true">
+                <rect width="76" height="76" rx="23" fill="#121016" />
+                <path d="M42.5 11 21 44.5h13.4L31.6 65 55 31.5H41.6z" fill="#d9ff3f" />
+              </svg>
+              <svg width="32" height="32" viewBox="0 0 76 76" aria-hidden="true">
+                <rect width="76" height="76" rx="23" fill="#121016" />
+                <path d="M42.5 11 21 44.5h13.4L31.6 65 55 31.5H41.6z" fill="#d9ff3f" />
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 76 76" aria-hidden="true">
+                <rect width="76" height="76" rx="23" fill="#121016" />
+                <path d="M42.5 11 21 44.5h13.4L31.6 65 55 31.5H41.6z" fill="#d9ff3f" />
+              </svg>
+            </div>
+            <small>فاوآیکون در ۴۸ / ۳۲ / ۲۰ پیکسل</small>
+          </div>
+          <div class="usage-box" style="background: #d9ff3f; border-color: #d9ff3f">
+            <div class="mono">زَپ</div>
+            <small style="color: #121016">نسخهٔ تک‌رنگ برای چاپ</small>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        هر کدام را انتخاب کنی، <b>نام، لوگو، فاوآیکون، متادیتا و متن‌های سایت</b> را با همان هویت
+        به‌روز می‌کنم. <br />
+        برای دامنه هم می‌توانیم گزینه‌های <b>.shop</b> و <b>.ir</b> را بررسی کنیم.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1332 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brand directions 02 — نام و نشان</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0f0e13;
+        --ink-2: #17161d;
+        --cream: #f4f0e7;
+        --paper: #fffdf8;
+        --lime: #d9ff3f;
+        --violet: #6c4cf1;
+        --coral: #ff6b4a;
+        --sky: #5cd6ff;
+        --line: #e2dccd;
+        --mute: #78727f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Vazirmatn, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 46px 24px 90px;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.26em;
+        color: var(--mute);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+
+      .top b {
+        color: var(--ink);
+      }
+
+      h1 {
+        margin: 34px 0 0;
+        font-size: clamp(2.2rem, 5vw, 3.9rem);
+        line-height: 1.16;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        max-width: 760px;
+      }
+
+      h1 span {
+        color: var(--violet);
+      }
+
+      .lead {
+        max-width: 620px;
+        margin: 20px 0 0;
+        font-size: 14px;
+        line-height: 2.05;
+        color: #4a4553;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 26px;
+      }
+
+      .chips span {
+        font-size: 10.5px;
+        font-weight: 700;
+        color: #4a4553;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        border-radius: 999px;
+        padding: 7px 12px;
+      }
+
+      .sec {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin: 54px 0 16px;
+      }
+
+      .sec h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .sec p {
+        margin: 0;
+        font-size: 11px;
+        color: var(--mute);
+      }
+
+      .concepts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .concepts {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .concept {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stage {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        min-height: 190px;
+      }
+
+      .light {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 26px 18px;
+        background: var(--paper);
+      }
+
+      .dark {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: var(--ink);
+        padding: 20px;
+      }
+
+      .dark small {
+        font-size: 8px;
+        letter-spacing: 0.24em;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.32);
+      }
+
+      .lock {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .lock .word {
+        font-size: 31px;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .lock .lat {
+        margin-top: 6px;
+        font-size: 8.5px;
+        font-weight: 800;
+        letter-spacing: 0.34em;
+        color: var(--mute);
+      }
+
+      .body {
+        padding: 20px 22px 22px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .headline {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+
+      .headline h3 {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 900;
+      }
+
+      .headline em {
+        font-style: normal;
+        font-size: 9px;
+        letter-spacing: 0.26em;
+        color: var(--mute);
+        font-weight: 800;
+      }
+
+      .tag {
+        margin: 0;
+        font-size: 11.5px;
+        font-weight: 800;
+        color: var(--violet);
+      }
+
+      .why {
+        margin: 0;
+        font-size: 11.5px;
+        line-height: 2;
+        color: #5b5564;
+      }
+
+      .why b {
+        color: var(--ink);
+      }
+
+      .foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px dashed var(--line);
+      }
+
+      .dots {
+        display: flex;
+        gap: 5px;
+      }
+
+      .dots i {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px var(--line);
+      }
+
+      .domain {
+        direction: ltr;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 10px;
+        font-weight: 700;
+        color: #3b3644;
+        background: rgba(15, 14, 19, 0.05);
+        padding: 5px 8px;
+        border-radius: 7px;
+      }
+
+      /* ---------- featured ---------- */
+      .feature {
+        margin-top: 60px;
+        background: var(--ink);
+        border-radius: 34px;
+        padding: 34px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature::before {
+        content: "";
+        position: absolute;
+        width: 560px;
+        height: 560px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(108, 76, 241, 0.42), transparent 62%);
+        top: -300px;
+        left: -160px;
+      }
+
+      .feature::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-size: 22px 22px;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      .feature > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .feature-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .kicker {
+        display: inline-block;
+        padding: 6px 11px;
+        border-radius: 999px;
+        background: var(--lime);
+        color: var(--ink);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .feature h2 {
+        margin: 16px 0 0;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .feature .desc {
+        margin: 10px 0 0;
+        max-width: 460px;
+        font-size: 12.5px;
+        line-height: 2;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      @media (max-width: 900px) {
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .board {
+        background: var(--paper);
+        border-radius: 24px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        color: var(--ink);
+      }
+
+      .construction {
+        border-radius: 20px;
+        background: #fbf8f0;
+        border: 1px dashed #cfc7b6;
+        padding: 14px;
+      }
+
+      .swatches {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+      }
+
+      .swatch {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 9px;
+        font-weight: 700;
+        color: #4a4553;
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 5px 8px;
+        border-radius: 999px;
+      }
+
+      .swatch i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+
+      /* site mock */
+      .site {
+        border-radius: 20px;
+        overflow: hidden;
+        background: var(--cream);
+        color: var(--ink);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 36px 70px -40px rgba(0, 0, 0, 0.9);
+      }
+
+      .site-bar {
+        background: var(--ink-2);
+        color: var(--lime);
+        font-size: 8px;
+        font-weight: 700;
+        padding: 6px 12px;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .site-bar b {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--lime);
+        display: inline-block;
+        margin-inline-end: 5px;
+        vertical-align: middle;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .site-logo svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .site-logo b {
+        display: block;
+        font-size: 17px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .site-logo small {
+        display: block;
+        font-size: 5.5px;
+        letter-spacing: 0.3em;
+        color: var(--mute);
+        font-weight: 700;
+        margin-top: 2px;
+      }
+
+      .site-nav nav {
+        display: flex;
+        gap: 10px;
+        font-size: 8.5px;
+        font-weight: 700;
+        color: #4a4553;
+      }
+
+      .site-nav nav span:first-child {
+        background: var(--ink);
+        color: #fff;
+        padding: 5px 9px;
+        border-radius: 999px;
+      }
+
+      .site-search {
+        flex: 1;
+        height: 27px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: #b6b0bc;
+        font-size: 7.5px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+      }
+
+      .site-cart {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 7.5px;
+        font-weight: 800;
+      }
+
+      .site-cart em {
+        font-style: normal;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--lime);
+        color: var(--ink);
+        display: grid;
+        place-items: center;
+        font-size: 6.5px;
+        font-weight: 900;
+      }
+
+      .site-hero {
+        padding: 20px 16px 16px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 14px;
+        align-items: center;
+        background: radial-gradient(circle at 84% 18%, rgba(108, 76, 241, 0.16), transparent 62%);
+      }
+
+      .site-hero h3 {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .site-hero h3 mark {
+        background: var(--lime);
+        border-radius: 6px;
+        padding: 0 5px;
+      }
+
+      .site-hero p {
+        margin: 6px 0 0;
+        font-size: 8px;
+        line-height: 1.9;
+        color: var(--mute);
+      }
+
+      .site-cta {
+        display: inline-block;
+        margin-top: 10px;
+        background: var(--violet);
+        color: #fff;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 8px;
+        font-weight: 800;
+        box-shadow: 0 10px 18px -10px rgba(108, 76, 241, 0.9);
+      }
+
+      .site-tiles {
+        display: flex;
+        gap: 7px;
+      }
+
+      .tile {
+        flex: 1;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 5px;
+      }
+
+      .tile .art {
+        height: 54px;
+        border-radius: 7px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tile .art svg {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 27px;
+        height: 27px;
+        opacity: 0.92;
+      }
+
+      .tile span {
+        display: block;
+        margin-top: 4px;
+        font-size: 6px;
+        font-weight: 800;
+      }
+
+      .tile b {
+        display: block;
+        font-size: 6.5px;
+        margin-top: 1px;
+      }
+
+      /* applications */
+      .apps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      @media (max-width: 760px) {
+        .apps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .app {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 18px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 128px;
+      }
+
+      .app small {
+        font-size: 8px;
+        color: rgba(255, 255, 255, 0.42);
+        font-weight: 700;
+      }
+
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--lime);
+        display: grid;
+        place-items: center;
+      }
+
+      .sticker {
+        width: 100%;
+        border-radius: 12px;
+        background: var(--lime);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 10px;
+      }
+
+      .sticker b {
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .sticker span {
+        font-size: 6.5px;
+        letter-spacing: 0.26em;
+        font-weight: 800;
+        color: rgba(15, 14, 19, 0.55);
+      }
+
+      .note {
+        margin-top: 34px;
+        text-align: center;
+        font-size: 11.5px;
+        line-height: 2.1;
+        color: #5b5564;
+      }
+
+      .note b {
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <span>BRAND DIRECTIONS — <b>02</b></span>
+        <span>GADGET RETAIL · 1405</span>
+      </div>
+
+      <h1>اسمی که می‌ماند،<br /><span>نشانی که دیده می‌شود.</span></h1>
+      <p class="lead">
+        این بار اسمها کوتاه‌تر و نشانه‌ها هندسی‌ترند: هر لوگو از یک ایدهٔ ساده ساخته شده و در
+        کوچک‌ترین اندازه هم خوانا می‌ماند. هیچ ایموجی‌ای در کار نیست؛ فقط فرم، خط و رنگ.
+      </p>
+
+      <div class="chips">
+        <span>کوتاه و دو هجایی</span>
+        <span>قابل ثبت به‌عنوان برند</span>
+        <span>لوگوپذیر</span>
+        <span>خوانا در ۱۶ پیکسل</span>
+        <span>هم‌خوان با پالت فعلی</span>
+      </div>
+
+      <div class="sec">
+        <h2>شش جهت</h2>
+        <p>هر کارت: نسخهٔ روشن، نسخهٔ تیره و دلیل انتخاب</p>
+      </div>
+
+      <div class="concepts">
+        <!-- 01 ARC -->
+        <article class="concept">
+          <div class="stage">
+            <div class="light">
+              <div class="lock">
+                <svg width="84" height="84" viewBox="0 0 120 120" aria-label="نشانهٔ آرک">
+                  <rect width="120" height="120" rx="32" fill="#0f0e13" />
+                  <g transform="rotate(-58 60 60)">
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="30"
+                      fill="none"
+                      stroke="#d9ff3f"
+                      stroke-width="9"
+                      stroke-linecap="round"
+                      stroke-dasharray="137 51.5"
+                    />
+                  </g>
+                  <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+                </svg>
+                <div>
+                  <div class="word">آرک</div>
+                  <div class="lat">ARC</div>
+                </div>
+              </div>
+            </div>
+            <div class="dark">
+              <svg width="76" height="76" viewBox="0 0 120 120" aria-hidden="true">
+                <g transform="rotate(-58 60 60)">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="30"
+                    fill="none"
+                    stroke="#d9ff3f"
+                    stroke-width="9"
+                    stroke-linecap="round"
+                    stroke-dasharray="137 51.5"
+                  />
+                </g>
+                <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+              </svg>
+              <small>APP ICON</small>
+            </div>
+          </div>
+          <div class="body">
+            <div class="headline"><h3>آرک</h3><em>ARC</em></div>
+            <p class="tag">جرقه‌ای بین دو نقطه</p>
+            <p class="why">
+              نشانه یک حلقهٔ شکسته است که جرقه‌ای نارنجی آن را کامل می‌کند؛ هم «قوس» را می‌سازد،
+              هم «اتصال». <b>کوتاه، بین‌المللی و پرِمیوم</b>؛ مناسب برندی که می‌خواهد بالاتر از
+              فروشگاه معمولی دیده شود.
+            </p>
+            <div class="foot">
+              <div class="dots">
+                <i style="background: #d9ff3f"></i>
+                <i style="background: #ff6b4a"></i>
+                <i style="background: #0f0e13"></i>
+              </div>
+              <span class="domain">arc.shop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 AMP -->
+        <article class="concept">
+          <div class="stage">
+            <div class="light">
+              <div class="lock">
+                <svg width="84" height="84" viewBox="0 0 120 120" aria-label="نشانهٔ آمپ">
+                  <rect width="120" height="120" rx="32" fill="#d9ff3f" />
+                  <path
+                    d="M60 18 92 98H74.5L70 86H50L45.5 98H28Z M60 42 66.5 68H53.5Z"
+                    fill="#0f0e13"
+                    fill-rule="evenodd"
+                  />
+                  <path d="M60 42 51 66h9l-3 12 14-18h-9z" fill="#d9ff3f" />
+                </svg>
+                <div>
+                  <div class="word">آمپ</div>
+                  <div class="lat">AMP</div>
+                </div>
+              </div>
+            </div>
+            <div class="dark">
+              <svg width="76" height="76" viewBox="0 0 120 120" aria-hidden="true">
+                <path
+                  d="M60 18 92 98H74.5L70 86H50L45.5 98H28Z M60 42 66.5 68H53.5Z"
+                  fill="#d9ff3f"
+                  fill-rule="evenodd"
+                />
+                <path d="M60 42 51 66h9l-3 12 14-18h-9z" fill="#0f0e13" />
+              </svg>
+              <small>APP ICON</small>
+            </div>
+          </div>
+          <div class="body">
+            <div class="headline"><h3>آمپ</h3><em>AMP</em></div>
+            <p class="tag">جریان تکنولوژی</p>
+            <p class="why">
+              حرف A با یک برق در دلش: نشانهٔ انرژی و قدرت. <b>یک سیلاب و یک تصویر</b>؛ در فارسی
+              و انگلیسی یکسان خوانده می‌شود و برای محصولات شارژی، صوتی و گیمینگ صدق می‌کند.
+            </p>
+            <div class="foot">
+              <div class="dots">
+                <i style="background: #d9ff3f"></i>
+                <i style="background: #0f0e13"></i>
+                <i style="background: #6c4cf1"></i>
+              </div>
+              <span class="domain">amp.shop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 PULSE -->
+        <article class="concept">
+          <div class="stage">
+            <div class="light">
+              <div class="lock">
+                <svg width="84" height="84" viewBox="0 0 120 120" aria-label="نشانهٔ پالس">
+                  <rect width="120" height="120" rx="32" fill="#0f0e13" />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="31"
+                    fill="none"
+                    stroke="#6c4cf1"
+                    stroke-width="7"
+                    stroke-dasharray="150 45"
+                    stroke-linecap="round"
+                    transform="rotate(140 60 60)"
+                  />
+                  <path
+                    d="M14 60h22l7-19 10 40 8-27 6 6h39"
+                    fill="none"
+                    stroke="#d9ff3f"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <div>
+                  <div class="word">پالس</div>
+                  <div class="lat">PULSE</div>
+                </div>
+              </div>
+            </div>
+            <div class="dark">
+              <svg width="76" height="76" viewBox="0 0 120 120" aria-hidden="true">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="31"
+                  fill="none"
+                  stroke="#6c4cf1"
+                  stroke-width="7"
+                  stroke-dasharray="150 45"
+                  stroke-linecap="round"
+                  transform="rotate(140 60 60)"
+                />
+                <path
+                  d="M14 60h22l7-19 10 40 8-27 6 6h39"
+                  fill="none"
+                  stroke="#d9ff3f"
+                  stroke-width="7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <small>APP ICON</small>
+            </div>
+          </div>
+          <div class="body">
+            <div class="headline"><h3>پالس</h3><em>PULSE</em></div>
+            <p class="tag">ضربان گجت‌ها</p>
+            <p class="why">
+              خط ضربان از میان یک حلقه می‌گذرد؛ ترکیبی از <b>حرکت و تمرکز</b>. برای فروشگاهی که
+              می‌خواهد حس زنده‌بودن و به‌روزبودن بدهد، بسیار مناسب است.
+            </p>
+            <div class="foot">
+              <div class="dots">
+                <i style="background: #6c4cf1"></i>
+                <i style="background: #d9ff3f"></i>
+                <i style="background: #0f0e13"></i>
+              </div>
+              <span class="domain">pulse.shop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 HUB -->
+        <article class="concept">
+          <div class="stage">
+            <div class="light">
+              <div class="lock">
+                <svg width="84" height="84" viewBox="0 0 120 120" aria-label="نشانهٔ هاب">
+                  <rect width="120" height="120" rx="32" fill="#f4f0e7" />
+                  <path
+                    d="M60 22 89 39v34L60 90 31 73V39Z"
+                    fill="none"
+                    stroke="#0f0e13"
+                    stroke-width="7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M60 22v-8M89 39l7-4M89 73l7 4M60 90v8M31 73l-7 4M31 39l-7-4"
+                    stroke="#0f0e13"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="60" cy="56" r="9" fill="#d9ff3f" stroke="#0f0e13" stroke-width="5" />
+                  <circle cx="60" cy="56" r="3" fill="#0f0e13" />
+                </svg>
+                <div>
+                  <div class="word">هاب</div>
+                  <div class="lat">HUB</div>
+                </div>
+              </div>
+            </div>
+            <div class="dark">
+              <svg width="76" height="76" viewBox="0 0 120 120" aria-hidden="true">
+                <path
+                  d="M60 22 89 39v34L60 90 31 73V39Z"
+                  fill="none"
+                  stroke="#d9ff3f"
+                  stroke-width="7"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M60 22v-8M89 39l7-4M89 73l7 4M60 90v8M31 73l-7 4M31 39l-7-4"
+                  stroke="#d9ff3f"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+                <circle cx="60" cy="56" r="9" fill="#ff6b4a" />
+              </svg>
+              <small>APP ICON</small>
+            </div>
+          </div>
+          <div class="body">
+            <div class="headline"><h3>هاب</h3><em>HUB</em></div>
+            <p class="tag">نقطهٔ اتصال همه‌چیز</p>
+            <p class="why">
+              شش‌ضلعی با شش اتصال و یک هستهٔ روشن: استعارهٔ فروشگاهی که همهٔ گجت‌ها به آن وصل
+              می‌شوند. <b>هندسی، متقارن و بی‌زمان</b>.
+            </p>
+            <div class="foot">
+              <div class="dots">
+                <i style="background: #0f0e13"></i>
+                <i style="background: #d9ff3f"></i>
+                <i style="background: #ff6b4a"></i>
+              </div>
+              <span class="domain">hub.shop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 MADAR -->
+        <article class="concept">
+          <div class="stage">
+            <div class="light">
+              <div class="lock">
+                <svg width="84" height="84" viewBox="0 0 120 120" aria-label="نشانهٔ مدار">
+                  <rect width="120" height="120" rx="32" fill="#0f0e13" />
+                  <rect
+                    x="28"
+                    y="28"
+                    width="64"
+                    height="64"
+                    rx="16"
+                    fill="none"
+                    stroke="#5cd6ff"
+                    stroke-width="4"
+                    opacity="0.55"
+                  />
+                  <g stroke="#5cd6ff" stroke-width="4" stroke-linecap="round" opacity="0.55">
+                    <path d="M44 28v-8M60 28v-8M76 28v-8M44 92v8M60 92v8M76 92v8" />
+                  </g>
+                  <path
+                    d="M36 82V38l24 26 24-26v44"
+                    fill="none"
+                    stroke="#d9ff3f"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <div>
+                  <div class="word">مدار</div>
+                  <div class="lat">MADAR</div>
+                </div>
+              </div>
+            </div>
+            <div class="dark">
+              <svg width="76" height="76" viewBox="0 0 120 120" aria-hidden="true">
+                <rect
+                  x="28"
+                  y="28"
+                  width="64"
+                  height="64"
+                  rx="16"
+                  fill="none"
+                  stroke="#5cd6ff"
+                  stroke-width="4"
+                  opacity="0.4"
+                />
+                <path
+                  d="M36 82V38l24 26 24-26v44"
+                  fill="none"
+                  stroke="#d9ff3f"
+                  stroke-width="7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <small>APP ICON</small>
+            </div>
+          </div>
+          <div class="body">
+            <div class="headline"><h3>مدار</h3><em>MADAR</em></div>
+            <p class="tag">مسیر هوشمند</p>
+            <p class="why">
+              حرف M به شکل یک مدار روی تراشه کشیده شده؛ <b>فارسیِ نام، با مونوگرام لاتین</b>. فنی،
+              مینیمال و متمایز؛ مناسب برندی که می‌خواهد بوی ایرانی و مهندسی بدهد.
+            </p>
+            <div class="foot">
+              <div class="dots">
+                <i style="background: #d9ff3f"></i>
+                <i style="background: #5cd6ff"></i>
+                <i style="background: #ff6b4a"></i>
+              </div>
+              <span class="domain">madar.store</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 QUANT -->
+        <article class="concept">
+          <div class="stage">
+            <div class="light">
+              <div class="lock">
+                <svg width="84" height="84" viewBox="0 0 120 120" aria-label="نشانهٔ کوانت">
+                  <rect width="120" height="120" rx="32" fill="#12101a" />
+                  <g fill="none" stroke-linecap="round" stroke-width="9">
+                    <path d="M62.4 22.4 97.6 57.6" stroke="#6c4cf1" />
+                    <path d="M97.6 62.4 62.4 97.6" stroke="#5cd6ff" />
+                    <path d="M57.6 97.6 22.4 62.4" stroke="#d9ff3f" />
+                    <path d="M22.4 57.6 57.6 22.4" stroke="#ff6b4a" />
+                  </g>
+                  <circle cx="60" cy="60" r="6" fill="#fffdf8" />
+                </svg>
+                <div>
+                  <div class="word">کوانت</div>
+                  <div class="lat">QUANT</div>
+                </div>
+              </div>
+            </div>
+            <div class="dark">
+              <svg width="76" height="76" viewBox="0 0 120 120" aria-hidden="true">
+                <g fill="none" stroke-linecap="round" stroke-width="9">
+                  <path d="M62.4 22.4 97.6 57.6" stroke="#6c4cf1" />
+                  <path d="M97.6 62.4 62.4 97.6" stroke="#5cd6ff" />
+                  <path d="M57.6 97.6 22.4 62.4" stroke="#d9ff3f" />
+                  <path d="M22.4 57.6 57.6 22.4" stroke="#ff6b4a" />
+                </g>
+                <circle cx="60" cy="60" r="6" fill="#fffdf8" />
+              </svg>
+              <small>APP ICON</small>
+            </div>
+          </div>
+          <div class="body">
+            <div class="headline"><h3>کوانت</h3><em>QUANT</em></div>
+            <p class="tag">نسل بعدی</p>
+            <p class="why">
+              چهار وجه رنگی که یک الماس را می‌سازند: تصویری از <b>دقت، برش و آینده</b>. بدون
+              کلیشهٔ اتم، اما همچنان فنی و متمایز.
+            </p>
+            <div class="foot">
+              <div class="dots">
+                <i style="background: #6c4cf1"></i>
+                <i style="background: #5cd6ff"></i>
+                <i style="background: #d9ff3f"></i>
+              </div>
+              <span class="domain">quant.shop</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- FEATURE -->
+      <div class="feature">
+        <div class="feature-top">
+          <div>
+            <span class="kicker">پیشنهاد اصلی</span>
+            <h2>آرک — یک جرقه، یک نشانه</h2>
+            <p class="desc">
+              «آرک» قوس الکتریکی است؛ همان لحظه‌ای که انرژی از یک نقطه به نقطهٔ دیگر می‌پرد.
+              نشانه‌اش یک حلقهٔ نیمه‌باز است که یک نقطهٔ نارنجی آن را کامل می‌کند — ساده،
+              قابل‌تشخیص و قابل‌استفاده در هر اندازه‌ای.
+            </p>
+          </div>
+          <span class="kicker" style="background: #fff; color: #0f0e13">پیشنهاد دوم: آمپ</span>
+        </div>
+
+        <div class="feature-grid">
+          <div class="board">
+            <div class="construction">
+              <svg width="220" height="220" viewBox="0 0 220 220" aria-label="ساختار هندسی نشانه">
+                <g stroke="#cfc7b6" stroke-width="1" fill="none">
+                  <circle cx="110" cy="110" r="86" stroke-dasharray="2 4" />
+                  <circle cx="110" cy="110" r="54" stroke-dasharray="2 4" />
+                  <path d="M110 18v184M18 110h184" stroke-dasharray="2 4" />
+                  <path d="M110 110 170 56" stroke-dasharray="3 4" />
+                </g>
+                <g transform="rotate(-58 110 110)">
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="54"
+                    fill="none"
+                    stroke="#0f0e13"
+                    stroke-width="16"
+                    stroke-linecap="round"
+                    stroke-dasharray="246 93"
+                  />
+                </g>
+                <circle cx="151" cy="61" r="10" fill="#ff6b4a" />
+              </svg>
+            </div>
+            <div class="lock" style="gap: 12px">
+              <svg width="56" height="56" viewBox="0 0 120 120" aria-hidden="true">
+                <rect width="120" height="120" rx="32" fill="#0f0e13" />
+                <g transform="rotate(-58 60 60)">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="30"
+                    fill="none"
+                    stroke="#d9ff3f"
+                    stroke-width="9"
+                    stroke-linecap="round"
+                    stroke-dasharray="137 51.5"
+                  />
+                </g>
+                <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+              </svg>
+              <div>
+                <div class="word" style="font-size: 26px">آرک</div>
+                <div class="lat">ARC · GADGET STORE</div>
+              </div>
+            </div>
+            <div class="swatches">
+              <span class="swatch"><i style="background: #d9ff3f"></i>D9FF3F</span>
+              <span class="swatch"><i style="background: #ff6b4a"></i>FF6B4A</span>
+              <span class="swatch"><i style="background: #0f0e13"></i>0F0E13</span>
+              <span class="swatch"><i style="background: #6c4cf1"></i>6C4CF1</span>
+            </div>
+          </div>
+
+          <div class="site">
+            <div class="site-bar">
+              <span><b></b>ارسال رایگان بالای ۲ میلیون</span>
+              <span><b></b>گارانتی ۱۸ ماهه</span>
+            </div>
+            <div class="site-nav">
+              <div class="site-logo">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <rect width="120" height="120" rx="32" fill="#0f0e13" />
+                  <g transform="rotate(-58 60 60)">
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="30"
+                      fill="none"
+                      stroke="#d9ff3f"
+                      stroke-width="9"
+                      stroke-linecap="round"
+                      stroke-dasharray="137 51.5"
+                    />
+                  </g>
+                  <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+                </svg>
+                <div>
+                  <b>آرک</b>
+                  <small>ARC.SHOP</small>
+                </div>
+              </div>
+              <nav>
+                <span>خانه</span>
+                <span>فروشگاه</span>
+                <span>گیمینگ</span>
+                <span>صدا</span>
+              </nav>
+              <div class="site-search">جستجوی گجت، برند یا دسته…</div>
+              <div class="site-cart">سبد خرید <em>۲</em></div>
+            </div>
+            <div class="site-hero">
+              <div>
+                <h3>گجت بعدی‌ات را <mark>اینجا</mark> پیدا کن</h3>
+                <p>هدفون، ساعت هوشمند و گیمینگ؛ اصل با گارانتی و ارسال سریع.</p>
+                <span class="site-cta">دیدن محصولات ←</span>
+              </div>
+              <div class="site-tiles">
+                <div class="tile">
+                  <div class="art" style="background: linear-gradient(145deg, #7a5af8, #2e1065)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+                      <rect x="2.6" y="13" width="4.2" height="7" rx="2.1" />
+                      <rect x="17.2" y="13" width="4.2" height="7" rx="2.1" />
+                    </svg>
+                  </div>
+                  <span>هدفون آیریس</span>
+                  <b>۴٬۸۹۰٬۰۰۰</b>
+                </div>
+                <div class="tile">
+                  <div class="art" style="background: linear-gradient(145deg, #d9ff3f, #65a30d)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(15,14,19,0.8)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="6.5" width="20" height="11" rx="2.4" />
+                      <path d="M6 10.5h.01M10 10.5h.01M14 10.5h.01M18 10.5h.01M7.5 14h9" />
+                    </svg>
+                  </div>
+                  <span>کیبورد K87</span>
+                  <b>۳٬۴۵۰٬۰۰۰</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="apps">
+          <div class="app">
+            <svg width="60" height="60" viewBox="0 0 120 120" aria-hidden="true">
+              <rect width="120" height="120" rx="32" fill="#d9ff3f" />
+              <g transform="rotate(-58 60 60)">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="30"
+                  fill="none"
+                  stroke="#0f0e13"
+                  stroke-width="9"
+                  stroke-linecap="round"
+                  stroke-dasharray="137 51.5"
+                />
+              </g>
+              <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+            </svg>
+            <small>آیکون اپلیکیشن</small>
+          </div>
+
+          <div class="app">
+            <div class="avatar">
+              <svg width="34" height="34" viewBox="0 0 120 120" aria-hidden="true">
+                <g transform="rotate(-58 60 60)">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="30"
+                    fill="none"
+                    stroke="#0f0e13"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                    stroke-dasharray="137 51.5"
+                  />
+                </g>
+                <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+              </svg>
+            </div>
+            <small>آواتار شبکه‌های اجتماعی</small>
+          </div>
+
+          <div class="app">
+            <div class="sticker">
+              <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true">
+                <g transform="rotate(-58 60 60)">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="30"
+                    fill="none"
+                    stroke="#0f0e13"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                    stroke-dasharray="137 51.5"
+                  />
+                </g>
+                <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+              </svg>
+              <div>
+                <b>آرک</b>
+                <span>ARC.SHOP</span>
+              </div>
+            </div>
+            <small>برچسب و بسته‌بندی</small>
+          </div>
+
+          <div class="app">
+            <svg width="46" height="46" viewBox="0 0 120 120" aria-hidden="true">
+              <g transform="rotate(-58 60 60)">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="30"
+                  fill="none"
+                  stroke="#fffdf8"
+                  stroke-width="9"
+                  stroke-linecap="round"
+                  stroke-dasharray="137 51.5"
+                />
+              </g>
+              <circle cx="83" cy="33" r="6" fill="#ff6b4a" />
+            </svg>
+            <small>نسخهٔ تک‌رنگ روی تیره</small>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        اگر یکی از این شش جهت را انتخاب کنی، همهٔ فایل‌های SVG (افقی، عمودی، تک‌رنگ و فاوآیکون)
+        را می‌سازم و <b>نام، لوگو و متن‌های سایت</b> را روی همان هویت به‌روز و دوباره دیپلوی
+        می‌کنم.
+      </p>
+    </div>
+  </body>
+</html>

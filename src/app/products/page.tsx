@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { CategoryIcon } from "@/components/category-icon";
 import { ArrowLeftIcon, CloseIcon, SearchIcon } from "@/components/icons";
 import { ProductGrid } from "@/components/product-card";
 import { getCategories, getProducts } from "@/lib/data";
@@ -51,17 +52,17 @@ function ResultsSkeleton() {
 
 export default function ProductsPage({ searchParams }: { searchParams: Promise<Search> }) {
   return (
-    <div className="container-x py-10">
+    <div className="container-x py-4">
       <div className="max-w-2xl">
         <p className="eyebrow">فروشگاه</p>
-        <h1 className="mt-4 text-3xl font-black sm:text-4xl">همه گجت‌ها، یک‌جا</h1>
-        <p className="mt-3 text-sm leading-7 text-mute">
+        <h1 className="mt-3 text-2xl font-black sm:text-3xl">همه گجت‌ها، یک‌جا</h1>
+        <p className="mt-2 text-xs leading-6 text-mute">
           همه محصولات اصل با گارانتی ۱۸ ماهه. با فیلتر دسته و مرتب‌سازی، سریع‌تر به انتخاب درست
           برس.
         </p>
       </div>
 
-      <Suspense fallback={<div className="mt-10"><ResultsSkeleton /></div>}>
+      <Suspense fallback={<div className="mt-6"><ResultsSkeleton /></div>}>
         <Results searchParams={searchParams} />
       </Suspense>
     </div>
@@ -82,16 +83,16 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
   const activeCategory = categories.find((item) => item.slug === category);
 
   return (
-    <div className="mt-8 grid gap-8 md:grid-cols-[15rem_1fr]">
+    <div className="mt-4 grid gap-4 md:grid-cols-[15rem_1fr]">
       <aside className="md:sticky md:top-32 md:h-fit">
-        <div className="surface p-5">
-          <p className="text-sm font-black">دسته‌بندی</p>
-          <ul className="no-scrollbar mt-4 flex gap-2 overflow-x-auto pb-1 md:block md:space-y-1 md:overflow-visible md:pb-0">
+        <div className="surface p-4">
+          <p className="text-xs font-extrabold">دسته‌بندی</p>
+          <ul className="no-scrollbar mt-3 flex gap-1.5 overflow-x-auto pb-1 md:block md:space-y-0.5 md:overflow-visible md:pb-0">
             <li className="shrink-0 md:block">
               <Link
                 href={buildHref({ q, sort })}
-                className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-3 py-2 text-sm font-bold transition ${
-                  !category ? "bg-ink text-white" : "text-ink-soft hover:bg-ink/5"
+                className={`flex items-center gap-2 whitespace-nowrap rounded-md px-2.5 py-2 text-[11.5px] font-bold transition ${
+                  !category ? "bg-ink text-white" : "text-ink-soft hover:bg-[#f5f5f6]"
                 }`}
               >
                 همه محصولات
@@ -106,11 +107,11 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
                 <li key={item.slug} className="shrink-0 md:block">
                   <Link
                     href={buildHref({ category: item.slug, q, sort })}
-                    className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-3 py-2 text-sm font-bold transition ${
-                      active ? "bg-ink text-white" : "text-ink-soft hover:bg-ink/5"
+                    className={`flex items-center gap-2 whitespace-nowrap rounded-md px-2.5 py-2 text-[11.5px] font-bold transition ${
+                      active ? "bg-ink text-white" : "text-ink-soft hover:bg-[#f5f5f6]"
                     }`}
                   >
-                    <span aria-hidden>{item.emoji}</span>
+                    <CategoryIcon slug={item.slug} className="size-4" />
                     <span>{item.name}</span>
                   </Link>
                 </li>
@@ -119,13 +120,13 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
           </ul>
         </div>
 
-        <div className="mt-4 overflow-hidden rounded-3xl bg-violet p-5 text-white">
-          <p className="text-xs font-black text-lime">مشاوره خرید</p>
-          <p className="mt-2 text-sm font-bold leading-6">
+        <div className="mt-3 overflow-hidden rounded-xl bg-violet p-4 text-white">
+          <p className="text-[10px] font-black text-lime">مشاوره خرید</p>
+          <p className="mt-1.5 text-xs font-bold leading-6">
             مطمئن نیستی کدام گجت مناسبته؟
           </p>
-          <p className="mt-1 text-xs text-white/60">تیم پشتیبانی هر روز ۹ تا ۲۱ پاسخ می‌دهد.</p>
-          <a href="tel:+982112345678" className="btn btn-lime mt-4 h-10 px-4 text-xs">
+          <p className="mt-1 text-[10px] text-white/60">تیم پشتیبانی هر روز ۹ تا ۲۱ پاسخ می‌دهد.</p>
+          <a href="tel:+982112345678" className="btn btn-lime mt-3 h-9 px-3 text-[11px]">
             تماس با کارشناس
           </a>
         </div>
@@ -133,13 +134,13 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
 
       <div>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold text-mute">مرتب‌سازی:</span>
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-[10.5px] font-bold text-mute">مرتب‌سازی:</span>
             {sortOptions.map((option) => (
               <Link
                 key={option.value}
                 href={buildHref({ category, q, sort: option.value })}
-                className={`rounded-full border px-3.5 py-1.5 text-xs font-bold transition ${
+                className={`rounded-md border px-2.5 py-1.5 text-[10.5px] font-bold transition ${
                   sort === option.value
                     ? "border-ink bg-ink text-white"
                     : "border-line bg-paper text-ink-soft hover:border-ink/30"
@@ -149,21 +150,21 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
               </Link>
             ))}
           </div>
-          <p className="text-xs font-bold text-mute">
+          <p className="text-[10.5px] font-bold text-mute">
             {faNumber(products.length)} محصول
             {activeCategory ? ` در «${activeCategory.name}»` : ""}
           </p>
         </div>
 
         {q ? (
-          <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-line bg-paper px-4 py-3">
-            <p className="flex items-center gap-2 text-sm font-bold">
+          <div className="mt-3 flex items-center justify-between gap-3 rounded-lg border border-line bg-paper px-3 py-2.5">
+            <p className="flex items-center gap-2 text-xs font-bold">
               <SearchIcon className="size-4 text-violet" />
               نتایج جستجو برای «{q}»
             </p>
             <Link
               href={buildHref({ category, sort })}
-              className="inline-flex items-center gap-1 text-xs font-bold text-mute hover:text-ink"
+              className="inline-flex items-center gap-1 text-[10.5px] font-bold text-mute hover:text-ink"
             >
               <CloseIcon className="size-3.5" />
               حذف
@@ -172,20 +173,20 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
         ) : null}
 
         {products.length > 0 ? (
-          <div className="mt-5">
+          <div className="mt-4">
             <ProductGrid products={products} />
           </div>
         ) : (
-          <div className="mt-5 rounded-[2rem] border border-dashed border-line bg-paper/60 px-6 py-16 text-center">
-            <p className="text-5xl" aria-hidden>
-              🔍
-            </p>
-            <h2 className="mt-4 text-xl font-black">چیزی پیدا نکردیم</h2>
-            <p className="mx-auto mt-2 max-w-sm text-sm text-mute">
+          <div className="mt-4 rounded-xl border border-dashed border-line bg-paper px-6 py-14 text-center">
+            <span className="mx-auto grid size-16 place-items-center rounded-full bg-[#f2f3f5] text-mute">
+              <SearchIcon className="size-7" />
+            </span>
+            <h2 className="mt-4 text-lg font-black">چیزی پیدا نکردیم</h2>
+            <p className="mx-auto mt-2 max-w-sm text-xs leading-6 text-mute">
               فیلترها را ساده‌تر کن یا عبارت دیگری جستجو کن. شاید گجت مورد علاقه‌ات در دسته دیگری
               باشد.
             </p>
-            <Link href="/products" className="btn btn-primary mt-6">
+            <Link href="/products" className="btn btn-primary mt-5">
               دیدن همه محصولات
               <ArrowLeftIcon className="size-4" />
             </Link>

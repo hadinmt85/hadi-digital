@@ -19,11 +19,11 @@ export function CartView() {
 
   if (!ready) {
     return (
-      <div className="container-x py-10">
+      <div className="container-x py-4">
         <div className="h-10 w-48 animate-pulse rounded-xl bg-paper" />
         <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_22rem]">
-          <div className="h-72 animate-pulse rounded-[1.75rem] bg-paper" />
-          <div className="h-72 animate-pulse rounded-[1.75rem] bg-paper" />
+          <div className="h-72 animate-pulse rounded-xl bg-paper" />
+          <div className="h-72 animate-pulse rounded-xl bg-paper" />
         </div>
       </div>
     );
@@ -33,10 +33,10 @@ export function CartView() {
     return (
       <div className="container-x py-20">
         <div className="mx-auto max-w-md text-center">
-          <div className="mx-auto grid size-24 place-items-center rounded-[2rem] bg-lime text-ink">
-            <CartIcon className="size-10" />
+          <div className="mx-auto grid size-20 place-items-center rounded-xl bg-lime text-ink">
+            <CartIcon className="size-9" />
           </div>
-          <h1 className="mt-6 text-2xl font-black">سبد خریدت خالی است</h1>
+          <h1 className="mt-5 text-xl font-black">سبد خریدت خالی است</h1>
           <p className="mt-3 text-sm leading-7 text-mute">
             هنوز هیچ گجتی انتخاب نکردی. یک سر به فروشگاه بزن؛ پیشنهادهای امروز منتظرت هستند.
           </p>
@@ -55,10 +55,10 @@ export function CartView() {
   const progress = Math.min(100, Math.round((subtotal / shippingRules.freeThreshold) * 100));
 
   return (
-    <div className="container-x py-10">
+    <div className="container-x py-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-black sm:text-3xl">سبد خرید</h1>
+          <h1 className="text-xl font-black sm:text-2xl">سبد خرید</h1>
           <p className="mt-1.5 text-sm text-mute">
             {faNumber(lines.length)} نوع کالا در سبد شما
           </p>
@@ -78,7 +78,7 @@ export function CartView() {
           {lines.map((line) => (
             <li
               key={line.id}
-              className="flex flex-col gap-4 rounded-[1.75rem] border border-line bg-paper p-3 sm:flex-row sm:items-center sm:p-4"
+              className="flex flex-col gap-4 rounded-xl border border-line bg-paper p-3 sm:flex-row sm:items-center sm:p-4"
             >
               <Link href={`/products/${line.slug}`} className="shrink-0">
                 <ProductArt
@@ -142,7 +142,7 @@ export function CartView() {
           ))}
         </ul>
 
-        <aside className="surface sticky top-32 p-5">
+        <aside className="surface sticky top-32 p-4">
           <h2 className="text-base font-black">خلاصه سفارش</h2>
 
           <div className="mt-4 space-y-3 text-sm">

@@ -97,23 +97,11 @@ export default function AboutPage() {
               <div
                 key={item.label}
                 className={`rounded-3xl border border-line p-5 ${
-                  index === 0 ? "bg-lime" : index === 3 ? "bg-ink text-white" : "bg-paper"
+                  index === 0 ? "bg-lime" : "bg-paper"
                 }`}
               >
-                <p
-                  className={`text-2xl font-black ${
-                    index === 0 ? "text-ink" : index === 3 ? "text-lime" : "text-ink"
-                  }`}
-                >
-                  {item.value}
-                </p>
-                <p
-                  className={`mt-1 text-[0.7rem] font-bold ${
-                    index === 3 ? "text-white/60" : "text-mute"
-                  }`}
-                >
-                  {item.label}
-                </p>
+                <p className="text-2xl font-black text-ink">{item.value}</p>
+                <p className="mt-1 text-[0.7rem] font-bold text-mute">{item.label}</p>
               </div>
             ))}
           </div>
@@ -200,30 +188,30 @@ export default function AboutPage() {
       </section>
 
       <section id="contact" className="container-x scroll-mt-28 pb-6">
-        <div className="grid gap-4 rounded-[2.5rem] bg-ink p-7 text-white sm:p-10 lg:grid-cols-[1.2fr_1fr]">
+        <div className="grid gap-4 rounded-xl border border-line bg-paper p-7 sm:p-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="text-xs font-black tracking-widest text-lime">پشتیبانی</p>
+            <p className="text-xs font-black tracking-widest text-coral">پشتیبانی</p>
             <h2 className="mt-3 text-2xl font-black sm:text-3xl">هر روز، ۹ صبح تا ۹ شب</h2>
-            <p className="mt-3 max-w-md text-sm leading-7 text-white/60">
+            <p className="mt-3 max-w-md text-xs leading-7 text-mute">
               تلفن، ایمیل یا پیام مستقیم؛ تیم ما درباره انتخاب محصول، وضعیت سفارش و گارانتی پاسخ
               می‌دهد. میانگین زمان پاسخ‌گویی: کمتر از ۱۵ دقیقه.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="tel:+982112345678" className="btn btn-lime">
+              <a href="tel:+982112345678" className="btn btn-primary">
                 <PhoneIcon className="size-4" />
                 ۰۲۱-۱۲۳۴۵۶۷۸
               </a>
-              <a href="mailto:hello@arc.shop" className="btn btn-ghost border-white/20 text-white">
+              <a href="mailto:hello@arc.shop" className="btn btn-ghost">
                 hello@arc.shop
               </a>
             </div>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-sm text-white/70">
-            <p className="font-extrabold text-white">نشانی دفتر</p>
+          <div className="rounded-xl border border-line bg-[#f7f7f8] p-5 text-xs text-mute">
+            <p className="font-extrabold text-ink">نشانی دفتر</p>
             <p className="mt-2 leading-7">
               تهران، خیابان ولیعصر، بالاتر از پارک ساعی، کوچه گجت، پلاک {faNumber(12)}، طبقه سوم
             </p>
-            <p className="mt-4 font-extrabold text-white">ساعت کاری</p>
+            <p className="mt-4 font-extrabold text-ink">ساعت کاری</p>
             <p className="mt-2 leading-7">شنبه تا پنجشنبه ۹ تا ۲۱ — جمعه‌ها ۱۰ تا ۱۶</p>
           </div>
         </div>

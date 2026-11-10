@@ -38,59 +38,54 @@ async function OrderDetail({ params }: { params: Params }) {
   if (!order) notFound();
 
   return (
-    <div className="container-x py-10">
+    <div className="container-x py-4">
       <div className="mx-auto max-w-3xl">
-        <div className="relative overflow-hidden rounded-[2.25rem] bg-ink p-7 text-white sm:p-10">
-          <div className="grid-dots absolute inset-0 opacity-25" aria-hidden />
-          <div className="absolute -end-16 -top-20 size-56 rounded-full bg-lime/20 blur-2xl" aria-hidden />
+        <div className="rounded-xl border border-line bg-paper p-6 sm:p-8">
+          <span className="grid size-12 place-items-center rounded-xl bg-lime text-ink">
+            <CheckIcon className="size-6" />
+          </span>
+          <h1 className="mt-4 text-xl font-black sm:text-2xl">سفارش شما با موفقیت ثبت شد</h1>
+          <p className="mt-2 max-w-lg text-xs leading-6 text-mute">
+            {order.customerName} عزیز، سفارش شما در صف پردازش قرار گرفت. جزئیات و کد پیگیری را
+            پایین می‌بینی؛ وضعیت را می‌توانی با شماره سفارش پیگیری کنی.
+          </p>
 
-          <div className="relative">
-            <span className="grid size-14 place-items-center rounded-2xl bg-lime text-ink">
-              <CheckIcon className="size-7" />
-            </span>
-            <h1 className="mt-5 text-2xl font-black sm:text-3xl">سفارش شما با موفقیت ثبت شد 🎉</h1>
-            <p className="mt-2 max-w-lg text-sm leading-7 text-white/60">
-              {order.customerName} عزیز، سفارش شما در صف پردازش قرار گرفت. جزئیات و کد پیگیری را
-              پایین می‌بینی؛ وضعیت را می‌توانی با شماره سفارش پیگیری کنی.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <div className="rounded-2xl bg-white/10 px-4 py-3">
-                <p className="text-[0.65rem] font-bold text-white/50">شماره سفارش</p>
-                <p className="mt-1 font-black tracking-wider text-lime" dir="ltr">
-                  {order.code}
-                </p>
-              </div>
-              <div className="rounded-2xl bg-white/10 px-4 py-3">
-                <p className="text-[0.65rem] font-bold text-white/50">تاریخ ثبت</p>
-                <p className="mt-1 text-sm font-bold">{faDate(order.createdAt)}</p>
-              </div>
-              <div className="rounded-2xl bg-white/10 px-4 py-3">
-                <p className="text-[0.65rem] font-bold text-white/50">وضعیت</p>
-                <p className="mt-1 text-sm font-bold text-lime">{order.status}</p>
-              </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <div className="rounded-lg bg-[#f7f7f8] px-4 py-2.5">
+              <p className="text-[10px] font-bold text-mute">شماره سفارش</p>
+              <p className="mt-1 text-sm font-black tracking-wider" dir="ltr">
+                {order.code}
+              </p>
+            </div>
+            <div className="rounded-lg bg-[#f7f7f8] px-4 py-2.5">
+              <p className="text-[10px] font-bold text-mute">تاریخ ثبت</p>
+              <p className="mt-1 text-xs font-bold">{faDate(order.createdAt)}</p>
+            </div>
+            <div className="rounded-lg bg-[#f7f7f8] px-4 py-2.5">
+              <p className="text-[10px] font-bold text-mute">وضعیت</p>
+              <p className="mt-1 text-xs font-bold text-coral">{order.status}</p>
             </div>
           </div>
         </div>
 
-        <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <div className="surface p-5">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          <div className="surface p-4">
             <h2 className="text-sm font-black">اطلاعات ارسال</h2>
-            <p className="mt-3 text-sm leading-7 text-ink-soft/80">{order.address}</p>
-            <p className="mt-2 text-xs text-mute" dir="ltr">
+            <p className="mt-3 text-xs leading-6 text-ink-soft/80">{order.address}</p>
+            <p className="mt-2 text-[11px] text-mute" dir="ltr">
               {order.phone}
             </p>
             {order.postalCode ? (
-              <p className="mt-1 text-xs text-mute">کد پستی: {toFaDigits(order.postalCode)}</p>
+              <p className="mt-1 text-[11px] text-mute">کد پستی: {toFaDigits(order.postalCode)}</p>
             ) : null}
             {order.note ? (
-              <p className="mt-3 rounded-xl bg-cream px-3 py-2 text-xs text-ink-soft">
+              <p className="mt-3 rounded-lg bg-[#f7f7f8] px-3 py-2 text-[11px] text-ink-soft">
                 یادداشت: {order.note}
               </p>
             ) : null}
           </div>
 
-          <div className="surface p-5">
+          <div className="surface p-4">
             <h2 className="text-sm font-black">پیگیری سفارش</h2>
             <ol className="mt-4 space-y-4">
               {[

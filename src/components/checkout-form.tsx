@@ -104,11 +104,11 @@ export function CheckoutForm() {
 
   if (!ready) {
     return (
-      <div className="container-x py-10">
+      <div className="container-x py-4">
         <div className="h-10 w-52 animate-pulse rounded-xl bg-paper" />
         <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_22rem]">
-          <div className="h-96 animate-pulse rounded-[1.75rem] bg-paper" />
-          <div className="h-72 animate-pulse rounded-[1.75rem] bg-paper" />
+          <div className="h-96 animate-pulse rounded-xl bg-paper" />
+          <div className="h-72 animate-pulse rounded-xl bg-paper" />
         </div>
       </div>
     );
@@ -118,10 +118,10 @@ export function CheckoutForm() {
     return (
       <div className="container-x py-20">
         <div className="mx-auto max-w-md text-center">
-          <div className="mx-auto grid size-20 place-items-center rounded-[1.75rem] bg-lime">
+          <div className="mx-auto grid size-20 place-items-center rounded-xl bg-lime">
             <ArrowStartIcon className="size-9" />
           </div>
-          <h1 className="mt-6 text-2xl font-black">سبد خرید خالی است</h1>
+          <h1 className="mt-5 text-xl font-black">سبد خرید خالی است</h1>
           <p className="mt-3 text-sm text-mute">برای تسویه، اول چند گجت به سبد اضافه کن.</p>
           <Link href="/products" className="btn btn-violet mt-7">
             رفتن به فروشگاه
@@ -132,10 +132,10 @@ export function CheckoutForm() {
   }
 
   return (
-    <div className="container-x py-10">
+    <div className="container-x py-4">
       <div className="max-w-xl">
         <p className="eyebrow">مرحله نهایی</p>
-        <h1 className="mt-4 text-2xl font-black sm:text-3xl">تسویه حساب و اطلاعات ارسال</h1>
+        <h1 className="mt-3 text-xl font-black sm:text-2xl">تسویه حساب و اطلاعات ارسال</h1>
         <p className="mt-2 text-sm text-mute">
           سفارش شما پس از ثبت، پردازش می‌شود و کد رهگیری از طریق پیامک برای شما ارسال خواهد شد.
         </p>
@@ -143,7 +143,7 @@ export function CheckoutForm() {
 
       <form onSubmit={submit} className="mt-8 grid items-start gap-6 md:grid-cols-[1fr_20rem] lg:grid-cols-[1fr_22rem]">
         <div className="space-y-4">
-          <section className="surface p-5 sm:p-6">
+          <section className="surface p-4">
             <h2 className="text-base font-black">اطلاعات گیرنده</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field
@@ -199,7 +199,7 @@ export function CheckoutForm() {
             </div>
           </section>
 
-          <section className="surface p-5 sm:p-6">
+          <section className="surface p-4">
             <h2 className="text-base font-black">روش ارسال</h2>
             <div className="mt-4 flex items-start gap-3 rounded-2xl border border-violet bg-violet/5 p-4">
               <span className="grid size-9 shrink-0 place-items-center rounded-full bg-violet text-white">
@@ -224,7 +224,7 @@ export function CheckoutForm() {
           </section>
         </div>
 
-        <aside className="surface sticky top-32 p-5">
+        <aside className="surface sticky top-32 p-4">
           <div className="flex items-center justify-between">
             <h2 className="text-base font-black">سفارش شما</h2>
             <Link href="/cart" className="text-xs font-bold text-violet hover:underline">

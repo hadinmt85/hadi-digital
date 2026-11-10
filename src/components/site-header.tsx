@@ -3,23 +3,31 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { useCart } from "@/components/cart-provider";
 import { ArcMark } from "@/components/brand-logo";
+import { useCart } from "@/components/cart-provider";
 import { CartIcon, CloseIcon, MenuIcon, SearchIcon } from "@/components/icons";
 
-const navLinks = [
-  { href: "/", label: "خانه" },
-  { href: "/products", label: "فروشگاه" },
+const navCats = [
+  { href: "/products?category=audio", label: "هدفون" },
+  { href: "/products?category=wearables", label: "ساعت هوشمند" },
+  { href: "/products?category=mobile", label: "موبایل" },
+  { href: "/products?category=tablets", label: "تبلت" },
+  { href: "/products?category=computer", label: "لپ‌تاپ" },
   { href: "/products?category=gaming", label: "گیمینگ" },
-  { href: "/products?category=audio", label: "صدا و هدفون" },
-  { href: "/about", label: "درباره ما" },
+  { href: "/products?category=camera", label: "دوربین" },
+  { href: "/products?category=power", label: "پاوربانک" },
+  { href: "/products?category=smart-home", label: "خانه هوشمند" },
+  { href: "/products?category=accessories", label: "لوازم جانبی" },
 ];
 
-const tickerItems = [
-  "ارسال رایگان برای سفارش‌های بالای ۲ میلیون تومان",
-  "گارانتی ۱۸ ماهه آرک",
-  "۷ روز ضمانت بازگشت کالا",
-  "پشتیبانی واقعی، ۹ صبح تا ۹ شب",
+const mobileLinks = [
+  { href: "/", label: "خانه" },
+  { href: "/products", label: "همه محصولات" },
+  { href: "/products?sort=cheap", label: "پیشنهاد شگفت‌انگیز" },
+  { href: "/products?category=gaming", label: "گیمینگ" },
+  { href: "/products?category=audio", label: "صدا و هدفون" },
+  { href: "/products?category=smart-home", label: "خانه هوشمند" },
+  { href: "/about", label: "درباره ما" },
 ];
 
 export function SiteHeader() {
@@ -27,78 +35,79 @@ export function SiteHeader() {
   const { count, ready } = useCart();
   const [open, setOpen] = useState(false);
 
-  const isActive = (href: string) => {
-    const path = href.split("?")[0];
-    return path === "/" ? pathname === "/" : pathname.startsWith(path);
-  };
-
   return (
-    <header className="sticky top-0 z-50">
-      <div className="overflow-hidden bg-ink text-lime">
-        <div className="flex w-max animate-marquee items-center py-2">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
-              {tickerItems.map((item) => (
-                <span key={item} className="flex items-center gap-3 px-6 text-[0.7rem] font-semibold">
-                  <span className="size-1.5 rounded-full bg-lime" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          ))}
+    <header className="sticky top-0 z-50 bg-paper">
+      <div className="border-b border-line">
+        <div className="container-x flex h-8 items-center justify-between text-[10.5px] text-mute">
+          <div className="hidden items-center gap-4 sm:flex">
+            <Link href="/about#contact" className="transition hover:text-ink">
+              پشتیبانی ۹ صبح تا ۹ شب
+            </Link>
+            <Link href="/cart" className="transition hover:text-ink">
+              پیگیری سفارش
+            </Link>
+            <Link href="/about" className="transition hover:text-ink">
+              درباره آرک
+            </Link>
+          </div>
+          <span className="flex items-center gap-1.5 font-semibold text-ink">
+            <span className="size-1.5 rounded-full bg-coral" />
+            ارسال رایگان برای سفارش‌های بالای ۲ میلیون تومان
+          </span>
         </div>
       </div>
 
-      <div className="border-b border-line bg-cream/85 backdrop-blur-xl">
-        <div className="container-x flex h-[4.6rem] items-center gap-3">
-          <Link href="/" className="flex items-center gap-2.5" aria-label="آرک، صفحه اصلی">
-            <ArcMark className="size-11 rounded-[0.9rem] shadow-[0_10px_24px_-12px_rgba(18,16,22,0.9)]" />
+      <div className="border-b border-line">
+        <div className="container-x flex h-[70px] items-center gap-3 lg:gap-4">
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-2"
+            aria-label="آرک، صفحه اصلی"
+          >
+            <ArcMark className="size-10" />
             <span className="leading-tight">
               <span className="block text-lg font-black">آرک</span>
-              <span className="block text-[0.55rem] font-bold tracking-[0.28em] text-mute">
+              <span className="block text-[0.5rem] font-bold tracking-[0.3em] text-mute">
                 ARC.SHOP
               </span>
             </span>
           </Link>
 
-          <nav className="ms-4 hidden items-center gap-1 lg:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`rounded-full px-3.5 py-2 text-sm font-bold transition-colors ${
-                  isActive(link.href)
-                    ? "bg-ink text-white"
-                    : "text-ink-soft hover:bg-ink/5 hover:text-ink"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <form action="/products" className="relative ms-auto hidden flex-1 md:block md:max-w-xs">
-            <SearchIcon className="pointer-events-none absolute end-3.5 top-1/2 size-4 -translate-y-1/2 text-mute" />
+          <form
+            action="/products"
+            className="hidden h-11 flex-1 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3 md:flex"
+          >
+            <SearchIcon className="size-5 shrink-0 text-mute" />
             <input
               type="search"
               name="q"
-              placeholder="جستجوی گجت، برند یا دسته..."
+              placeholder="جستجو در آرک"
               aria-label="جستجوی محصولات"
-              className="h-11 w-full rounded-full border border-line bg-white/80 pe-10 ps-4 text-sm outline-none transition focus:border-violet focus:bg-white focus:ring-4 focus:ring-violet/10"
+              className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
             />
+            <kbd className="hidden rounded border border-line bg-white px-1.5 py-0.5 text-[9px] text-mute lg:block">
+              ⌘ K
+            </kbd>
           </form>
 
           <div className="ms-auto flex items-center gap-2 md:ms-0">
             <Link
-              href="/cart"
-              className="relative inline-flex h-11 items-center gap-2 rounded-full bg-ink px-4 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+              href="/admin/login"
+              className="hidden h-10 items-center gap-2 rounded-lg border border-line px-3 text-[11px] font-bold transition hover:bg-[#f7f7f8] sm:flex"
             >
-              <CartIcon className="size-5 text-lime" />
-              <span className="hidden sm:inline">سبد خرید</span>
+              ورود | ثبت‌نام
+            </Link>
+
+            <Link
+              href="/cart"
+              aria-label="سبد خرید"
+              className="relative grid size-10 place-items-center rounded-lg border border-line transition hover:bg-[#f7f7f8]"
+            >
+              <CartIcon className="size-5" />
               {ready && count > 0 ? (
                 <span
                   suppressHydrationWarning
-                  className="grid min-w-6 place-items-center rounded-full bg-lime px-1.5 text-xs font-black text-ink"
+                  className="absolute -end-1.5 -top-1.5 grid min-w-[17px] place-items-center rounded-full bg-coral px-1 text-[9px] font-black text-white"
                 >
                   {count}
                 </span>
@@ -111,7 +120,7 @@ export function SiteHeader() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "بستن منو" : "باز کردن منو"}
-              className="grid size-11 place-items-center rounded-full border border-line bg-white/70 text-ink transition hover:bg-white lg:hidden"
+              className="grid size-10 place-items-center rounded-lg border border-line transition hover:bg-[#f7f7f8] lg:hidden"
             >
               {open ? <CloseIcon className="size-5" /> : <MenuIcon className="size-5" />}
             </button>
@@ -119,41 +128,68 @@ export function SiteHeader() {
         </div>
       </div>
 
+      <div className="hidden border-b border-line lg:block">
+        <nav className="container-x flex h-10 items-center gap-0.5 overflow-hidden text-[11.5px]">
+          <Link
+            href="/products"
+            className="me-2 flex h-6 items-center gap-1.5 border-e border-line pe-3 font-extrabold"
+          >
+            <MenuIcon className="size-4" />
+            دسته‌بندی کالاها
+          </Link>
+          <Link
+            href="/products?sort=cheap"
+            className="me-1 flex items-center gap-1.5 rounded-md px-2 py-1.5 font-extrabold text-coral hover:bg-[#fff3f0]"
+          >
+            <span className="size-1.5 rounded-full bg-coral" />
+            پیشنهاد شگفت‌انگیز
+          </Link>
+          {navCats.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="whitespace-nowrap rounded-md px-2 py-1.5 text-ink-soft transition hover:bg-[#f5f5f6] hover:text-ink"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <span className="ms-auto hidden text-[10px] text-mute xl:inline">
+            {pathname === "/" ? "خرید آسان، تحویل سریع" : "آرک | فروشگاه گجت"}
+          </span>
+        </nav>
+      </div>
+
       {open ? (
-        <div id="mobile-menu" className="border-b border-line bg-cream lg:hidden">
-          <div className="container-x space-y-4 py-5">
-            <form action="/products" className="relative">
-              <SearchIcon className="pointer-events-none absolute end-3.5 top-1/2 size-4 -translate-y-1/2 text-mute" />
+        <div id="mobile-menu" className="border-b border-line bg-paper lg:hidden">
+          <div className="container-x space-y-3 py-4">
+            <form action="/products" className="flex h-11 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3">
+              <SearchIcon className="size-4 shrink-0 text-mute" />
               <input
                 type="search"
                 name="q"
-                placeholder="جستجوی محصول..."
+                placeholder="جستجو در آرک..."
                 aria-label="جستجوی محصولات"
-                className="h-11 w-full rounded-full border border-line bg-white pe-10 ps-4 text-sm outline-none focus:border-violet"
+                className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
               />
             </form>
-            <div className="grid grid-cols-2 gap-2">
-              {navLinks.map((link) => (
+            <div className="grid grid-cols-2 gap-1.5">
+              {mobileLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`rounded-2xl px-4 py-3 text-sm font-bold ${
-                    isActive(link.href) ? "bg-ink text-white" : "bg-white/70 text-ink-soft"
-                  }`}
+                  className="rounded-lg border border-line px-3 py-2.5 text-[11.5px] font-bold text-ink-soft"
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/60 py-2 text-xs font-bold text-mute"
+            <Link
+              href="/admin/login"
+              className="flex items-center justify-center rounded-lg bg-ink py-2.5 text-[11.5px] font-bold text-white"
             >
-              <CloseIcon className="size-4" />
-              بستن
-            </button>
+              ورود | ثبت‌نام
+            </Link>
           </div>
         </div>
       ) : null}

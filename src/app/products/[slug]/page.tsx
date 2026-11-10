@@ -66,7 +66,7 @@ async function ProductDetail({ params }: { params: Params }) {
   const off = discountPercent(product.price, product.oldPrice);
 
   return (
-    <div className="container-x py-8">
+    <div className="container-x py-4">
       <nav aria-label="مسیر صفحه" className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-mute">
         <Link href="/" className="transition hover:text-ink">
           خانه
@@ -93,7 +93,7 @@ async function ProductDetail({ params }: { params: Params }) {
             size="lg"
             priority
             imageSizes="(min-width: 1024px) 45vw, 100vw"
-            className="aspect-square rounded-[2.25rem] border border-line"
+            className="aspect-square rounded-xl border border-line"
           />
           <div className="mt-3 grid grid-cols-3 gap-3">
             {product.specs.slice(0, 3).map((spec) => (
@@ -141,21 +141,17 @@ async function ProductDetail({ params }: { params: Params }) {
             </span>
           </div>
 
-          <div className="mt-6 rounded-[1.75rem] border border-line bg-paper p-5">
-            <div className="flex flex-wrap items-center gap-3">
-              <p className="whitespace-nowrap text-3xl font-black">{toman(product.price)}</p>
-              {product.oldPrice ? (
-                <>
-                  <span className="shrink-0 rounded-full bg-coral px-2.5 py-1 text-xs font-black text-white">
-                    {faNumber(off)}٪ تخفیف
-                  </span>
-                  <p className="whitespace-nowrap text-sm text-mute line-through">
-                    {toman(product.oldPrice)}
-                  </p>
-                </>
-              ) : null}
-            </div>
-            <p className="mt-2 text-[0.7rem] text-mute">
+          <div className="mt-4 rounded-xl border border-line bg-paper p-4">
+            {product.oldPrice ? (
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-coral px-2 py-0.5 text-[10px] font-black text-white">
+                  {faNumber(off)}٪ تخفیف
+                </span>
+                <span className="text-xs text-mute line-through">{toman(product.oldPrice)}</span>
+              </div>
+            ) : null}
+            <p className="mt-1 whitespace-nowrap text-2xl font-black">{toman(product.price)}</p>
+            <p className="mt-1 text-[10.5px] text-mute">
               قیمت شامل مالیات است. ارسال رایگان برای سفارش بالای ۲ میلیون تومان.
             </p>
 
@@ -190,9 +186,9 @@ async function ProductDetail({ params }: { params: Params }) {
         </div>
       </div>
 
-      <section className="mt-12 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-        <div className="surface p-6">
-          <h2 className="text-xl font-black">درباره این محصول</h2>
+      <section className="mt-6 grid gap-3 lg:grid-cols-[1.4fr_1fr]">
+        <div className="surface p-4">
+          <h2 className="text-base font-black">درباره این محصول</h2>
           <p className="mt-4 text-sm leading-8 text-ink-soft/85">{product.description}</p>
           <p className="mt-4 text-sm leading-8 text-ink-soft/85">
             آرک این محصول را با بسته‌بندی ضدضربه ارسال می‌کند و در صورت نیاز به راه‌اندازی،
@@ -201,8 +197,8 @@ async function ProductDetail({ params }: { params: Params }) {
           </p>
         </div>
 
-        <div className="surface p-6">
-          <h2 className="text-xl font-black">مشخصات کلیدی</h2>
+        <div className="surface p-4">
+          <h2 className="text-base font-black">مشخصات کلیدی</h2>
           <dl className="mt-4 divide-y divide-line">
             {product.specs.map((spec, index) => (
               <div key={spec} className="flex items-center justify-between gap-4 py-3">
@@ -225,7 +221,7 @@ async function ProductDetail({ params }: { params: Params }) {
       {related.length > 0 ? (
         <section className="mt-14">
           <div className="flex items-end justify-between gap-4">
-            <h2 className="text-2xl font-black">شاید این‌ها هم به کارت بیاید</h2>
+            <h2 className="text-lg font-black">شاید این‌ها هم به کارت بیاید</h2>
             <Link
               href={`/products?category=${product.categorySlug}`}
               className="text-sm font-bold text-violet hover:underline"

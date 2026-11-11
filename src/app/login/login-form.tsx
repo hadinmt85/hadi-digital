@@ -24,7 +24,7 @@ export function LoginForm() {
             name="username"
             defaultValue={state.username}
             autoComplete="username"
-            placeholder="مثلاً hadi_shop"
+            placeholder="hadi123"
             className="field pe-10"
             required
           />

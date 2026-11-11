@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useActionState, useState } from "react";
 import { EyeIcon, EyeOffIcon, UserIcon } from "@/components/icons";
 import { loginAction, type LoginState } from "@/lib/auth-actions";
@@ -10,9 +11,12 @@ const initialState: LoginState = {};
 export function LoginForm() {
   const [state, action, pending] = useActionState(loginAction, initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const searchParams = useSearchParams();
+  const next = searchParams.get("next") ?? "/account";
 
   return (
     <form action={action} className="mt-5 space-y-4">
+      <input type="hidden" name="next" value={next} />
       <div>
         <label htmlFor="username" className="mb-1.5 block text-[11px] font-bold text-ink-soft">
           نام کاربری
@@ -72,7 +76,7 @@ export function LoginForm() {
 
       <p className="text-center text-[11px] text-mute">
         حساب نداری؟{" "}
-        <Link href="/register" className="font-black text-coral hover:underline">
+        <Link href={`/register?next=${encodeURIComponent(next)}`} className="font-black text-coral hover:underline">
           ثبت‌نام کن
         </Link>
       </p>

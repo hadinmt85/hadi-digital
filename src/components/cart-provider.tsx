@@ -10,6 +10,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useRouter } from "next/navigation";
+import { hasAuthHint, savePendingAdd } from "@/lib/cart-storage";
 import type { CartLine } from "@/lib/types";
 
 const STORAGE_KEY = "gadgetland-cart-v1";
@@ -19,7 +21,7 @@ type CartContextValue = {
   ready: boolean;
   count: number;
   subtotal: number;
-  add: (line: Omit<CartLine, "qty">, qty?: number) => void;
+  add: (line: Omit<CartLine, "qty">, qty?: number) => boolean;
   setQty: (id: number, qty: number) => void;
   remove: (id: number) => void;
   clear: () => void;
@@ -39,6 +41,7 @@ function isCartLine(value: unknown): value is CartLine {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
   const [lines, setLines] = useState<CartLine[]>([]);
   const [ready, setReady] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -83,7 +86,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const add = useCallback(
-    (line: Omit<CartLine, "qty">, qty = 1) => {
+    (line: Omit<CartLine, "qty">, qty = 1): boolean => {
+      if (!hasAuthHint()) {
+        savePendingAdd(line, qty);
+        router.push("/login?next=/cart");
+        return false;
+      }
+
       setLines((current) => {
         const existing = current.find((item) => item.id === line.id);
         if (existing) {
@@ -96,8 +105,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return [...current, { ...line, qty: Math.min(line.stock, Math.max(1, qty)) }];
       });
       showToast(`${line.name} به سبد خرید اضافه شد`);
+      return true;
     },
-    [showToast],
+    [showToast, router],
   );
 
   const setQty = useCallback((id: number, qty: number) => {

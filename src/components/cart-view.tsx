@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { useCart } from "@/components/cart-provider";
+import { clearPendingAdd, hasAuthHint, readPendingAdd } from "@/lib/cart-storage";
 import {
   ArrowStartIcon,
   CartIcon,
@@ -15,7 +17,22 @@ import { ProductArt } from "@/components/product-art";
 import { faNumber, shippingFor, shippingRules, toman } from "@/lib/format";
 
 export function CartView() {
-  const { lines, ready, subtotal, setQty, remove, clear } = useCart();
+  const { lines, ready, subtotal, setQty, remove, clear, add } = useCart();
+  const consumedPending = useRef(false);
+
+  // اگر کاربر مهمان قصد افزودن محصولی را داشته و بعد وارد شده،
+  // همان محصول به‌صورت خودکار به سبد اضافه می‌شود.
+  useEffect(() => {
+    if (!ready || consumedPending.current) return;
+    consumedPending.current = true;
+
+    if (!hasAuthHint()) return;
+    const pending = readPendingAdd();
+    if (!pending) return;
+
+    clearPendingAdd();
+    add(pending.line, pending.qty);
+  }, [ready, add]);
 
   if (!ready) {
     return (

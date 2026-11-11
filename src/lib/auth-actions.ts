@@ -19,6 +19,13 @@ export type LoginState = {
 const usernamePattern = /^[A-Za-z0-9_\u0600-\u06FF]{3,20}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+/** فقط مسیرهای داخلی مجازند (جلوگیری از open redirect). */
+function safeNext(value: unknown): string {
+  const path = typeof value === "string" ? value.trim() : "";
+  if (!path.startsWith("/") || path.startsWith("//")) return "/account";
+  return path;
+}
+
 export async function registerAction(
   _prev: RegisterState,
   formData: FormData,
@@ -76,7 +83,7 @@ export async function registerAction(
   }
 
   await createSession(userId);
-  redirect("/account");
+  redirect(safeNext(formData.get("next")));
 }
 
 export async function loginAction(_prev: LoginState, formData: FormData): Promise<LoginState> {
@@ -100,7 +107,7 @@ export async function loginAction(_prev: LoginState, formData: FormData): Promis
   }
 
   await createSession(user.id);
-  redirect("/account");
+  redirect(safeNext(formData.get("next")));
 }
 
 export async function logoutAction(): Promise<void> {

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useActionState, useState } from "react";
 import { EyeIcon, EyeOffIcon, MailIcon, UserIcon } from "@/components/icons";
 import { registerAction, type RegisterState } from "@/lib/auth-actions";
@@ -10,10 +11,13 @@ const initialState: RegisterState = {};
 export function RegisterForm() {
   const [state, action, pending] = useActionState(registerAction, initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const searchParams = useSearchParams();
+  const next = searchParams.get("next") ?? "/account";
   const errors = state.fieldErrors ?? {};
 
   return (
     <form action={action} className="mt-5 space-y-4">
+      <input type="hidden" name="next" value={next} />
       <div>
         <label htmlFor="username" className="mb-1.5 block text-[11px] font-bold text-ink-soft">
           نام کاربری
@@ -128,7 +132,7 @@ export function RegisterForm() {
 
       <p className="text-center text-[11px] text-mute">
         قبلاً ثبت‌نام کرده‌ای؟{" "}
-        <Link href="/login" className="font-black text-coral hover:underline">
+        <Link href={`/login?next=${encodeURIComponent(next)}`} className="font-black text-coral hover:underline">
           وارد شو
         </Link>
       </p>

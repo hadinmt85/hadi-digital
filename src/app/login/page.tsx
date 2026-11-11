@@ -1,4 +1,5 @@
 import { AuthShell } from "@/components/auth-shell";
+import { Suspense } from "react";
 import { LoginForm } from "./login-form";
 
 export const metadata = {
@@ -13,7 +14,9 @@ export default function LoginPage() {
       <p className="mt-1.5 text-[11px] leading-6 text-mute">
         برای ادامه، نام کاربری و رمز عبورت را وارد کن.
       </p>
-      <LoginForm />
+      <Suspense fallback={<div className="mt-5 h-64 animate-pulse rounded-lg bg-[#f7f7f8]" />}>
+        <LoginForm />
+      </Suspense>
     </AuthShell>
   );
 }

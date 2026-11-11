@@ -24,9 +24,15 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
+  if (pathname.startsWith("/checkout") && !request.cookies.get(SESSION_COOKIE)?.value) {
+    const loginUrl = new URL("/login", request.url);
+    loginUrl.searchParams.set("next", "/checkout");
+    return NextResponse.redirect(loginUrl);
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/admin", "/admin/:path*", "/account"],
+  matcher: ["/admin", "/admin/:path*", "/account", "/checkout"],
 };

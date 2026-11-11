@@ -1,4 +1,5 @@
 import { AuthShell } from "@/components/auth-shell";
+import { Suspense } from "react";
 import { RegisterForm } from "./register-form";
 
 export const metadata = {
@@ -13,7 +14,9 @@ export default function RegisterPage() {
       <p className="mt-1.5 text-[11px] leading-6 text-mute">
         در کمتر از یک دقیقه عضو Hadi Store شو؛ سفارش‌ها و پیگیری‌ها یک‌جا ذخیره می‌شوند.
       </p>
-      <RegisterForm />
+      <Suspense fallback={<div className="mt-5 h-80 animate-pulse rounded-lg bg-[#f7f7f8]" />}>
+        <RegisterForm />
+      </Suspense>
     </AuthShell>
   );
 }

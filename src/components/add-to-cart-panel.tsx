@@ -56,8 +56,9 @@ export function AddToCartPanel({
       <button
         type="button"
         onClick={() => {
-          add(line, qty);
-          router.push("/cart");
+          if (add(line, qty)) {
+            router.push("/cart");
+          }
         }}
         disabled={stock === 0}
         className="btn btn-ghost h-12 w-full disabled:cursor-not-allowed disabled:opacity-40"

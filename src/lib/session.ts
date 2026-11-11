@@ -4,6 +4,7 @@ import { cache } from "react";
 import { query } from "@/lib/db";
 
 export const SESSION_COOKIE = "arc_session";
+const AUTH_HINT_COOKIE = "hadi_authed";
 const SESSION_DAYS = 30;
 
 export type SessionUser = {
@@ -67,6 +68,14 @@ export async function createSession(userId: number): Promise<void> {
     path: "/",
     maxAge: SESSION_DAYS * 24 * 60 * 60,
   });
+  // کوکی راهنما برای UI (افزودن به سبد)؛ داده حساسی ندارد.
+  store.set(AUTH_HINT_COOKIE, "1", {
+    httpOnly: false,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: SESSION_DAYS * 24 * 60 * 60,
+  });
 }
 
 /** سشن فعلی را حذف و کوکی را پاک می‌کند. */
@@ -78,4 +87,5 @@ export async function destroySession(): Promise<void> {
     await query("DELETE FROM sessions WHERE token = $1", [token]);
   }
   store.delete(SESSION_COOKIE);
+  store.delete(AUTH_HINT_COOKIE);
 }

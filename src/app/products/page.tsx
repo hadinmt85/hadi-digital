@@ -121,7 +121,7 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
         </div>
 
         <div className="mt-3 hidden overflow-hidden rounded-xl bg-violet p-4 text-white md:block">
-          <p className="text-[10px] font-black text-lime">مشاوره خرید</p>
+          <p className="text-[10px] font-black text-white">مشاوره خرید</p>
           <p className="mt-1.5 text-xs font-bold leading-6">
             مطمئن نیستی کدام گجت مناسبته؟
           </p>

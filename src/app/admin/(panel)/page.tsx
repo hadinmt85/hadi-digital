@@ -27,7 +27,7 @@ export default async function AdminDashboardPage() {
 
   const cards = [
     { label: "کل سفارش‌ها", value: faNumber(stats.orders), tone: "bg-ink text-white" },
-    { label: "فروش کل", value: toman(stats.revenue), tone: "bg-lime text-ink" },
+    { label: "فروش کل", value: toman(stats.revenue), tone: "bg-coral text-white" },
     { label: "محصولات فعال", value: faNumber(stats.products), tone: "bg-paper text-ink" },
     {
       label: "موجودی کمتر از ۵",
@@ -126,7 +126,7 @@ export default async function AdminDashboardPage() {
                         </select>
                         <button
                           type="submit"
-                          className="h-8 rounded-lg bg-ink px-2.5 text-[0.65rem] font-bold text-lime"
+                          className="h-8 rounded-lg bg-coral px-2.5 text-[0.65rem] font-bold text-white"
                         >
                           ثبت
                         </button>
@@ -200,7 +200,7 @@ export default async function AdminDashboardPage() {
               محصول بلافاصله در فروشگاه نمایش داده می‌شود.
             </p>
           </div>
-          <span className="rounded-full bg-lime px-3 py-1 text-[0.65rem] font-black text-ink">
+          <span className="rounded-full bg-coral px-3 py-1 text-[0.65rem] font-black text-white">
             فرم سریع
           </span>
         </div>

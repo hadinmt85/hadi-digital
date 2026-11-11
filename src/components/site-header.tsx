@@ -150,7 +150,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
           </Link>
           <Link
             href="/products?sort=cheap"
-            className="me-1 flex items-center gap-1.5 rounded-md px-2 py-1.5 font-extrabold text-coral hover:bg-[#fff3f0]"
+            className="me-1 flex items-center gap-1.5 rounded-md px-2 py-1.5 font-extrabold text-coral hover:bg-[#fff0f3]"
           >
             <span className="size-1.5 rounded-full bg-coral" />
             پیشنهاد شگفت‌انگیز

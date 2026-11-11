@@ -42,7 +42,7 @@ async function AccountContent() {
     <>
       <div className="rounded-xl border border-line bg-paper p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="grid size-14 place-items-center rounded-full bg-ink text-lg font-black text-lime">
+          <span className="grid size-14 place-items-center rounded-full bg-coral text-lg font-black text-white">
             {initial}
           </span>
           <div>

@@ -50,14 +50,14 @@ export function CartView() {
     return (
       <div className="container-x py-20">
         <div className="mx-auto max-w-md text-center">
-          <div className="mx-auto grid size-20 place-items-center rounded-xl bg-lime text-ink">
+          <div className="mx-auto grid size-20 place-items-center rounded-xl bg-coral text-white">
             <CartIcon className="size-9" />
           </div>
           <h1 className="mt-5 text-xl font-black">سبد خریدت خالی است</h1>
           <p className="mt-3 text-sm leading-7 text-mute">
             هنوز هیچ گجتی انتخاب نکردی. یک سر به فروشگاه بزن؛ پیشنهادهای امروز منتظرت هستند.
           </p>
-          <Link href="/products" className="btn btn-violet mt-7">
+          <Link href="/products" className="btn btn-primary mt-7">
             رفتن به فروشگاه
             <ArrowStartIcon className="size-4" />
           </Link>

@@ -41,7 +41,7 @@ async function OrderDetail({ params }: { params: Params }) {
     <div className="container-x py-4">
       <div className="mx-auto max-w-3xl">
         <div className="rounded-xl border border-line bg-paper p-6 sm:p-8">
-          <span className="grid size-12 place-items-center rounded-xl bg-lime text-ink">
+          <span className="grid size-12 place-items-center rounded-xl bg-coral text-white">
             <CheckIcon className="size-6" />
           </span>
           <h1 className="mt-4 text-xl font-black sm:text-2xl">سفارش شما با موفقیت ثبت شد</h1>
@@ -97,7 +97,7 @@ async function OrderDetail({ params }: { params: Params }) {
                 <li key={step.title} className="flex items-start gap-3">
                   <span
                     className={`mt-0.5 grid size-6 shrink-0 place-items-center rounded-full text-[0.6rem] font-black ${
-                      step.done ? "bg-lime text-ink" : "border border-line bg-white text-mute"
+                      step.done ? "bg-coral text-white" : "border border-line bg-white text-mute"
                     }`}
                   >
                     {step.done ? <CheckIcon className="size-3.5" /> : "•"}
@@ -129,8 +129,8 @@ async function OrderDetail({ params }: { params: Params }) {
                     image: null,
                     name: item.name,
                     brand: "",
-                    gradientFrom: "#6c4cf1",
-                    gradientTo: "#121016",
+                    gradientFrom: "#3f4064",
+                    gradientTo: "#2b2c46",
                   }}
                   size="sm"
                   className="size-14 shrink-0 rounded-xl"

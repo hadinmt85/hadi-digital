@@ -35,7 +35,7 @@ export function AddToCartButton({
       disabled={disabled}
       onClick={() => add(line)}
       aria-label={`افزودن ${line.name} به سبد خرید`}
-      className="grid size-8 place-items-center rounded-md bg-ink text-lime transition hover:scale-105 hover:bg-ink-soft disabled:cursor-not-allowed disabled:opacity-30"
+      className="grid size-8 place-items-center rounded-md bg-coral text-white transition hover:scale-105 hover:bg-[#d9364b] disabled:cursor-not-allowed disabled:opacity-30"
     >
       <PlusIcon className="size-4" />
     </button>

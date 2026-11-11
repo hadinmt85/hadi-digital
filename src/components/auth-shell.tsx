@@ -21,7 +21,7 @@ export function AuthShell({ children }: { children: ReactNode }) {
             <ul className="mt-5 space-y-2.5 text-[11px] text-white/70">
               {["گارانتی ۱۸ ماهه", "ارسال سریع", "۷ روز بازگشت کالا"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <CheckIcon className="size-4 text-lime" />
+                  <CheckIcon className="size-4 text-white/80" />
                   {item}
                 </li>
               ))}

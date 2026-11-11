@@ -46,7 +46,7 @@ async function AdminGate({ children }: { children: ReactNode }) {
           <form action={logout}>
             <button
               type="submit"
-              className="rounded-full bg-lime px-4 py-2 text-xs font-black text-ink transition hover:bg-white"
+              className="rounded-full bg-coral px-4 py-2 text-xs font-black text-white transition hover:bg-[#d9364b]"
             >
               خروج
             </button>

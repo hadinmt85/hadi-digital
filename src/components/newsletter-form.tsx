@@ -11,7 +11,7 @@ export function NewsletterForm() {
   return (
     <div>
       {done ? (
-        <p className="flex items-center gap-2 rounded-2xl bg-lime px-4 py-3 text-sm font-bold text-ink">
+        <p className="flex items-center gap-2 rounded-2xl bg-[#fff0f3] px-4 py-3 text-sm font-bold text-ink">
           <CheckIcon className="size-5" />
           ثبت شد! کد تخفیف اولین خرید به ایمیل شما ارسال می‌شود.
         </p>
@@ -38,7 +38,7 @@ export function NewsletterForm() {
             onChange={(event) => setEmail(event.target.value)}
             placeholder="ایمیل شما"
             dir="ltr"
-            className="h-12 w-full rounded-full border border-white/20 bg-white/10 px-5 text-sm text-white placeholder:text-white/45 focus:border-lime focus:outline-none"
+            className="h-12 w-full rounded-full border border-white/20 bg-white/10 px-5 text-sm text-white placeholder:text-white/45 focus:border-coral focus:outline-none"
           />
           <button type="submit" className="btn btn-lime h-12 shrink-0 px-6">
             عضویت

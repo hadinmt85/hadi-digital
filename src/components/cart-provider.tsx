@@ -148,7 +148,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       >
         {toast ? (
           <div className="animate-rise flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white shadow-[0_18px_40px_-18px_rgba(0,0,0,0.8)]">
-            <span className="grid size-6 place-items-center rounded-full bg-lime text-ink">✓</span>
+            <span className="grid size-6 place-items-center rounded-full bg-coral text-white">✓</span>
             {toast}
           </div>
         ) : null}

@@ -72,7 +72,7 @@ export default function AboutPage() {
             <h1 className="mt-5 text-[clamp(2rem,4.5vw,3.4rem)] font-black leading-tight">
               تکنولوژی را ساده، اصل و
               <span className="relative mx-1 inline-block px-2">
-                <span className="absolute inset-x-0 bottom-1 h-[55%] -rotate-1 rounded-xl bg-lime" aria-hidden />
+                <span className="absolute inset-x-0 bottom-1 h-[55%] -rotate-1 rounded-xl bg-[#ffd9df]" aria-hidden />
                 <span className="relative">انسانی</span>
               </span>
               تحویل می‌دهیم
@@ -97,7 +97,7 @@ export default function AboutPage() {
               <div
                 key={item.label}
                 className={`rounded-3xl border border-line p-5 ${
-                  index === 0 ? "bg-lime" : "bg-paper"
+                  index === 0 ? "bg-[#fff0f3]" : "bg-paper"
                 }`}
               >
                 <p className="text-2xl font-black text-ink">{item.value}</p>
@@ -134,7 +134,7 @@ export default function AboutPage() {
           <ul className="mt-4 space-y-2 text-xs font-bold text-ink-soft">
             {["پوشش نقص فنی کارخانه", "تعویض در ۷ روز اول", "پیگیری آنلاین درخواست"].map((item) => (
               <li key={item} className="flex items-center gap-2">
-                <CheckIcon className="size-4 text-violet" />
+                <CheckIcon className="size-4 text-coral" />
                 {item}
               </li>
             ))}

@@ -69,7 +69,7 @@ export default async function HomePage() {
 
         <div
           className="relative flex min-h-[300px] items-center overflow-hidden rounded-lg p-6 text-white sm:p-7"
-          style={{ backgroundImage: "linear-gradient(140deg,#2a1766,#6c4cf1 55%,#8d74ff)" }}
+          style={{ backgroundImage: "linear-gradient(140deg,#3f4064,#ef4056 58%,#ff6b81)" }}
         >
           <div className="grid-dots pointer-events-none absolute inset-0 opacity-30" aria-hidden />
           {spotlight?.image ? (
@@ -83,7 +83,7 @@ export default async function HomePage() {
             />
           ) : null}
           <div className="relative z-10 max-w-[280px]">
-            <span className="inline-block rounded-full bg-lime px-2.5 py-1 text-[10px] font-black text-ink">
+            <span className="inline-block rounded-full bg-coral px-2.5 py-1 text-[10px] font-black text-white">
               حراج پاییزه Hadi Store
             </span>
             <h1 className="mt-3 text-[26px] font-black leading-[1.4] sm:text-[30px]">
@@ -112,10 +112,10 @@ export default async function HomePage() {
               {spotlight ? spotlight.name : "پیشنهادهای امروز"}
             </b>
             {spotlight ? (
-              <span className="text-[11px] font-black text-lime">
+              <span className="text-[11px] font-black text-white">
                 {toman(spotlight.price)}
                 {spotlightOff > 0 ? (
-                  <span className="ms-1.5 text-[9px] font-bold text-coral">
+                  <span className="ms-1.5 text-[9px] font-bold text-[#ffb3bd]">
                     {faNumber(spotlightOff)}٪
                   </span>
                 ) : null}
@@ -125,9 +125,9 @@ export default async function HomePage() {
           </Link>
           <Link
             href="/products"
-            className="flex flex-1 flex-col justify-between gap-3 rounded-lg bg-lime p-4 text-ink"
+            className="flex flex-1 flex-col justify-between gap-3 rounded-lg bg-coral p-4 text-white"
           >
-            <span className="text-[9px] font-bold text-ink/55">ارسال رایگان</span>
+            <span className="text-[9px] font-bold text-white/70">ارسال رایگان</span>
             <b className="text-[14px] font-black leading-6">سفارش بالای ۲ میلیون</b>
             <span className="text-[10px] font-bold">شروع خرید ←</span>
           </Link>
@@ -139,7 +139,7 @@ export default async function HomePage() {
         <Link
           href="/products?category=gaming"
           className="flex items-center gap-4 overflow-hidden rounded-xl p-5 text-white"
-          style={{ backgroundImage: "linear-gradient(120deg,#6c4cf1,#9a86ff)" }}
+          style={{ backgroundImage: "linear-gradient(120deg,#3f4064,#5a5c86)" }}
         >
           <div>
             <b className="text-[15px] font-black">کالکشن گیمینگ</b>
@@ -160,7 +160,7 @@ export default async function HomePage() {
         <Link
           href="/products?category=mobile"
           className="flex items-center gap-4 overflow-hidden rounded-xl p-5 text-white"
-          style={{ backgroundImage: "linear-gradient(120deg,#ff5a3c,#ff8a6a)" }}
+          style={{ backgroundImage: "linear-gradient(120deg,#ef4056,#ff6b81)" }}
         >
           <div>
             <b className="text-[15px] font-black">هفته موبایل</b>
@@ -200,7 +200,7 @@ export default async function HomePage() {
       <section className="overflow-hidden rounded-xl border border-line bg-paper">
         <div
           className="flex flex-wrap items-center gap-3 px-4 py-2.5 text-white"
-          style={{ backgroundImage: "linear-gradient(90deg,#ff5a3c,#ff7a5e)" }}
+          style={{ backgroundImage: "linear-gradient(90deg,#ef4056,#ff6b81)" }}
         >
           <h2 className="flex items-center gap-2 text-[14px] font-black">
             <span className="grid size-6 place-items-center rounded-md bg-white/20 text-[13px]">

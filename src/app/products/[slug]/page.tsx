@@ -117,7 +117,7 @@ async function ProductDetail({ params }: { params: Params }) {
             </Link>
             <span className="text-xs font-bold text-mute">{product.brand}</span>
             {product.badge ? (
-              <span className="rounded-full bg-lime px-2.5 py-1 text-[0.65rem] font-black text-ink">
+              <span className="rounded-full bg-coral px-2.5 py-1 text-[0.65rem] font-black text-white">
                 {product.badge}
               </span>
             ) : null}
@@ -179,7 +179,7 @@ async function ProductDetail({ params }: { params: Params }) {
             </div>
           </div>
 
-          <div className="mt-4 flex items-start gap-2 rounded-2xl bg-lime/40 px-4 py-3 text-xs font-bold text-ink-soft">
+          <div className="mt-4 flex items-start gap-2 rounded-lg bg-[#f0f0f1] px-4 py-3 text-xs font-bold text-ink-soft">
             <CheckIcon className="mt-0.5 size-4 shrink-0" />
             اصالت کالا تضمین‌شده است؛ در صورت مغایرت، هزینه کامل بازگردانده می‌شود.
           </div>

@@ -167,7 +167,7 @@ async function OrderDetail({ params }: { params: Params }) {
             ادامه خرید
             <ArrowStartIcon className="size-4" />
           </Link>
-          <a href="tel:+982177984561" className="btn btn-ghost">
+          <a href="tel:+989929999999" className="btn btn-ghost">
             <PhoneIcon className="size-4" />
             تماس با پشتیبانی
           </a>

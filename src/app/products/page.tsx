@@ -126,7 +126,7 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
             مطمئن نیستی کدام گجت مناسبته؟
           </p>
           <p className="mt-1 text-[10px] text-white/60">تیم پشتیبانی هر روز ۹ تا ۲۱ پاسخ می‌دهد.</p>
-          <a href="tel:+982177984561" className="btn btn-lime mt-3 h-9 px-3 text-[11px]">
+          <a href="tel:+989929999999" className="btn btn-lime mt-3 h-9 px-3 text-[11px]">
             تماس با کارشناس
           </a>
         </div>

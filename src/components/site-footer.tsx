@@ -58,11 +58,11 @@ export function SiteFooter() {
 
             <div className="mt-5 flex flex-wrap items-center gap-2 text-xs">
               <a
-                href="tel:+982177984561"
+                href="tel:+989929999999"
                 className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 font-bold transition hover:bg-[#f7f7f8]"
               >
                 <PhoneIcon className="size-4 text-mute" />
-                ۰۲۱-۷۷۹۸۴۵۶۱
+                ۰۹۹۲ ۹۹۹ ۹۹۹۹
               </a>
               <a
                 href="https://instagram.com"

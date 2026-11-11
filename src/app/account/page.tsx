@@ -8,7 +8,7 @@ import { ArrowLeftIcon, CartIcon, LogoutIcon } from "@/components/icons";
 
 export const metadata = {
   title: "حساب کاربری",
-  description: "مشاهده اطلاعات حساب کاربری آرک.",
+  description: "مشاهده اطلاعات حساب کاربری Hadi Store.",
 };
 
 export default function AccountPage() {

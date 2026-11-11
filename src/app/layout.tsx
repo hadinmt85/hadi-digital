@@ -18,17 +18,17 @@ const siteDescription =
   "خرید آنلاین هدفون، ساعت هوشمند، موبایل، لپ‌تاپ و گجت‌های گیمینگ با گارانتی اصالت، ارسال سریع و ۷ روز ضمانت بازگشت کالا.";
 
 export const metadata: Metadata = {
-  applicationName: "آرک",
+  applicationName: "Hadi Store",
   title: {
-    default: "آرک | فروشگاه گجت و کالای دیجیتال",
-    template: "%s | آرک",
+    default: "Hadi Store | فروشگاه گجت و کالای دیجیتال",
+    template: "%s | Hadi Store",
   },
   description: siteDescription,
-  keywords: ["آرک", "ARC", "گجت", "کالای دیجیتال", "فروشگاه اینترنتی", "هدفون", "ساعت هوشمند"],
+  keywords: ["Hadi Store", "HadiStore", "گجت", "کالای دیجیتال", "فروشگاه اینترنتی", "هدفون", "ساعت هوشمند"],
   openGraph: {
-    title: "آرک | فروشگاه گجت و کالای دیجیتال",
+    title: "Hadi Store | فروشگاه گجت و کالای دیجیتال",
     description: siteDescription,
-    siteName: "آرک",
+    siteName: "Hadi Store",
     locale: "fa_IR",
     type: "website",
   },

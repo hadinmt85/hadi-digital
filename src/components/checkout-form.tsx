@@ -207,7 +207,7 @@ export function CheckoutForm() {
               </span>
               <div className="flex-1">
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-sm font-extrabold">ارسال سریع آرک</p>
+                  <p className="text-sm font-extrabold">ارسال سریع Hadi Store</p>
                   <p className="text-xs font-black">
                     {shipping === 0 ? "رایگان" : toman(shipping)}
                   </p>

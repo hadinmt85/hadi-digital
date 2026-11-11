@@ -3,7 +3,7 @@ import { LoginForm } from "./login-form";
 
 export const metadata = {
   title: "ورود به حساب",
-  description: "ورود به حساب کاربری آرک با نام کاربری و رمز عبور.",
+  description: "ورود به حساب کاربری Hadi Store با نام کاربری و رمز عبور.",
 };
 
 export default function LoginPage() {

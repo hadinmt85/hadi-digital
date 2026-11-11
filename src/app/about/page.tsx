@@ -5,7 +5,7 @@ import { faNumber } from "@/lib/format";
 export const metadata = {
   title: "درباره ما و پشتیبانی",
   description:
-    "داستان آرک، شرایط گارانتی و بازگشت کالا، سؤالات متداول و راه‌های ارتباط با پشتیبانی.",
+    "داستان Hadi Store، شرایط گارانتی و بازگشت کالا، سؤالات متداول و راه‌های ارتباط با پشتیبانی.",
 };
 
 const statItems = [
@@ -68,7 +68,7 @@ export default function AboutPage() {
         <div className="grid-lines pointer-events-none absolute inset-0 opacity-50" aria-hidden />
         <div className="container-x relative grid gap-10 py-14 lg:grid-cols-[1.2fr_1fr] lg:py-20">
           <div>
-            <p className="eyebrow">درباره آرک</p>
+            <p className="eyebrow">درباره Hadi Store</p>
             <h1 className="mt-5 text-[clamp(2rem,4.5vw,3.4rem)] font-black leading-tight">
               تکنولوژی را ساده، اصل و
               <span className="relative mx-1 inline-block px-2">
@@ -78,7 +78,7 @@ export default function AboutPage() {
               تحویل می‌دهیم
             </h1>
             <p className="mt-5 max-w-xl text-sm leading-8 text-ink-soft/85">
-              آرک در سال ۱۳۹۸ با یک ایده ساده شروع شد: خرید گجت نباید پیچیده باشد. امروز بیش از
+              Hadi Store در سال ۱۳۹۸ با یک ایده ساده شروع شد: خرید گجت نباید پیچیده باشد. امروز بیش از
               دوازده هزار سفارش را تحویل داده‌ایم و همچنان همان وسواس روز اول را روی انتخاب محصول،
               بسته‌بندی و پاسخ‌گویی داریم.
             </p>
@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       <section className="container-x py-14">
-        <h2 className="text-2xl font-black sm:text-3xl">چرا آرک؟</h2>
+        <h2 className="text-2xl font-black sm:text-3xl">چرا Hadi Store؟</h2>
         <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value) => (
             <div key={value.title} className="surface p-5">
@@ -127,7 +127,7 @@ export default function AboutPage() {
         <article id="warranty" className="surface scroll-mt-32 p-6">
           <h2 className="text-lg font-black">گارانتی و خدمات پس از فروش</h2>
           <p className="mt-3 text-sm leading-7 text-ink-soft/80">
-            تمام محصولات آرک با گارانتی رسمی حداقل ۱۸ ماهه ارائه می‌شوند. برای استفاده از
+            تمام محصولات Hadi Store با گارانتی رسمی حداقل ۱۸ ماهه ارائه می‌شوند. برای استفاده از
             گارانتی، کارت گارانتی و فاکتور خرید را نگه دارید. مراکز خدمات مجاز در تهران، مشهد،
             اصفهان و شیراز فعال هستند و درخواست‌ها حداکثر تا ۷۲ ساعت بررسی می‌شوند.
           </p>
@@ -145,7 +145,7 @@ export default function AboutPage() {
           <h2 className="text-lg font-black">شرایط بازگشت کالا</h2>
           <p className="mt-3 text-sm leading-7 text-ink-soft/80">
             تا ۷ روز پس از تحویل، اگر کالا در بسته‌بندی اولیه و بدون آسیب باشد، می‌توانید درخواست
-            بازگشت ثبت کنید. هزینه ارسال بازگشت در صورت ایراد کالا با آرک است.
+            بازگشت ثبت کنید. هزینه ارسال بازگشت در صورت ایراد کالا با Hadi Store است.
           </p>
           <p className="mt-3 text-sm leading-7 text-ink-soft/80">
             کالاهای شخصی مانند هندزفری درون‌گوشی، در صورت باز شدن بسته‌بندی، تنها در صورت نقص فنی
@@ -201,8 +201,8 @@ export default function AboutPage() {
                 <PhoneIcon className="size-4" />
                 <span dir="ltr">۰۹۹۲ ۹۹۹ ۹۹۹۹</span>
               </a>
-              <a href="mailto:hello@arc.shop" className="btn btn-ghost">
-                hello@arc.shop
+              <a href="mailto:hello@hadistore.shop" className="btn btn-ghost">
+                hello@hadistore.shop
               </a>
             </div>
           </div>

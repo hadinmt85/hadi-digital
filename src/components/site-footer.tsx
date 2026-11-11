@@ -25,7 +25,7 @@ const columns = [
     ],
   },
   {
-    title: "آرک",
+    title: "Hadi Store",
     links: [
       { label: "درباره ما", href: "/about" },
       { label: "پنل مدیریت", href: "/admin" },
@@ -45,15 +45,15 @@ export function SiteFooter() {
             <div className="flex items-center gap-2">
               <ArcMark className="size-10" />
               <div className="leading-tight">
-                <p className="text-lg font-black">آرک</p>
-                <p className="text-[0.5rem] font-bold tracking-[0.3em] text-mute">
-                  ARC.SHOP
+                <p className="text-lg font-black">Hadi Store</p>
+                <p className="text-[0.5rem] font-bold tracking-[0.18em] text-mute">
+                  HADI STORE
                 </p>
               </div>
             </div>
 
             <p className="mt-4 max-w-sm text-xs leading-6 text-mute">
-              آرک یک فروشگاه تخصصی کالای دیجیتال است؛ جایی که تکنولوژی را ساده، اصل و با
+              Hadi Store یک فروشگاه تخصصی کالای دیجیتال است؛ جایی که تکنولوژی را ساده، اصل و با
               پشتیبانی انسانی تحویل می‌دهیم. از هدفون تا خانه هوشمند، همه‌چیز برای زندگی روزمره.
             </p>
 
@@ -69,7 +69,7 @@ export function SiteFooter() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="اینستاگرام آرک"
+                aria-label="اینستاگرام Hadi Store"
                 className="grid size-9 place-items-center rounded-lg border border-line transition hover:bg-[#f7f7f8]"
               >
                 <InstagramIcon className="size-4" />
@@ -78,7 +78,7 @@ export function SiteFooter() {
                 href="https://t.me"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="تلگرام آرک"
+                aria-label="تلگرام Hadi Store"
                 className="grid size-9 place-items-center rounded-lg border border-line transition hover:bg-[#f7f7f8]"
               >
                 <TelegramIcon className="size-4" />
@@ -108,7 +108,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-line py-4 text-[10px] text-mute sm:flex-row">
-          <p>© ۲۰۲۶ آرک — تمام حقوق محفوظ است.</p>
+          <p>© ۲۰۲۶ Hadi Store — تمام حقوق محفوظ است.</p>
           <p>قیمت‌ها به تومان و شامل مالیات بر ارزش افزوده است.</p>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default function AdminLoginPage() {
       <div className="mx-auto max-w-sm">
         <div className="surface p-6 sm:p-8">
           <ArcMark className="size-12 rounded-xl" />
-          <h1 className="mt-5 text-xl font-black">پنل مدیریت آرک</h1>
+          <h1 className="mt-5 text-xl font-black">پنل مدیریت Hadi Store</h1>
           <p className="mt-2 text-xs leading-6 text-mute">
             برای مشاهده سفارش‌ها، مدیریت موجودی و افزودن محصول وارد شوید.
           </p>

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!product) return { title: "محصول پیدا نشد" };
   return {
     title: product.name,
-    description: `${product.tagline} — خرید ${product.name} با گارانتی ۱۸ ماهه از آرک.`,
+    description: `${product.tagline} — خرید ${product.name} با گارانتی ۱۸ ماهه از Hadi Store.`,
   };
 }
 
@@ -191,7 +191,7 @@ async function ProductDetail({ params }: { params: Params }) {
           <h2 className="text-base font-black">درباره این محصول</h2>
           <p className="mt-4 text-sm leading-8 text-ink-soft/85">{product.description}</p>
           <p className="mt-4 text-sm leading-8 text-ink-soft/85">
-            آرک این محصول را با بسته‌بندی ضدضربه ارسال می‌کند و در صورت نیاز به راه‌اندازی،
+            Hadi Store این محصول را با بسته‌بندی ضدضربه ارسال می‌کند و در صورت نیاز به راه‌اندازی،
             راهنمای تصویری اختصاصی در اختیار شما قرار می‌گیرد. برای مشاوره پیش از خرید هم می‌توانید
             با کارشناسان ما تماس بگیرید.
           </p>

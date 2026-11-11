@@ -2,7 +2,7 @@ type MarkProps = {
   className?: string;
 };
 
-/** نشانهٔ آرک روی پس‌زمینهٔ تیره (نسخهٔ اصلی) */
+/** نشانهٔ Hadi Store روی پس‌زمینهٔ تیره (نسخهٔ اصلی) */
 export function ArcMark({ className = "" }: MarkProps) {
   return (
     <svg viewBox="0 0 120 120" className={className} aria-hidden="true">

@@ -84,7 +84,7 @@ export default async function HomePage() {
           ) : null}
           <div className="relative z-10 max-w-[280px]">
             <span className="inline-block rounded-full bg-lime px-2.5 py-1 text-[10px] font-black text-ink">
-              حراج پاییزه آرک
+              حراج پاییزه Hadi Store
             </span>
             <h1 className="mt-3 text-[26px] font-black leading-[1.4] sm:text-[30px]">
               تا ۴۰٪ تخفیف روی گجت‌های منتخب
@@ -252,7 +252,7 @@ export default async function HomePage() {
         <header className="mb-3 flex items-center justify-between gap-3">
           <h2 className="flex items-center gap-2 text-[15px] font-black">
             <span className="h-4 w-1 rounded-full bg-violet" aria-hidden />
-            تازه‌های آرک
+            تازه‌های Hadi Store
           </h2>
           <Link
             href="/products?sort=new"
@@ -267,7 +267,7 @@ export default async function HomePage() {
 
       {/* brands */}
       <section className="flex flex-col gap-3 rounded-xl border border-line bg-paper px-4 py-3 sm:flex-row sm:items-center">
-        <h3 className="shrink-0 text-[12px] font-extrabold">برندهای همراه آرک</h3>
+        <h3 className="shrink-0 text-[12px] font-extrabold">برندهای همراه Hadi Store</h3>
         <div className="flex flex-1 flex-wrap items-center justify-around gap-x-6 gap-y-2 text-[13px] font-black text-[#b7b7bf]">
           {brands.map((brand) => (
             <span key={brand} className="transition-colors hover:text-ink/60">
@@ -295,7 +295,7 @@ export default async function HomePage() {
 
       <div className="flex items-center justify-center gap-1.5 pb-2 pt-1 text-[10px] text-mute">
         <CheckIcon className="size-3.5 text-green" />
-        خرید مطمئن از آرک؛ اصالت کالا و بازگشت وجه تضمین شده است.
+        خرید مطمئن از Hadi Store؛ اصالت کالا و بازگشت وجه تضمین شده است.
       </div>
     </div>
   );

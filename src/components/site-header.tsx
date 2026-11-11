@@ -46,7 +46,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
               پیگیری سفارش
             </Link>
             <Link href="/about" className="transition hover:text-ink">
-              درباره آرک
+              درباره Hadi Store
             </Link>
           </div>
           <span className="flex items-center gap-1.5 font-semibold text-ink">
@@ -61,13 +61,13 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
           <Link
             href="/"
             className="flex shrink-0 items-center gap-2"
-            aria-label="آرک، صفحه اصلی"
+            aria-label="Hadi Store، صفحه اصلی"
           >
             <ArcMark className="size-10" />
             <span className="leading-tight">
-              <span className="block text-lg font-black">آرک</span>
-              <span className="block text-[0.5rem] font-bold tracking-[0.3em] text-mute">
-                ARC.SHOP
+              <span className="block text-lg font-black">Hadi Store</span>
+              <span className="block text-[0.5rem] font-bold tracking-[0.18em] text-mute">
+                HADI STORE
               </span>
             </span>
           </Link>
@@ -80,7 +80,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
             <input
               type="search"
               name="q"
-              placeholder="جستجو در آرک"
+              placeholder="جستجو در Hadi Store"
               aria-label="جستجوی محصولات"
               className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
             />
@@ -165,7 +165,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
             </Link>
           ))}
           <span className="ms-auto hidden text-[10px] text-mute xl:inline">
-            {pathname === "/" ? "خرید آسان، تحویل سریع" : "آرک | فروشگاه گجت"}
+            {pathname === "/" ? "خرید آسان، تحویل سریع" : "Hadi Store | فروشگاه گجت"}
           </span>
         </nav>
       </div>
@@ -181,7 +181,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
               <input
                 type="search"
                 name="q"
-                placeholder="جستجو در آرک..."
+                placeholder="جستجو در Hadi Store..."
                 aria-label="جستجوی محصولات"
                 className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
               />

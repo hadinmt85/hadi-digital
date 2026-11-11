@@ -14,7 +14,7 @@ export function AuthShell({ children }: { children: ReactNode }) {
             <ArcMarkInverse className="size-12" />
           </div>
           <div className="relative">
-            <p className="text-lg font-black leading-8">خرید مطمئن از آرک</p>
+            <p className="text-lg font-black leading-8">خرید مطمئن از Hadi Store</p>
             <p className="mt-2 text-[11px] leading-6 text-white/55">
               حساب کاربری بساز تا سفارش‌ها، پیگیری و پیشنهادهای ویژه‌ات یک‌جا باشد.
             </p>
@@ -27,8 +27,8 @@ export function AuthShell({ children }: { children: ReactNode }) {
               ))}
             </ul>
           </div>
-          <div className="relative text-[9px] font-bold tracking-[0.3em] text-white/35">
-            ARC.SHOP
+          <div className="relative text-[9px] font-bold tracking-[0.18em] text-white/35">
+            HADI STORE
           </div>
         </aside>
       </div>

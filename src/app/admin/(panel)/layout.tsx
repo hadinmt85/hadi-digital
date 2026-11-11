@@ -34,7 +34,7 @@ async function AdminGate({ children }: { children: ReactNode }) {
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-[1.75rem] bg-ink px-5 py-4 text-white">
         <div>
           <p className="text-[0.65rem] font-bold tracking-widest text-white/45">پنل مدیریت</p>
-          <p className="text-lg font-black">داشبورد آرک</p>
+          <p className="text-lg font-black">داشبورد Hadi Store</p>
         </div>
         <div className="flex items-center gap-2">
           <Link

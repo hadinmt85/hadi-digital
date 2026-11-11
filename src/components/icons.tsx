@@ -161,6 +161,53 @@ export function PhoneIcon(props: IconProps) {
   );
 }
 
+export function UserIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" />
+    </svg>
+  );
+}
+
+export function MailIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3.5 7 8.5 6 8.5-6" />
+    </svg>
+  );
+}
+
+export function EyeIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+export function EyeOffIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 3l18 18" />
+      <path d="M10.6 6.2A10.9 10.9 0 0 1 12 6c6.4 0 10 6 10 6a17.3 17.3 0 0 1-2.4 3.1" />
+      <path d="M6.3 7.3A17.6 17.6 0 0 0 2 12s3.6 6 10 6a10.6 10.6 0 0 0 4.2-.8" />
+      <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+    </svg>
+  );
+}
+
+export function LogoutIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4" />
+      <path d="M10 8l-4 4 4 4M6 12h10" />
+    </svg>
+  );
+}
+
 export function InstagramIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>

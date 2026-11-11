@@ -6,6 +6,7 @@ import { CartProvider } from "@/components/cart-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteHeaderFallback } from "@/components/site-header-fallback";
+import { getCurrentUser } from "@/lib/session";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -33,13 +34,18 @@ export const metadata: Metadata = {
   },
 };
 
+async function SiteHeaderWithSession() {
+  const user = await getCurrentUser();
+  return <SiteHeader user={user ? { username: user.username } : null} />;
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fa" dir="rtl" data-scroll-behavior="smooth" className={`${vazirmatn.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <CartProvider>
           <Suspense fallback={<SiteHeaderFallback />}>
-            <SiteHeader />
+            <SiteHeaderWithSession />
           </Suspense>
           <main className="flex-1">{children}</main>
           <SiteFooter />

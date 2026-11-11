@@ -6,7 +6,15 @@ import { useState } from "react";
 import { ArcMark } from "@/components/brand-logo";
 import { CategoryIcon } from "@/components/category-icon";
 import { useCart } from "@/components/cart-provider";
-import { CartIcon, CloseIcon, MenuIcon, SearchIcon } from "@/components/icons";
+import { logoutAction } from "@/lib/auth-actions";
+import {
+  CartIcon,
+  CloseIcon,
+  LogoutIcon,
+  MenuIcon,
+  SearchIcon,
+  UserIcon,
+} from "@/components/icons";
 import { navCategories } from "@/lib/nav-categories";
 
 const navCats = navCategories.slice(0, 10).map((category) => ({
@@ -21,7 +29,7 @@ const mobileLinks = [
   { href: "/about", label: "درباره ما" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ user }: { user: { username: string } | null }) {
   const pathname = usePathname();
   const { count, ready } = useCart();
   const [open, setOpen] = useState(false);
@@ -82,12 +90,24 @@ export function SiteHeader() {
           </form>
 
           <div className="ms-auto flex items-center gap-2 md:ms-0">
-            <Link
-              href="/admin/login"
-              className="hidden h-10 items-center gap-2 rounded-lg border border-line px-3 text-[11px] font-bold transition hover:bg-[#f7f7f8] sm:flex"
-            >
-              ورود | ثبت‌نام
-            </Link>
+            {user ? (
+              <Link
+                href="/account"
+                className="hidden h-10 items-center gap-2 rounded-lg border border-line px-3 text-[11px] font-bold transition hover:bg-[#f7f7f8] sm:flex"
+              >
+                <UserIcon className="size-4 text-mute" />
+                <span className="max-w-[90px] truncate" dir="ltr">
+                  {user.username}
+                </span>
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="hidden h-10 items-center gap-2 rounded-lg border border-line px-3 text-[11px] font-bold transition hover:bg-[#f7f7f8] sm:flex"
+              >
+                ورود | ثبت‌نام
+              </Link>
+            )}
 
             <Link
               href="/cart"
@@ -196,12 +216,34 @@ export function SiteHeader() {
               ))}
             </div>
 
-            <Link
-              href="/admin/login"
-              className="flex items-center justify-center rounded-lg bg-ink py-2.5 text-[11.5px] font-bold text-white"
-            >
-              ورود | ثبت‌نام
-            </Link>
+            {user ? (
+              <div className="space-y-1.5">
+                <Link
+                  href="/account"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-center gap-2 rounded-lg bg-ink py-2.5 text-[11.5px] font-bold text-white"
+                >
+                  <UserIcon className="size-4" />
+                  حساب من
+                </Link>
+                <form action={logoutAction}>
+                  <button
+                    type="submit"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg border border-line py-2.5 text-[11.5px] font-bold text-ink-soft"
+                  >
+                    <LogoutIcon className="size-4" />
+                    خروج از حساب
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="flex items-center justify-center rounded-lg bg-ink py-2.5 text-[11.5px] font-bold text-white"
+              >
+                ورود | ثبت‌نام
+              </Link>
+            )}
           </div>
         </div>
       ) : null}

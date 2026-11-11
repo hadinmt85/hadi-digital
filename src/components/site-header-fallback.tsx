@@ -40,9 +40,9 @@ export function SiteHeaderFallback() {
           </div>
 
           <div className="ms-auto flex items-center gap-2 md:ms-0">
-            <span className="hidden h-10 items-center rounded-lg border border-line px-3 text-[11px] font-bold sm:flex">
+            <Link href="/login" className="hidden h-10 items-center rounded-lg border border-line px-3 text-[11px] font-bold sm:flex">
               ورود | ثبت‌نام
-            </span>
+            </Link>
             <span className="relative grid size-10 place-items-center rounded-lg border border-line">
               <CartIcon className="size-5" />
             </span>

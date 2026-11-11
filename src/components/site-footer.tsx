@@ -16,6 +16,7 @@ const columns = [
   {
     title: "خدمات مشتریان",
     links: [
+      { label: "حساب کاربری", href: "/account" },
       { label: "پیگیری سفارش", href: "/cart" },
       { label: "شرایط بازگشت کالا", href: "/about#returns" },
       { label: "گارانتی و خدمات", href: "/about#warranty" },

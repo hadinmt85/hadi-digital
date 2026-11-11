@@ -4,29 +4,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ArcMark } from "@/components/brand-logo";
+import { CategoryIcon } from "@/components/category-icon";
 import { useCart } from "@/components/cart-provider";
 import { CartIcon, CloseIcon, MenuIcon, SearchIcon } from "@/components/icons";
+import { navCategories } from "@/lib/nav-categories";
 
-const navCats = [
-  { href: "/products?category=audio", label: "هدفون" },
-  { href: "/products?category=wearables", label: "ساعت هوشمند" },
-  { href: "/products?category=mobile", label: "موبایل" },
-  { href: "/products?category=tablets", label: "تبلت" },
-  { href: "/products?category=computer", label: "لپ‌تاپ" },
-  { href: "/products?category=gaming", label: "گیمینگ" },
-  { href: "/products?category=camera", label: "دوربین" },
-  { href: "/products?category=power", label: "پاوربانک" },
-  { href: "/products?category=smart-home", label: "خانه هوشمند" },
-  { href: "/products?category=accessories", label: "لوازم جانبی" },
-];
+const navCats = navCategories.slice(0, 10).map((category) => ({
+  href: `/products?category=${category.slug}`,
+  label: category.name.replace("گوشی موبایل", "موبایل").replace("تبلت و کتاب‌خوان", "تبلت"),
+}));
 
 const mobileLinks = [
   { href: "/", label: "خانه" },
   { href: "/products", label: "همه محصولات" },
   { href: "/products?sort=cheap", label: "پیشنهاد شگفت‌انگیز" },
-  { href: "/products?category=gaming", label: "گیمینگ" },
-  { href: "/products?category=audio", label: "صدا و هدفون" },
-  { href: "/products?category=smart-home", label: "خانه هوشمند" },
   { href: "/about", label: "درباره ما" },
 ];
 
@@ -160,7 +151,10 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div id="mobile-menu" className="border-b border-line bg-paper lg:hidden">
+        <div
+          id="mobile-menu"
+          className="max-h-[72vh] overflow-y-auto border-b border-line bg-paper lg:hidden"
+        >
           <div className="container-x space-y-3 py-4">
             <form action="/products" className="flex h-11 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3">
               <SearchIcon className="size-4 shrink-0 text-mute" />
@@ -172,6 +166,23 @@ export function SiteHeader() {
                 className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
               />
             </form>
+
+            <p className="text-[10px] font-extrabold text-mute">دسته‌بندی کالاها</p>
+            <div className="grid grid-cols-3 gap-1.5">
+              {navCategories.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/products?category=${category.slug}`}
+                  onClick={() => setOpen(false)}
+                  className="flex flex-col items-center gap-1.5 rounded-lg border border-line bg-paper py-2.5 text-[9.5px] font-bold text-ink-soft"
+                >
+                  <CategoryIcon slug={category.slug} className="size-5" />
+                  <span className="px-1 text-center leading-4">{category.name}</span>
+                </Link>
+              ))}
+            </div>
+
+            <p className="text-[10px] font-extrabold text-mute">صفحات</p>
             <div className="grid grid-cols-2 gap-1.5">
               {mobileLinks.map((link) => (
                 <Link
@@ -184,6 +195,7 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
+
             <Link
               href="/admin/login"
               className="flex items-center justify-center rounded-lg bg-ink py-2.5 text-[11.5px] font-bold text-white"

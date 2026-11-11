@@ -42,18 +42,18 @@ export default async function HomePage() {
     <div className="container-x space-y-3 py-4">
       {/* hero */}
       <section className="grid gap-3 rounded-xl border border-line bg-paper p-2.5 lg:grid-cols-[212px_1fr_196px]">
-        <aside className="hidden lg:block">
-          <ul className="border-e border-line pe-1.5">
+        <aside className="min-w-0">
+          <ul className="no-scrollbar flex gap-1 overflow-x-auto pb-1 lg:block lg:space-y-0 lg:overflow-visible lg:border-e lg:border-line lg:pe-1.5 lg:pb-0">
             {categories.map((category) => (
-              <li key={category.slug}>
+              <li key={category.slug} className="shrink-0 lg:block">
                 <Link
                   href={`/products?category=${category.slug}`}
-                  className="flex items-center justify-between rounded-md px-2 py-1.5 text-[11.5px] text-ink-soft transition hover:bg-[#f5f5f6] hover:text-ink"
+                  className="flex items-center justify-between gap-2 whitespace-nowrap rounded-md px-2.5 py-1.5 text-[11px] text-ink-soft transition hover:bg-[#f5f5f6] hover:text-ink lg:text-[11.5px]"
                 >
                   <span>{category.name}</span>
                   <svg
                     viewBox="0 0 24 24"
-                    className="size-3 text-[#c2c2c9]"
+                    className="hidden size-3 shrink-0 text-[#c2c2c9] lg:block"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"

@@ -84,8 +84,8 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
 
   return (
     <div className="mt-4 grid gap-4 md:grid-cols-[15rem_1fr]">
-      <aside className="md:sticky md:top-32 md:h-fit">
-        <div className="surface p-4">
+      <aside className="min-w-0 md:sticky md:top-32 md:h-fit">
+        <div className="surface min-w-0 p-4">
           <p className="text-xs font-extrabold">دسته‌بندی</p>
           <ul className="no-scrollbar mt-3 flex gap-1.5 overflow-x-auto pb-1 md:block md:space-y-0.5 md:overflow-visible md:pb-0">
             <li className="shrink-0 md:block">
@@ -120,7 +120,7 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
           </ul>
         </div>
 
-        <div className="mt-3 overflow-hidden rounded-xl bg-violet p-4 text-white">
+        <div className="mt-3 hidden overflow-hidden rounded-xl bg-violet p-4 text-white md:block">
           <p className="text-[10px] font-black text-lime">مشاوره خرید</p>
           <p className="mt-1.5 text-xs font-bold leading-6">
             مطمئن نیستی کدام گجت مناسبته؟
@@ -132,7 +132,7 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
         </div>
       </aside>
 
-      <div>
+      <div className="min-w-0">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-[10.5px] font-bold text-mute">مرتب‌سازی:</span>

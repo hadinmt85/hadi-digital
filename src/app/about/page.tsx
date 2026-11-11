@@ -197,9 +197,9 @@ export default function AboutPage() {
               می‌دهد. میانگین زمان پاسخ‌گویی: کمتر از ۱۵ دقیقه.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="tel:+982112345678" className="btn btn-primary">
+              <a href="tel:+982177984561" className="btn btn-primary">
                 <PhoneIcon className="size-4" />
-                ۰۲۱-۱۲۳۴۵۶۷۸
+                ۰۲۱-۷۷۹۸۴۵۶۱
               </a>
               <a href="mailto:hello@arc.shop" className="btn btn-ghost">
                 hello@arc.shop

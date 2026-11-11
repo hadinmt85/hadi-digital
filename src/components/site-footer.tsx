@@ -62,7 +62,7 @@ export function SiteFooter() {
                 className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 font-bold transition hover:bg-[#f7f7f8]"
               >
                 <PhoneIcon className="size-4 text-mute" />
-                ۰۹۹۲ ۹۹۹ ۹۹۹۹
+                <span dir="ltr">۰۹۹۲ ۹۹۹ ۹۹۹۹</span>
               </a>
               <a
                 href="https://instagram.com"

@@ -199,7 +199,7 @@ export default function AboutPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="tel:+989929999999" className="btn btn-primary">
                 <PhoneIcon className="size-4" />
-                ۰۹۹۲ ۹۹۹ ۹۹۹۹
+                <span dir="ltr">۰۹۹۲ ۹۹۹ ۹۹۹۹</span>
               </a>
               <a href="mailto:hello@arc.shop" className="btn btn-ghost">
                 hello@arc.shop

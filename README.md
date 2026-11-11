@@ -3,7 +3,7 @@
 فروشگاه اینترنتی کالای دیجیتال با **Next.js 16 (App Router)**، طراحی فارسی راست‌چین و دیتابیس **Postgres**.
 
 > 🚀 نسخهٔ آنلاین: **https://gadgetland-zeta.vercel.app**
-> 📦 سورس‌کد: **https://github.com/hadinmt85/arc-store**
+> 📦 سورس‌کد: **https://github.com/hadinmt85/hadi-store**
 > 🔐 پنل مدیریت: `/admin` — رمز فعلی: `GadgetLand-1405!`
 
 - **تولید:** Postgres (سازگار با Vercel Postgres / Neon) از طریق `DATABASE_URL`

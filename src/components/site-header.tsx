@@ -6,10 +6,12 @@ import { useState } from "react";
 import { ArcMark } from "@/components/brand-logo";
 import { CategoryIcon } from "@/components/category-icon";
 import { useCart } from "@/components/cart-provider";
+import { useWishlist } from "@/components/wishlist-provider";
 import { logoutAction } from "@/lib/auth-actions";
 import {
   CartIcon,
   CloseIcon,
+  HeartIcon,
   LogoutIcon,
   MenuIcon,
   SearchIcon,
@@ -26,12 +28,14 @@ const mobileLinks = [
   { href: "/", label: "خانه" },
   { href: "/products", label: "همه محصولات" },
   { href: "/products?sort=cheap", label: "پیشنهاد شگفت‌انگیز" },
+  { href: "/favorites", label: "مورد علاقه‌ها" },
   { href: "/about", label: "درباره ما" },
 ];
 
 export function SiteHeader({ user }: { user: { username: string } | null }) {
   const pathname = usePathname();
   const { count, ready } = useCart();
+  const { count: favoriteCount, ready: wishlistReady } = useWishlist();
   const [open, setOpen] = useState(false);
 
   return (
@@ -108,6 +112,22 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
                 ورود | ثبت‌نام
               </Link>
             )}
+
+            <Link
+              href="/favorites"
+              aria-label="مورد علاقه‌ها"
+              className="relative hidden size-10 place-items-center rounded-lg border border-line transition hover:bg-[#f7f7f8] sm:grid"
+            >
+              <HeartIcon className="size-5" />
+              {wishlistReady && favoriteCount > 0 ? (
+                <span
+                  suppressHydrationWarning
+                  className="absolute -end-1.5 -top-1.5 grid min-w-[17px] place-items-center rounded-full bg-coral px-1 text-[9px] font-black text-white"
+                >
+                  {favoriteCount}
+                </span>
+              ) : null}
+            </Link>
 
             <Link
               href="/cart"

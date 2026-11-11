@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { FavoriteButton } from "@/components/favorite-button";
 import { StarIcon } from "@/components/icons";
 import { ProductArt } from "@/components/product-art";
 import { discountPercent, faNumber, shippingRules, toman } from "@/lib/format";
@@ -32,34 +33,38 @@ export function ProductCard({
 
   return (
     <article
-      className={`group flex flex-col bg-paper ${
+      className={`group relative flex flex-col bg-paper ${
         bare
           ? "min-w-0"
           : "rounded-lg border border-line p-2.5 transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-18px_rgba(28,27,34,0.35)]"
       }`}
     >
-      <Link href={`/products/${product.slug}`} className="relative block overflow-hidden rounded-md bg-[#f7f7f8]">
-        <ProductArt product={product} plain className="aspect-square" />
-        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-2">
-          {off > 0 ? (
-            <span className="rounded-full bg-coral px-2 py-0.5 text-[10px] font-black text-white">
-              {faNumber(off)}٪
-            </span>
-          ) : (
-            <span />
-          )}
-          {product.badge ? (
-            <span className="rounded-full bg-ink/80 px-2 py-0.5 text-[9px] font-bold text-white backdrop-blur">
-              {product.badge}
+      <div className="relative">
+        <Link
+          href={`/products/${product.slug}`}
+          className="relative block overflow-hidden rounded-md bg-[#f7f7f8]"
+        >
+          <ProductArt product={product} plain className="aspect-square" />
+          <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-start gap-1 p-2 pe-10">
+            {off > 0 ? (
+              <span className="rounded-full bg-coral px-2 py-0.5 text-[10px] font-black text-white">
+                {faNumber(off)}٪
+              </span>
+            ) : null}
+            {product.badge ? (
+              <span className="rounded-full bg-ink/80 px-2 py-0.5 text-[9px] font-bold text-white backdrop-blur">
+                {product.badge}
+              </span>
+            ) : null}
+          </div>
+          {product.stock === 0 ? (
+            <span className="absolute inset-x-0 bottom-0 bg-ink/70 py-1 text-center text-[9px] font-bold text-white">
+              ناموجود
             </span>
           ) : null}
-        </div>
-        {product.stock === 0 ? (
-          <span className="absolute inset-x-0 bottom-0 bg-ink/70 py-1 text-center text-[9px] font-bold text-white">
-            ناموجود
-          </span>
-        ) : null}
-      </Link>
+        </Link>
+        <FavoriteButton product={product} className="absolute top-2 left-2 z-10" />
+      </div>
 
       <h3 className="mt-2 line-clamp-2 min-h-[44px] text-[11.5px] leading-[1.9] text-ink-soft">
         <Link href={`/products/${product.slug}`} className="transition-colors hover:text-ink">

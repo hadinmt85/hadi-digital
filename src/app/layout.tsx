@@ -3,6 +3,7 @@ import { Vazirmatn } from "next/font/google";
 import { Suspense, type ReactNode } from "react";
 import "./globals.css";
 import { CartProvider } from "@/components/cart-provider";
+import { WishlistProvider } from "@/components/wishlist-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteHeaderFallback } from "@/components/site-header-fallback";
@@ -44,11 +45,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fa" dir="rtl" data-scroll-behavior="smooth" className={`${vazirmatn.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <CartProvider>
-          <Suspense fallback={<SiteHeaderFallback />}>
-            <SiteHeaderWithSession />
-          </Suspense>
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
+          <WishlistProvider>
+            <Suspense fallback={<SiteHeaderFallback />}>
+              <SiteHeaderWithSession />
+            </Suspense>
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </WishlistProvider>
         </CartProvider>
       </body>
     </html>

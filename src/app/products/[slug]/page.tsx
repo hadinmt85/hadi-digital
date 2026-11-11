@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { AddToCartPanel } from "@/components/add-to-cart-panel";
+import { FavoriteButton } from "@/components/favorite-button";
 import {
   CheckIcon,
   CardIcon,
@@ -108,19 +109,22 @@ async function ProductDetail({ params }: { params: Params }) {
         </div>
 
         <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <Link
-              href={`/products?category=${product.categorySlug}`}
-              className="eyebrow hover:bg-ink/10"
-            >
-              {product.categoryName}
-            </Link>
-            <span className="text-xs font-bold text-mute">{product.brand}</span>
-            {product.badge ? (
-              <span className="rounded-full bg-coral px-2.5 py-1 text-[0.65rem] font-black text-white">
-                {product.badge}
-              </span>
-            ) : null}
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href={`/products?category=${product.categorySlug}`}
+                className="eyebrow hover:bg-ink/10"
+              >
+                {product.categoryName}
+              </Link>
+              <span className="text-xs font-bold text-mute">{product.brand}</span>
+              {product.badge ? (
+                <span className="rounded-full bg-coral px-2.5 py-1 text-[0.65rem] font-black text-white">
+                  {product.badge}
+                </span>
+              ) : null}
+            </div>
+            <FavoriteButton product={product} size="md" className="shrink-0" />
           </div>
 
           <h1 className="mt-4 text-2xl font-black leading-snug sm:text-3xl">{product.name}</h1>

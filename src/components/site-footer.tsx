@@ -8,6 +8,7 @@ const columns = [
     links: [
       { label: "همه محصولات", href: "/products" },
       { label: "پیشنهاد شگفت‌انگیز", href: "/products?sort=cheap" },
+      { label: "مورد علاقه‌ها", href: "/favorites" },
       { label: "پرفروش‌ترین‌ها", href: "/products?sort=rating" },
       { label: "هدفون و صدا", href: "/products?category=audio" },
       { label: "گیمینگ", href: "/products?category=gaming" },

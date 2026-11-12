@@ -242,6 +242,11 @@
   animation: marquee-rtl 26s linear infinite;
 }
 
+/* فضای امن پایین صفحه وقتی نوار مقایسه ثابت است */
+body.has-compare-bar {
+  padding-bottom: 5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
   .animate-float,

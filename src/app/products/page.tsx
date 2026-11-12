@@ -94,9 +94,11 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
   return (
     <div className="mt-4 grid gap-4 md:grid-cols-[15rem_1fr]">
       <aside className="min-w-0 md:sticky md:top-32 md:h-fit">
-        <CategoryPanel {...filterProps} />
+        <FiltersPanel {...filterProps} className="hidden md:block" />
 
-        <FiltersPanel {...filterProps} className="mt-3 hidden md:block" />
+        <div className="mt-3">
+          <CategoryPanel {...filterProps} />
+        </div>
 
         <div className="mt-3 hidden overflow-hidden rounded-xl bg-violet p-4 text-white md:block">
           <p className="text-[10px] font-black text-white">مشاوره خرید</p>

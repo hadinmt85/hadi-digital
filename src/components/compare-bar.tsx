@@ -2,12 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useCompare } from "@/components/compare-provider";
 import { CloseIcon, CompareIcon } from "@/components/icons";
 import { faNumber } from "@/lib/format";
 
 export function CompareBar() {
   const { items, count, remove, clear, ready } = useCompare();
+
+  useEffect(() => {
+    if (!ready || count === 0) return;
+    document.body.classList.add("has-compare-bar");
+    return () => document.body.classList.remove("has-compare-bar");
+  }, [ready, count]);
 
   if (!ready || count === 0) return null;
 

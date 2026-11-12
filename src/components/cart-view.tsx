@@ -190,7 +190,7 @@ export function CartView() {
             </div>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink/10">
               <div
-                className="h-full rounded-full bg-violet transition-all"
+                className="h-full rounded-full bg-coral transition-all"
                 style={{ width: `${progress}%` }}
               />
             </div>

@@ -296,7 +296,7 @@ export function SearchBox({
               <Link
                 href={`/products?q=${encodeURIComponent(query.trim())}`}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between border-t border-line bg-[#f7f7f8] px-4 py-2.5 text-[10.5px] font-bold text-coral transition hover:bg-[#fff0f3]"
+                className="flex items-center justify-center gap-1.5 border-t border-line bg-[#f7f7f8] px-4 py-2.5 text-[10.5px] font-bold text-coral transition hover:bg-[#fff0f3]"
               >
                 مشاهدهٔ همهٔ نتایج برای «{query.trim()}»
                 <ArrowLeftIcon className="size-3.5" />

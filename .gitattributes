@@ -1,0 +1,6 @@
+# Design mockups are documentation, not part of the app build.
+# Excluding them keeps GitHub's language stats focused on the TypeScript source.
+branding/** linguist-documentation linguist-generated -linguist-detectable
+
+# Lockfiles are generated, too.
+package-lock.json linguist-generated

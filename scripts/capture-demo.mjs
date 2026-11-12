@@ -124,7 +124,7 @@ await evaluate(`(async () => {
   const input = [...document.querySelectorAll('input[name="q"]')].find(i => i.getBoundingClientRect().height > 0);
   if (!input) return 0;
   const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
-  setter.call(input, 'هدفون');
+  setter.call(input, 'هوشمند');
   input.dispatchEvent(new Event('input', { bubbles: true }));
   input.focus();
   await new Promise(r => setTimeout(r, 2400));

@@ -122,12 +122,12 @@ export function CompareView({ products }: { products: Product[] }) {
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-line bg-paper">
-        <table className="w-full min-w-[720px] text-right">
+        <table className="w-full min-w-[720px] table-fixed text-right">
           <thead>
             <tr className="border-b border-line">
-              <th className="w-28 p-3" />
+              <th className="w-24 p-3" />
               {selected.map((product) => (
-                <th key={product.id} className="p-3 align-top">
+                <th key={product.id} className="p-3 align-top text-center">
                   <div className="relative">
                     <button
                       type="button"
@@ -151,7 +151,7 @@ export function CompareView({ products }: { products: Product[] }) {
                           <span className="text-3xl">{product.emoji}</span>
                         )}
                       </span>
-                      <span className="mt-2 line-clamp-2 block min-h-[34px] text-[11px] font-bold leading-5 text-ink hover:text-coral">
+                      <span className="mt-2 line-clamp-2 block min-h-[34px] text-center text-[11px] font-bold leading-5 text-ink hover:text-coral">
                         {product.name}
                       </span>
                     </Link>
@@ -163,7 +163,7 @@ export function CompareView({ products }: { products: Product[] }) {
           <tbody>
             {rows.map((row) => (
               <tr key={row.label} className="border-b border-line last:border-0">
-                <th className="bg-[#f7f7f8] p-3 text-[10px] font-bold text-mute">{row.label}</th>
+                <th className="w-24 bg-[#f7f7f8] p-3 text-[10px] font-bold text-mute">{row.label}</th>
                 {selected.map((product) => (
                   <td key={product.id} className="p-3 align-middle">
                     {row.render(product)}

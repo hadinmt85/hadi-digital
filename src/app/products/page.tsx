@@ -114,15 +114,15 @@ async function Results({ searchParams }: { searchParams: Promise<Search> }) {
 
       <div className="min-w-0">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[10.5px] font-bold text-mute">مرتب‌سازی:</span>
+          <div className="no-scrollbar flex items-center gap-1.5 overflow-x-auto pb-0.5">
+            <span className="shrink-0 text-[10.5px] font-bold text-mute">مرتب‌سازی:</span>
             {sortOptions.map((option) => {
               const active = (params.sort ?? "featured") === option.value;
               return (
                 <Link
                   key={option.value}
                   href={buildProductsUrl(params, { sort: option.value, page: 1 })}
-                  className={`rounded-md border px-2.5 py-1.5 text-[10.5px] font-bold transition ${
+                  className={`shrink-0 rounded-md border px-2.5 py-1.5 text-[10.5px] font-bold transition ${
                     active
                       ? "border-ink bg-ink text-white"
                       : "border-line bg-paper text-ink-soft hover:border-ink/30"

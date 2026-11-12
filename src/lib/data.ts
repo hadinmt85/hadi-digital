@@ -1,7 +1,8 @@
 import { cacheLife, cacheTag } from "next/cache";
 import { query, withTransaction } from "@/lib/db";
-import { shippingFor } from "@/lib/format";
-import type { Category, Order, OrderItem, Product, ProductQuery } from "@/lib/types";
+import { brandToSlug } from "@/lib/brands";
+import { shippingFor, shippingRules } from "@/lib/format";
+import type { BrandInfo, Category, Order, OrderItem, Product, ProductQuery } from "@/lib/types";
 
 type ProductRow = {
   id: number;
@@ -143,6 +144,54 @@ const SORT_MAP: Record<string, string> = {
   rating: "p.rating DESC, p.review_count DESC",
 };
 
+/** شرط‌های مشترک فیلتر محصولات برای لیست و شمارش. */
+function buildProductWhere(filters: ProductQuery): { where: string; params: unknown[] } {
+  const where: string[] = [];
+  const params: unknown[] = [];
+
+  if (filters.category) {
+    params.push(filters.category);
+    where.push(`p.category_slug = $${params.length}`);
+  }
+
+  if (filters.q && filters.q.trim().length > 0) {
+    params.push(`%${filters.q.trim()}%`);
+    const index = params.length;
+    where.push(`(p.name ILIKE $${index} OR p.brand ILIKE $${index} OR p.tagline ILIKE $${index})`);
+  }
+
+  if (filters.brands && filters.brands.length > 0) {
+    params.push(filters.brands);
+    where.push(`p.brand = ANY($${params.length}::text[])`);
+  }
+
+  if (typeof filters.minPrice === "number" && Number.isFinite(filters.minPrice)) {
+    params.push(filters.minPrice);
+    where.push(`p.price >= $${params.length}`);
+  }
+
+  if (typeof filters.maxPrice === "number" && Number.isFinite(filters.maxPrice)) {
+    params.push(filters.maxPrice);
+    where.push(`p.price <= $${params.length}`);
+  }
+
+  if (typeof filters.minRating === "number" && Number.isFinite(filters.minRating)) {
+    params.push(filters.minRating);
+    where.push(`p.rating >= $${params.length}`);
+  }
+
+  if (filters.inStock) {
+    where.push("p.stock > 0");
+  }
+
+  if (filters.freeShipping) {
+    params.push(shippingRules.freeThreshold);
+    where.push(`p.price >= $${params.length}`);
+  }
+
+  return { where: where.length ? `WHERE ${where.join(" AND ")}` : "", params };
+}
+
 /* -------------------------------------------------------------------------- */
 /* خواندن داده‌ها (کش‌شده در Next.js با tag محصولات)                            */
 /* -------------------------------------------------------------------------- */
@@ -166,31 +215,62 @@ export async function getProducts(filters: ProductQuery = {}): Promise<Product[]
   cacheTag("products");
   cacheLife("hours");
 
-  const where: string[] = [];
-  const params: unknown[] = [];
-
-  if (filters.category) {
-    params.push(filters.category);
-    where.push(`p.category_slug = $${params.length}`);
-  }
-
-  if (filters.q && filters.q.trim().length > 0) {
-    params.push(`%${filters.q.trim()}%`);
-    const index = params.length;
-    where.push(`(p.name ILIKE $${index} OR p.brand ILIKE $${index} OR p.tagline ILIKE $${index})`);
-  }
-
+  const { where, params } = buildProductWhere(filters);
   const orderBy = SORT_MAP[filters.sort ?? "featured"] ?? SORT_MAP.featured;
   const limit = filters.limit && filters.limit > 0 ? Math.min(filters.limit, 100) : 60;
-  params.push(limit);
+  const offset = filters.offset && filters.offset > 0 ? Math.floor(filters.offset) : 0;
 
   const sql = `${PRODUCT_SELECT}
-    ${where.length ? `WHERE ${where.join(" AND ")}` : ""}
+    ${where}
     ORDER BY ${orderBy}
-    LIMIT $${params.length}`;
+    LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
 
-  const rows = await query<ProductRow>(sql, params);
+  const rows = await query<ProductRow>(sql, [...params, limit, offset]);
   return rows.map(mapProduct);
+}
+
+export async function getProductCount(filters: ProductQuery = {}): Promise<number> {
+  "use cache";
+  cacheTag("products");
+  cacheLife("hours");
+
+  const { where, params } = buildProductWhere(filters);
+  const rows = await query<{ count: number }>(
+    `SELECT COUNT(*)::int AS count FROM products p ${where}`,
+    params,
+  );
+  return Number(rows[0]?.count ?? 0);
+}
+
+export async function getBrands(): Promise<BrandInfo[]> {
+  "use cache";
+  cacheTag("products");
+  cacheLife("hours");
+
+  const rows = await query<{ brand: string; count: number }>(
+    `SELECT p.brand, COUNT(*)::int AS count
+     FROM products p
+     GROUP BY p.brand
+     ORDER BY count DESC, p.brand ASC`,
+  );
+
+  return rows.map((row) => ({
+    name: row.brand,
+    slug: brandToSlug(row.brand),
+    count: Number(row.count),
+  }));
+}
+
+export async function getCategoryCounts(): Promise<Record<string, number>> {
+  "use cache";
+  cacheTag("products");
+  cacheLife("hours");
+
+  const rows = await query<{ category_slug: string; count: number }>(
+    "SELECT category_slug, COUNT(*)::int AS count FROM products GROUP BY category_slug",
+  );
+
+  return Object.fromEntries(rows.map((row) => [row.category_slug, Number(row.count)]));
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
@@ -232,6 +312,32 @@ export async function getRelatedProducts(
     merged.push(row);
   }
   return merged.map(mapProduct);
+}
+
+export async function getFrequentlyBoughtTogether(
+  productId: number,
+  limit = 3,
+): Promise<Product[]> {
+  "use cache";
+  cacheTag("products");
+  cacheLife("hours");
+
+  const rows = await query<ProductRow>(
+    `${PRODUCT_SELECT}
+     WHERE p.id IN (
+       SELECT oi2.product_id
+       FROM order_items oi
+       JOIN order_items oi2 ON oi2.order_id = oi.order_id AND oi2.product_id <> oi.product_id
+       WHERE oi.product_id = $1
+       GROUP BY oi2.product_id
+       ORDER BY COUNT(*) DESC
+       LIMIT $2
+     )
+     ORDER BY p.rating DESC`,
+    [productId, limit],
+  );
+
+  return rows.map(mapProduct);
 }
 
 export async function getProductSlugs(): Promise<string[]> {

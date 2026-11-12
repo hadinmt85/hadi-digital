@@ -13,7 +13,8 @@ import {
   TruckIcon,
 } from "@/components/icons";
 import { ProductArt } from "@/components/product-art";
-import { faNumber, shippingFor, toman, toEnDigits } from "@/lib/format";
+import { faNumber, shippingFor, shippingRules, toman, toEnDigits } from "@/lib/format";
+import { pushPurchased } from "@/lib/recent-storage";
 
 type Fields = {
   customerName: string;
@@ -41,6 +42,8 @@ export function CheckoutForm() {
 
   const shipping = shippingFor(subtotal);
   const total = subtotal + shipping;
+  const remaining = Math.max(0, shippingRules.freeThreshold - subtotal);
+  const progress = Math.min(100, Math.round((subtotal / shippingRules.freeThreshold) * 100));
 
   const update = (key: keyof Fields) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFields((current) => ({ ...current, [key]: event.target.value }));
@@ -93,6 +96,7 @@ export function CheckoutForm() {
         return;
       }
 
+      pushPurchased(lines.map((line) => line.id));
       clear();
       router.push(`/orders/${data.code}`);
     } catch {
@@ -137,7 +141,8 @@ export function CheckoutForm() {
         <p className="eyebrow">مرحله نهایی</p>
         <h1 className="mt-3 text-xl font-black sm:text-2xl">تسویه حساب و اطلاعات ارسال</h1>
         <p className="mt-2 text-sm text-mute">
-          سفارش شما پس از ثبت، پردازش می‌شود و کد رهگیری از طریق پیامک برای شما ارسال خواهد شد.
+          نیازی به ثبت‌نام نیست؛ اطلاعات گیرنده را وارد کن. کد پیگیری بعد از ثبت نمایش داده
+          می‌شود.
         </p>
       </div>
 
@@ -253,6 +258,16 @@ export function CheckoutForm() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-4 rounded-lg bg-[#f7f7f8] p-3">
+            <p className="flex items-center gap-1.5 text-[10.5px] font-bold text-ink-soft">
+              <TruckIcon className="size-4 text-violet" />
+              {remaining > 0 ? `تا ارسال رایگان ${toman(remaining)} مانده` : "ارسال این سفارش رایگان است"}
+            </p>
+            <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink/10">
+              <div className="h-full rounded-full bg-coral transition-all" style={{ width: `${progress}%` }} />
+            </div>
+          </div>
 
           <div className="mt-5 space-y-2.5 border-t border-line pt-4 text-sm">
             <div className="flex items-center justify-between">

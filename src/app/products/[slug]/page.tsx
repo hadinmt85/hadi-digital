@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { AddAllToCart } from "@/components/add-all-to-cart";
 import { AddToCartPanel } from "@/components/add-to-cart-panel";
+import { CompareButton } from "@/components/compare-button";
 import { FavoriteButton } from "@/components/favorite-button";
 import {
   CheckIcon,
@@ -14,8 +16,17 @@ import {
 } from "@/components/icons";
 import { ProductArt } from "@/components/product-art";
 import { ProductCard, toCartLine } from "@/components/product-card";
-import { getProductBySlug, getProductSlugs, getRelatedProducts } from "@/lib/data";
+import { ProductGallery } from "@/components/product-gallery";
+import { RecordProductView } from "@/components/record-product-view";
+import { brandToSlug } from "@/lib/brands";
+import {
+  getFrequentlyBoughtTogether,
+  getProductBySlug,
+  getProductSlugs,
+  getRelatedProducts,
+} from "@/lib/data";
 import { discountPercent, faNumber, toman } from "@/lib/format";
+import { galleryFor } from "@/lib/images";
 
 type Params = Promise<{ slug: string }>;
 
@@ -64,10 +75,13 @@ async function ProductDetail({ params }: { params: Params }) {
   if (!product) notFound();
 
   const related = await getRelatedProducts(product.id, product.categorySlug, 4);
+  const frequentlyBought = await getFrequentlyBoughtTogether(product.id, 3);
   const off = discountPercent(product.price, product.oldPrice);
+  const gallery = galleryFor(product);
 
   return (
     <div className="container-x py-4">
+      <RecordProductView productId={product.id} />
       <nav aria-label="مسیر صفحه" className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-mute">
         <Link href="/" className="transition hover:text-ink">
           خانه
@@ -89,13 +103,17 @@ async function ProductDetail({ params }: { params: Params }) {
 
       <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
         <div className="relative">
-          <ProductArt
-            product={product}
-            size="lg"
-            priority
-            imageSizes="(min-width: 1024px) 45vw, 100vw"
-            className="aspect-square rounded-xl border border-line"
-          />
+          {gallery.length > 0 ? (
+            <ProductGallery images={gallery} name={product.name} discount={off} badge={product.badge} />
+          ) : (
+            <ProductArt
+              product={product}
+              size="lg"
+              priority
+              imageSizes="(min-width: 1024px) 45vw, 100vw"
+              className="aspect-square rounded-xl border border-line"
+            />
+          )}
           <div className="mt-3 grid grid-cols-3 gap-3">
             {product.specs.slice(0, 3).map((spec) => (
               <div
@@ -117,14 +135,22 @@ async function ProductDetail({ params }: { params: Params }) {
               >
                 {product.categoryName}
               </Link>
-              <span className="text-xs font-bold text-mute">{product.brand}</span>
+              <Link
+                href={`/brands/${brandToSlug(product.brand)}`}
+                className="text-xs font-bold text-mute transition hover:text-coral"
+              >
+                {product.brand}
+              </Link>
               {product.badge ? (
                 <span className="rounded-full bg-coral px-2.5 py-1 text-[0.65rem] font-black text-white">
                   {product.badge}
                 </span>
               ) : null}
             </div>
-            <FavoriteButton product={product} size="md" className="shrink-0" />
+            <div className="flex shrink-0 items-center gap-2">
+              <CompareButton product={product} className="!size-10" />
+              <FavoriteButton product={product} size="md" className="shrink-0" />
+            </div>
           </div>
 
           <h1 className="mt-4 text-2xl font-black leading-snug sm:text-3xl">{product.name}</h1>
@@ -221,6 +247,25 @@ async function ProductDetail({ params }: { params: Params }) {
           </dl>
         </div>
       </section>
+
+      {frequentlyBought.length > 0 ? (
+        <section className="mt-14">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-black">اغلب با هم خریده می‌شوند</h2>
+              <p className="mt-1 text-[11px] text-mute">
+                این‌ها را می‌توانی یک‌جا به سبد اضافه کنی.
+              </p>
+            </div>
+            <AddAllToCart lines={frequentlyBought.map(toCartLine)} />
+          </div>
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
+            {frequentlyBought.map((item) => (
+              <ProductCard key={item.id} product={item} />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {related.length > 0 ? (
         <section className="mt-14">

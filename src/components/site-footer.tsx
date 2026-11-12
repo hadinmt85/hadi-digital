@@ -9,6 +9,8 @@ const columns = [
       { label: "همه محصولات", href: "/products" },
       { label: "پیشنهاد شگفت‌انگیز", href: "/products?sort=cheap" },
       { label: "مورد علاقه‌ها", href: "/favorites" },
+      { label: "مقایسهٔ محصولات", href: "/compare" },
+      { label: "برندها", href: "/brands" },
       { label: "پرفروش‌ترین‌ها", href: "/products?sort=rating" },
       { label: "هدفون و صدا", href: "/products?category=audio" },
       { label: "گیمینگ", href: "/products?category=gaming" },
@@ -18,7 +20,7 @@ const columns = [
     title: "خدمات مشتریان",
     links: [
       { label: "حساب کاربری", href: "/account" },
-      { label: "پیگیری سفارش", href: "/cart" },
+      { label: "پیگیری سفارش", href: "/track" },
       { label: "شرایط بازگشت کالا", href: "/about#returns" },
       { label: "گارانتی و خدمات", href: "/about#warranty" },
       { label: "سؤالات متداول", href: "/about#faq" },

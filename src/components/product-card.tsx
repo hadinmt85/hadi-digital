@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { CompareButton } from "@/components/compare-button";
 import { FavoriteButton } from "@/components/favorite-button";
 import { StarIcon } from "@/components/icons";
 import { ProductArt } from "@/components/product-art";
@@ -64,6 +65,7 @@ export function ProductCard({
           ) : null}
         </Link>
         <FavoriteButton product={product} className="absolute top-2 left-2 z-10" />
+        <CompareButton product={product} className="absolute top-12 left-2 z-10" />
       </div>
 
       <h3 className="mt-2 line-clamp-2 min-h-[44px] text-[11.5px] leading-[1.9] text-ink-soft">

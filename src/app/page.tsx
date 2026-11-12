@@ -11,6 +11,8 @@ import {
   TruckIcon,
 } from "@/components/icons";
 import { ProductCard, ProductGrid } from "@/components/product-card";
+import { PersonalizedRails } from "@/components/personalized-rails";
+import { brandToSlug } from "@/lib/brands";
 import { getCategories, getProducts } from "@/lib/data";
 import { discountPercent, faNumber, toman } from "@/lib/format";
 
@@ -196,6 +198,9 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* personalized: recently viewed / buy again */}
+      <PersonalizedRails products={products} />
+
       {/* offers */}
       <section className="overflow-hidden rounded-xl border border-line bg-paper">
         <div
@@ -270,9 +275,13 @@ export default async function HomePage() {
         <h3 className="shrink-0 text-[12px] font-extrabold">برندهای همراه Hadi Store</h3>
         <div className="flex flex-1 flex-wrap items-center justify-around gap-x-6 gap-y-2 text-[13px] font-black text-[#b7b7bf]">
           {brands.map((brand) => (
-            <span key={brand} className="transition-colors hover:text-ink/60">
+            <Link
+              key={brand}
+              href={`/brands/${brandToSlug(brand)}`}
+              className="transition-colors hover:text-coral"
+            >
               {brand}
-            </span>
+            </Link>
           ))}
         </div>
       </section>

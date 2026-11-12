@@ -113,7 +113,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
       {children}
       <div
         aria-live="polite"
-        className="pointer-events-none fixed inset-x-0 bottom-6 z-[61] flex justify-center px-4"
+        className="pointer-events-none fixed inset-x-0 bottom-24 z-[62] flex justify-center px-4"
       >
         {toast ? (
           <div className="animate-rise pointer-events-auto flex items-center gap-2 rounded-full bg-ink py-2 ps-2 pe-4 text-sm font-bold text-white shadow-[0_18px_40px_-18px_rgba(0,0,0,0.8)]">

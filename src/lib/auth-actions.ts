@@ -86,8 +86,7 @@ export async function registerAction(
   redirect(safeNext(formData.get("next")));
 }
 
-export async function loginAction(_prev: LoginState, formData: FormData): Promise<LoginState> {
-  const rawUsername = String(formData.get("username") ?? "").trim();
+export async function loginAction(_prev: LoginState, formData: FormData): Promise<LoginState> {  const rawUsername = String(formData.get("username") ?? "").trim();
   const username = rawUsername.toLowerCase();
   const password = String(formData.get("password") ?? "");
 
@@ -113,4 +112,30 @@ export async function loginAction(_prev: LoginState, formData: FormData): Promis
 export async function logoutAction(): Promise<void> {
   await destroySession();
   redirect("/");
+}
+
+const DEMO_USERNAME = "demo";
+const DEMO_EMAIL = "demo@hadistore.shop";
+const DEMO_PASSWORD = "Demo-1405!";
+
+/** ورود سریع برای نمایش نمونه‌کار؛ حساب نمایشی در اولین استفاده ساخته می‌شود. */
+export async function demoLoginAction(formData: FormData): Promise<void> {
+  let user = await findUserByUsername(DEMO_USERNAME);
+
+  if (!user) {
+    try {
+      const passwordHash = await hashPassword(DEMO_PASSWORD);
+      await createUser({ username: DEMO_USERNAME, email: DEMO_EMAIL, passwordHash });
+    } catch {
+      // اگر هم‌زمان ساخته شد، پائین دوباره خوانده می‌شود
+    }
+    user = await findUserByUsername(DEMO_USERNAME);
+  }
+
+  if (!user) {
+    redirect("/login?error=demo");
+  }
+
+  await createSession(user.id);
+  redirect(safeNext(formData.get("next")));
 }

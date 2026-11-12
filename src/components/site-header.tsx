@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArcMark } from "@/components/brand-logo";
 import { CategoryIcon } from "@/components/category-icon";
+import { SearchBox } from "@/components/search-box";
 import { useCart } from "@/components/cart-provider";
 import { useWishlist } from "@/components/wishlist-provider";
 import { logoutAction } from "@/lib/auth-actions";
@@ -14,7 +14,6 @@ import {
   HeartIcon,
   LogoutIcon,
   MenuIcon,
-  SearchIcon,
   UserIcon,
 } from "@/components/icons";
 import { navCategories } from "@/lib/nav-categories";
@@ -28,15 +27,44 @@ const mobileLinks = [
   { href: "/", label: "خانه" },
   { href: "/products", label: "همه محصولات" },
   { href: "/products?sort=cheap", label: "پیشنهاد شگفت‌انگیز" },
+  { href: "/brands", label: "برندها" },
   { href: "/favorites", label: "مورد علاقه‌ها" },
+  { href: "/compare", label: "مقایسه" },
+  { href: "/track", label: "پیگیری سفارش" },
   { href: "/about", label: "درباره ما" },
 ];
 
-export function SiteHeader({ user }: { user: { username: string } | null }) {
-  const pathname = usePathname();
+export function SiteHeader() {
   const { count, ready } = useCart();
   const { count: favoriteCount, ready: wishlistReady } = useWishlist();
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState<{ username: string } | null>(null);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadUser() {
+      try {
+        const response = await fetch("/api/me", { cache: "no-store" });
+        if (!response.ok) return;
+        const payload = (await response.json()) as { user?: { username: string } | null };
+        if (active) setUser(payload.user ?? null);
+      } catch {
+        // وضعیت مهمان نمایش داده می‌شود
+      }
+    }
+
+    loadUser();
+    const onSync = () => {
+      loadUser();
+    };
+    window.addEventListener("hadi-auth-sync", onSync);
+
+    return () => {
+      active = false;
+      window.removeEventListener("hadi-auth-sync", onSync);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-paper">
@@ -46,8 +74,11 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
             <Link href="/about#contact" className="transition hover:text-ink">
               پشتیبانی ۹ صبح تا ۹ شب
             </Link>
-            <Link href="/cart" className="transition hover:text-ink">
+            <Link href="/track" className="transition hover:text-ink">
               پیگیری سفارش
+            </Link>
+            <Link href="/brands" className="transition hover:text-ink">
+              برندها
             </Link>
             <Link href="/about" className="transition hover:text-ink">
               درباره Hadi Store
@@ -76,22 +107,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
             </span>
           </Link>
 
-          <form
-            action="/products"
-            className="hidden h-11 flex-1 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3 md:flex"
-          >
-            <SearchIcon className="size-5 shrink-0 text-mute" />
-            <input
-              type="search"
-              name="q"
-              placeholder="جستجو در Hadi Store"
-              aria-label="جستجوی محصولات"
-              className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
-            />
-            <kbd className="hidden rounded border border-line bg-white px-1.5 py-0.5 text-[9px] text-mute lg:block">
-              ⌘ K
-            </kbd>
-          </form>
+          <SearchBox variant="desktop" />
 
           <div className="ms-auto flex items-center gap-2 md:ms-0">
             {user ? (
@@ -185,7 +201,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
             </Link>
           ))}
           <span className="ms-auto hidden text-[10px] text-mute xl:inline">
-            {pathname === "/" ? "خرید آسان، تحویل سریع" : "Hadi Store | فروشگاه گجت"}
+            خرید آسان، تحویل سریع
           </span>
         </nav>
       </div>
@@ -196,16 +212,7 @@ export function SiteHeader({ user }: { user: { username: string } | null }) {
           className="max-h-[72vh] overflow-y-auto border-b border-line bg-paper lg:hidden"
         >
           <div className="container-x space-y-3 py-4">
-            <form action="/products" className="flex h-11 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3">
-              <SearchIcon className="size-4 shrink-0 text-mute" />
-              <input
-                type="search"
-                name="q"
-                placeholder="جستجو در Hadi Store..."
-                aria-label="جستجوی محصولات"
-                className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
-              />
-            </form>
+            <SearchBox variant="mobile" />
 
             <p className="text-[10px] font-extrabold text-mute">دسته‌بندی کالاها</p>
             <div className="grid grid-cols-3 gap-1.5">

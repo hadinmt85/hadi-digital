@@ -10,8 +10,6 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { useRouter } from "next/navigation";
-import { hasAuthHint, savePendingAdd } from "@/lib/cart-storage";
 import type { CartLine } from "@/lib/types";
 
 const STORAGE_KEY = "gadgetland-cart-v1";
@@ -41,7 +39,6 @@ function isCartLine(value: unknown): value is CartLine {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const router = useRouter();
   const [lines, setLines] = useState<CartLine[]>([]);
   const [ready, setReady] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -87,12 +84,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const add = useCallback(
     (line: Omit<CartLine, "qty">, qty = 1): boolean => {
-      if (!hasAuthHint()) {
-        savePendingAdd(line, qty);
-        router.push("/login?next=/cart");
-        return false;
-      }
-
       setLines((current) => {
         const existing = current.find((item) => item.id === line.id);
         if (existing) {
@@ -107,7 +98,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       showToast(`${line.name} به سبد خرید اضافه شد`);
       return true;
     },
-    [showToast, router],
+    [showToast],
   );
 
   const setQty = useCallback((id: number, qty: number) => {
@@ -144,7 +135,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       {children}
       <div
         aria-live="polite"
-        className="pointer-events-none fixed inset-x-0 bottom-6 z-[60] flex justify-center px-4"
+        className="pointer-events-none fixed inset-x-0 bottom-24 z-[62] flex justify-center px-4"
       >
         {toast ? (
           <div className="animate-rise flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white shadow-[0_18px_40px_-18px_rgba(0,0,0,0.8)]">

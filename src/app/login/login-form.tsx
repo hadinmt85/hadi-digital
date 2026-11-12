@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useActionState, useState } from "react";
 import { EyeIcon, EyeOffIcon, UserIcon } from "@/components/icons";
-import { loginAction, type LoginState } from "@/lib/auth-actions";
+import { demoLoginAction, loginAction, type LoginState } from "@/lib/auth-actions";
 
 const initialState: LoginState = {};
 
@@ -15,7 +15,8 @@ export function LoginForm() {
   const next = searchParams.get("next") ?? "/account";
 
   return (
-    <form action={action} className="mt-5 space-y-4">
+    <>
+      <form action={action} className="mt-5 space-y-4">
       <input type="hidden" name="next" value={next} />
       <div>
         <label htmlFor="username" className="mb-1.5 block text-[11px] font-bold text-ink-soft">
@@ -80,6 +81,17 @@ export function LoginForm() {
           ثبت‌نام کن
         </Link>
       </p>
-    </form>
+      </form>
+
+      <form action={demoLoginAction} className="mt-3">
+        <input type="hidden" name="next" value={next} />
+        <button type="submit" className="btn btn-ghost h-11 w-full text-[11px]">
+          ورود سریع با حساب نمایشی
+        </button>
+      </form>
+      <p className="mt-2 text-center text-[9.5px] leading-5 text-mute">
+        برای دیدن حساب کاربری و سفارش‌ها، بدون ثبت‌نام وارد شو.
+      </p>
+    </>
   );
 }

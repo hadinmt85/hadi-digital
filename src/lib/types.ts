@@ -72,4 +72,27 @@ export type ProductQuery = {
   q?: string;
   sort?: string;
   limit?: number;
+  offset?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  brands?: string[];
+  minRating?: number;
+  inStock?: boolean;
+  freeShipping?: boolean;
+};
+
+export type BrandInfo = {
+  name: string;
+  slug: string;
+  count: number;
+};
+
+export type CompareItem = {
+  id: number;
+  slug: string;
+  name: string;
+  brand: string;
+  price: number;
+  image: string | null;
+  emoji: string;
 };

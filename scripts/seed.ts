@@ -16,6 +16,7 @@ async function main(): Promise<void> {
 
   const url = process.env.DATABASE_URL ?? process.env.POSTGRES_URL;
   const reset = process.argv.includes("--reset");
+  const sync = process.argv.includes("--sync");
 
   if (!url) {
     console.log("ℹ️  DATABASE_URL تنظیم نشده است.");
@@ -36,7 +37,7 @@ async function main(): Promise<void> {
   };
 
   try {
-    const result = await seedCatalog(q, { reset });
+    const result = await seedCatalog(q, { reset, sync });
     const rows = await q<{ count: number }>("SELECT count(*)::int AS count FROM products");
     console.log(`✓ اسکیمای Postgres آماده است (${rows[0]?.count ?? 0} محصول).`);
     if (result.skipped) {

@@ -83,7 +83,7 @@ export const SCHEMA_SQL = `
  */
 export async function seedCatalog(
   q: QueryFn,
-  options: { reset?: boolean } = {},
+  options: { reset?: boolean; sync?: boolean } = {},
 ): Promise<{ inserted: number; skipped: boolean }> {
   // هر دستور را جداگانه اجرا می‌کنیم تا با هر دو درایور (pg و PGlite) سازگار باشد.
   for (const statement of SCHEMA_SQL.split(";").map((part) => part.trim()).filter(Boolean)) {
@@ -92,7 +92,7 @@ export async function seedCatalog(
 
   if (options.reset) {
     await q("TRUNCATE TABLE order_items, orders, products, categories RESTART IDENTITY CASCADE");
-  } else {
+  } else if (!options.sync) {
     const rows = await q<{ count: number }>("SELECT count(*)::int AS count FROM products");
     const count = Number(rows[0]?.count ?? 0);
     if (count > 0) return { inserted: 0, skipped: true };

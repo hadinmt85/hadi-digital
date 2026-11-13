@@ -180,7 +180,7 @@ export function SearchBox({
             setActive(-1);
           }
         }}
-        placeholder="جستجو در Hadi Store"
+        placeholder="جستجو در Hadi Digital"
         aria-label="جستجوی محصولات"
         role="combobox"
         aria-haspopup="listbox"

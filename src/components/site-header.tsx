@@ -102,7 +102,7 @@ export function SiteHeader() {
               برندها
             </Link>
             <Link href="/about" className="transition hover:text-ink">
-              درباره Hadi Store
+              درباره Hadi Digital
             </Link>
           </div>
           <span className="flex items-center gap-1.5 font-semibold text-ink">
@@ -117,13 +117,13 @@ export function SiteHeader() {
           <Link
             href="/"
             className="flex shrink-0 items-center gap-2"
-            aria-label="Hadi Store، صفحه اصلی"
+            aria-label="Hadi Digital، صفحه اصلی"
           >
             <ArcMark className="size-10" />
             <span className="leading-tight">
-              <span className="block text-lg font-black">Hadi Store</span>
+              <span className="block text-lg font-black">Hadi Digital</span>
               <span className="block text-[0.5rem] font-bold tracking-[0.18em] text-mute">
-                HADI STORE
+                HADI DIGITAL
               </span>
             </span>
           </Link>

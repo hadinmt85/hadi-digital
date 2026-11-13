@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!brand) return { title: "برند پیدا نشد" };
   return {
     title: `محصولات ${brand}`,
-    description: `خرید محصولات برند ${brand} از Hadi Store با گارانتی و ارسال سریع.`,
+    description: `خرید محصولات برند ${brand} از Hadi Digital با گارانتی و ارسال سریع.`,
   };
 }
 

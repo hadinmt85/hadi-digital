@@ -23,7 +23,7 @@ type Search = Record<string, string | string[] | undefined>;
 export const metadata = {
   title: "فروشگاه گجت و کالای دیجیتال",
   description:
-    "همه محصولات Hadi Store: هدفون، ساعت هوشمند، موبایل، لپ‌تاپ، گیمینگ و خانه هوشمند با قیمت و موجودی به‌روز.",
+    "همه محصولات Hadi Digital: هدفون، ساعت هوشمند، موبایل، لپ‌تاپ، گیمینگ و خانه هوشمند با قیمت و موجودی به‌روز.",
 };
 
 const sortOptions = [

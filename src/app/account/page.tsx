@@ -10,7 +10,7 @@ import { ArrowLeftIcon, CartIcon, HeartIcon, LogoutIcon } from "@/components/ico
 
 export const metadata = {
   title: "حساب کاربری",
-  description: "مشاهده اطلاعات حساب کاربری Hadi Store.",
+  description: "مشاهده اطلاعات حساب کاربری Hadi Digital.",
 };
 
 export default function AccountPage() {

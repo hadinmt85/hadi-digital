@@ -27,16 +27,16 @@ export function SiteHeaderFallback() {
           <Link href="/" className="flex shrink-0 items-center gap-2">
             <ArcMark className="size-10" />
             <span className="leading-tight">
-              <span className="block text-lg font-black">Hadi Store</span>
+              <span className="block text-lg font-black">Hadi Digital</span>
               <span className="block text-[0.5rem] font-bold tracking-[0.18em] text-mute">
-                HADI STORE
+                HADI DIGITAL
               </span>
             </span>
           </Link>
 
           <div className="hidden h-11 flex-1 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3 md:flex">
             <SearchIcon className="size-5 shrink-0 text-mute" />
-            <span className="text-xs text-mute">جستجو در Hadi Store</span>
+            <span className="text-xs text-mute">جستجو در Hadi Digital</span>
           </div>
 
           <div className="ms-auto flex items-center gap-2 md:ms-0">

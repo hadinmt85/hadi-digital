@@ -5,7 +5,7 @@ import { getProducts } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "مقایسهٔ محصولات",
-  description: "محصولات Hadi Store را کنار هم مقایسه کن: قیمت، امتیاز، برند و مشخصات.",
+  description: "محصولات Hadi Digital را کنار هم مقایسه کن: قیمت، امتیاز، برند و مشخصات.",
 };
 
 export default async function ComparePage() {

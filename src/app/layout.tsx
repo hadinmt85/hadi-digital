@@ -20,17 +20,17 @@ const siteDescription =
   "خرید آنلاین هدفون، ساعت هوشمند، موبایل، لپ‌تاپ و گجت‌های گیمینگ با گارانتی اصالت، ارسال سریع و ۷ روز ضمانت بازگشت کالا.";
 
 export const metadata: Metadata = {
-  applicationName: "Hadi Store",
+  applicationName: "Hadi Digital",
   title: {
-    default: "Hadi Store | فروشگاه گجت و کالای دیجیتال",
-    template: "%s | Hadi Store",
+    default: "Hadi Digital | فروشگاه گجت و کالای دیجیتال",
+    template: "%s | Hadi Digital",
   },
   description: siteDescription,
-  keywords: ["Hadi Store", "HadiStore", "گجت", "کالای دیجیتال", "فروشگاه اینترنتی", "هدفون", "ساعت هوشمند"],
+  keywords: ["Hadi Digital", "HadiDigital", "گجت", "کالای دیجیتال", "فروشگاه اینترنتی", "هدفون", "ساعت هوشمند"],
   openGraph: {
-    title: "Hadi Store | فروشگاه گجت و کالای دیجیتال",
+    title: "Hadi Digital | فروشگاه گجت و کالای دیجیتال",
     description: siteDescription,
-    siteName: "Hadi Store",
+    siteName: "Hadi Digital",
     locale: "fa_IR",
     type: "website",
   },

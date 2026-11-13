@@ -115,7 +115,7 @@ export async function logoutAction(): Promise<void> {
 }
 
 const DEMO_USERNAME = "demo";
-const DEMO_EMAIL = "demo@hadistore.shop";
+const DEMO_EMAIL = "demo@hadidigital.shop";
 const DEMO_PASSWORD = "Demo-1405!";
 
 /** ورود سریع برای نمایش نمونه‌کار؛ حساب نمایشی در اولین استفاده ساخته می‌شود. */

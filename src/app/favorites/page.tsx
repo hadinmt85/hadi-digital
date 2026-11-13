@@ -6,7 +6,7 @@ import { getProducts } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "مورد علاقه‌ها",
-  description: "لیست محصولات ذخیره‌شده در علاقه‌مندی‌های Hadi Store.",
+  description: "لیست محصولات ذخیره‌شده در علاقه‌مندی‌های Hadi Digital.",
 };
 
 export default async function FavoritesPage() {

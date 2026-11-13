@@ -28,7 +28,7 @@ const columns = [
     ],
   },
   {
-    title: "Hadi Store",
+    title: "Hadi Digital",
     links: [
       { label: "درباره ما", href: "/about" },
       { label: "پنل مدیریت", href: "/admin" },
@@ -48,15 +48,15 @@ export function SiteFooter() {
             <div className="flex items-center gap-2">
               <ArcMark className="size-10" />
               <div className="leading-tight">
-                <p className="text-lg font-black">Hadi Store</p>
+                <p className="text-lg font-black">Hadi Digital</p>
                 <p className="text-[0.5rem] font-bold tracking-[0.18em] text-white/40">
-                  HADI STORE
+                  HADI DIGITAL
                 </p>
               </div>
             </div>
 
             <p className="mt-4 max-w-sm text-xs leading-6 text-white/60">
-              Hadi Store یک فروشگاه تخصصی کالای دیجیتال است؛ جایی که تکنولوژی را ساده، اصل و با
+              Hadi Digital یک فروشگاه تخصصی کالای دیجیتال است؛ جایی که تکنولوژی را ساده، اصل و با
               پشتیبانی انسانی تحویل می‌دهیم. از هدفون تا خانه هوشمند، همه‌چیز برای زندگی روزمره.
             </p>
 
@@ -72,7 +72,7 @@ export function SiteFooter() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="اینستاگرام Hadi Store"
+                aria-label="اینستاگرام Hadi Digital"
                 className="grid size-9 place-items-center rounded-lg border border-white/15 transition hover:bg-white/10"
               >
                 <InstagramIcon className="size-4" />
@@ -81,7 +81,7 @@ export function SiteFooter() {
                 href="https://t.me"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="تلگرام Hadi Store"
+                aria-label="تلگرام Hadi Digital"
                 className="grid size-9 place-items-center rounded-lg border border-white/15 transition hover:bg-white/10"
               >
                 <TelegramIcon className="size-4" />
@@ -111,7 +111,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-white/10 py-4 text-[10px] text-white/40 sm:flex-row">
-          <p>© ۲۰۲۶ Hadi Store — تمام حقوق محفوظ است.</p>
+          <p>© ۲۰۲۶ Hadi Digital — تمام حقوق محفوظ است.</p>
           <p>قیمت‌ها به تومان و شامل مالیات بر ارزش افزوده است.</p>
         </div>
       </div>

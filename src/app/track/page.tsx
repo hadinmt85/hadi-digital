@@ -6,7 +6,7 @@ import { TrackForm } from "@/components/track-form";
 
 export const metadata: Metadata = {
   title: "پیگیری سفارش",
-  description: "وضعیت سفارش Hadi Store را با کد سفارش و شمارهٔ موبایل پیگیری کن.",
+  description: "وضعیت سفارش Hadi Digital را با کد سفارش و شمارهٔ موبایل پیگیری کن.",
 };
 
 export default function TrackPage() {

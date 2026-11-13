@@ -6,7 +6,7 @@ import { faNumber } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "برندها",
-  description: "همهٔ برندهای موجود در Hadi Store و محصولات هر برند.",
+  description: "همهٔ برندهای موجود در Hadi Digital و محصولات هر برند.",
 };
 
 export default async function BrandsPage() {
@@ -27,7 +27,7 @@ export default async function BrandsPage() {
 
       <header className="mt-4 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-xl font-black sm:text-2xl">برندهای Hadi Store</h1>
+          <h1 className="text-xl font-black sm:text-2xl">برندهای Hadi Digital</h1>
           <p className="mt-1.5 text-xs leading-6 text-mute">
             {faNumber(brands.length)} برند منتخب؛ محصولات هر برند را یک‌جا ببین.
           </p>

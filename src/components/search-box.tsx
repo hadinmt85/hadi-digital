@@ -192,10 +192,6 @@ export function SearchBox({
       />
       {loading ? (
         <span className="size-4 shrink-0 animate-spin rounded-full border-2 border-mute/30 border-t-coral" />
-      ) : variant === "desktop" ? (
-        <kbd className="hidden rounded border border-line bg-white px-1.5 py-0.5 text-[9px] text-mute lg:block">
-          ⌘ K
-        </kbd>
       ) : null}
 
       {open && query.trim().length >= 2 ? (

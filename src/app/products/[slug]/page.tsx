@@ -18,6 +18,7 @@ import { ProductArt } from "@/components/product-art";
 import { ProductCard, toCartLine } from "@/components/product-card";
 import { ProductGallery } from "@/components/product-gallery";
 import { RecordProductView } from "@/components/record-product-view";
+import { ReviewForm } from "@/components/review-form";
 import { brandToSlug } from "@/lib/brands";
 import {
   getFrequentlyBoughtTogether,
@@ -25,7 +26,8 @@ import {
   getProductSlugs,
   getRelatedProducts,
 } from "@/lib/data";
-import { discountPercent, faNumber, toman } from "@/lib/format";
+import { getProductReviews } from "@/lib/reviews";
+import { discountPercent, faDate, faNumber, toman } from "@/lib/format";
 import { galleryFor } from "@/lib/images";
 
 type Params = Promise<{ slug: string }>;
@@ -76,6 +78,7 @@ async function ProductDetail({ params }: { params: Params }) {
 
   const related = await getRelatedProducts(product.id, product.categorySlug, 4);
   const frequentlyBought = await getFrequentlyBoughtTogether(product.id, 3);
+  const reviews = await getProductReviews(product.id, 6);
   const off = discountPercent(product.price, product.oldPrice);
   const gallery = galleryFor(product);
 
@@ -245,6 +248,62 @@ async function ProductDetail({ params }: { params: Params }) {
               <dd className="text-sm font-extrabold">{product.categoryName}</dd>
             </div>
           </dl>
+        </div>
+      </section>
+
+      <section id="reviews" className="surface mt-6 scroll-mt-32 p-4 sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h2 className="text-base font-black">نظرات مشتریان</h2>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="flex items-center gap-1 text-sm font-black">
+                <StarIcon className="size-4 text-gold" />
+                {faNumber(Number(product.rating.toFixed(1)))}
+              </span>
+              <span className="text-[10.5px] text-mute">
+                از ۵ · {faNumber(product.reviewCount)} امتیاز ثبت‌شده
+              </span>
+            </div>
+          </div>
+          <span className="rounded-full bg-[#f7f7f8] px-3 py-1.5 text-[10px] font-bold text-ink-soft">
+            {faNumber(reviews.length)} نظر نوشته‌شده
+          </span>
+        </div>
+
+        <div className="mt-5 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
+          <div className="space-y-3">
+            {reviews.length > 0 ? (
+              reviews.map((review) => (
+                <article key={review.id} className="rounded-xl border border-line p-4">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#fff0f3] text-[11px] font-black text-coral">
+                      {review.name.slice(0, 1)}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="truncate text-xs font-extrabold">{review.name}</p>
+                      <p className="mt-0.5 text-[9.5px] text-mute">{faDate(review.createdAt)}</p>
+                    </div>
+                    <div className="ms-auto flex items-center gap-0.5" aria-label={`${review.rating} از ۵`}>
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <StarIcon
+                          key={value}
+                          className={`size-3.5 ${value <= review.rating ? "text-gold" : "text-[#e0e0e2]"}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="mt-3 text-xs leading-7 text-ink-soft">{review.body}</p>
+                </article>
+              ))
+            ) : (
+              <div className="rounded-xl border border-dashed border-line px-5 py-10 text-center">
+                <p className="text-xs font-bold text-ink-soft">هنوز نظر نوشته‌شده‌ای برای این محصول ثبت نشده.</p>
+                <p className="mt-1 text-[10.5px] text-mute">اولین نفری باش که تجربه‌اش را می‌نویسد.</p>
+              </div>
+            )}
+          </div>
+
+          <ReviewForm productId={product.id} />
         </div>
       </section>
 

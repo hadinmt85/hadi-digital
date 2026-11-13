@@ -96,3 +96,12 @@ export type CompareItem = {
   image: string | null;
   emoji: string;
 };
+
+export type Review = {
+  id: number;
+  productId: number;
+  name: string;
+  rating: number;
+  body: string;
+  createdAt: string;
+};

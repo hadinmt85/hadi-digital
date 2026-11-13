@@ -10,6 +10,7 @@
     "db:setup": "tsx scripts/seed.ts",
     "db:seed": "tsx scripts/seed.ts --reset",
     "db:sync": "tsx scripts/seed.ts --sync",
+    "db:reviews": "tsx scripts/seed-reviews.ts",
     "db:images": "node scripts/build-product-images.mjs",
     "deploy": "vercel deploy --prod",
     "deploy:preview": "vercel deploy",

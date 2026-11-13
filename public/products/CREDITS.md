@@ -28,8 +28,21 @@
 | `rudy-mirrorless-x.jpg` | [Olympus PEN E-P7 14 Jul 2021c](https://commons.wikimedia.org/wiki/File:Olympus_PEN_E-P7_14_Jul_2021c.jpg) | 昼落ち | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
 | `lumen-home-camera.jpg` | [Security camera, September 2018](https://commons.wikimedia.org/wiki/File:Security_camera,_September_2018.jpg) | Cody Logan | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
 | `lumen-smart-plug.jpg` | [Smart-plug](https://commons.wikimedia.org/wiki/File:Smart-plug.jpg) | TBWABusted | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
-
-> ۱۵ تصویر دیگر (نسخه‌های مینی/پرو/لایت) از روی تصاویر موجود همین فروشگاه با کراپ و زوم بازسازی شده‌اند.
+| `kub-mini-speaker.jpg` | [UE Boom 2](https://commons.wikimedia.org/wiki/File:UE_Boom_2.jpg) | fish161174 | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
+| `cinema-21-soundbar.jpg` | [Samsung TV with Sonos soundbar](https://commons.wikimedia.org/wiki/File:Samsung_TV_UE55F9000_with_Sonos_wireless_speakers_PLAY_5_and_Sonos_soundbar.jpg) | Pittigrilli | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `fit-band-pro.jpg` | [Fitbit Alta HR](https://commons.wikimedia.org/wiki/File:Fitbit_Alta_HR.jpg) | PamD | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `zenith-lite-phone.jpg` | [Google Pixel and Pixel XL smartphones](https://commons.wikimedia.org/wiki/File:Google_Pixel_and_Pixel_XL_smartphones_(30155272575).jpg) | Maurizio Pesce | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
+| `nova-pad-air.jpg` | [Samsung Galaxy Tab GT-P1000](https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Tab_GT-P1000-7430.jpg) | Raimond Spekking | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `ultrabook-16.jpg` | [DELL XPS 13 and 15](https://commons.wikimedia.org/wiki/File:DELL_XPS_13_and_15_(37080596413).jpg) | Tinh tế Photo | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `pixa-32-monitor.jpg` | [EIZO Foris FG2421 monitor](https://commons.wikimedia.org/wiki/File:EIZO_Foris_FG2421_VGA_computer_monitor_displaying_test_pattern.png) | Lucasbosch | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `velocity-pro-mouse.jpg` | [Logitech G703 mouse](https://commons.wikimedia.org/wiki/File:Logitech(G703)_mouse.jpg) | Slackman12 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `procontrol-2-gamepad.jpg` | [PSX Original Controller](https://commons.wikimedia.org/wiki/File:PSX-Original-Controller.jpg) | Evan-Amos | Public domain |
+| `aero-drone-pro.jpg` | [DJI Mini 4 Pro](https://commons.wikimedia.org/wiki/File:2024_Dron_DJI_Mini_4_Pro_(01).jpg) | Jacek Halicki | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `magsafe-powerbank-10k.jpg` | [Anker power bank and cable](https://commons.wikimedia.org/wiki/File:Anker_power_bank_and_cable.jpg) | Saucy | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
+| `gun-100w-charger.jpg` | [USB power adapter for Apple A1300](https://commons.wikimedia.org/wiki/File:Plug-in_power_adapter_USB_for_Apple,_Model_A1300,_by_Flextronics-0812.jpg) | Raimond Spekking | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `body-scale-2.jpg` | [Withings body scale](https://commons.wikimedia.org/wiki/File:Withings-bodyscale.jpg) | Withings | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| `data-portable-ssd-2tb.jpg` | [Samsung T7 Shield SSD](https://commons.wikimedia.org/wiki/File:SAMSUNG_PROTABLE_SSD_T7_SHIELD_4TB_FRONT_SIDE.jpg) | Dinkun Chen | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| `gadget-backpack-pro.jpg` | [Backpack small](https://commons.wikimedia.org/wiki/File:Backpack_small.jpg) | Виктор Пинчук | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
 
 > این تصاویر برای نمایش دمو استفاده شده‌اند و محصول واقعی فروشگاه نیستند. در صورت استفادهٔ تجاری،
 > شرایط مجوز هر تصویر را رعایت کنید.

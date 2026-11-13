@@ -1,6 +1,6 @@
 import type { ProductQuery } from "@/lib/types";
 
-export const PRODUCTS_PAGE_SIZE = 12;
+export const PRODUCTS_PAGE_SIZE = 15;
 
 export type ProductListParams = {
   q?: string;

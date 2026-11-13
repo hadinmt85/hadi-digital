@@ -4,7 +4,7 @@ type MarkProps = {
   className?: string;
 };
 
-const LOGO = "/brand/hadi-store-mark.png";
+const LOGO = "/brand/hadi-digital-mark.png";
 
 /** نشانهٔ Hadi Digital (نسخهٔ اصلی روی پس‌زمینهٔ روشن) */
 export function ArcMark({ className = "" }: MarkProps) {

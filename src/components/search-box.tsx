@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useId, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeftIcon, SearchIcon } from "@/components/icons";
 import { faNumber } from "@/lib/format";
 
@@ -34,11 +34,16 @@ type FlatItem = {
 export function SearchBox({
   variant = "desktop",
   className = "",
+  autoFocus = false,
+  onNavigate,
 }: {
-  variant?: "desktop" | "mobile";
+  variant?: "desktop" | "panel";
   className?: string;
+  autoFocus?: boolean;
+  onNavigate?: () => void;
 }) {
   const router = useRouter();
+  const suggestionsId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const rootRef = useRef<HTMLFormElement>(null);
   const [query, setQuery] = useState("");
@@ -129,13 +134,18 @@ export function SearchBox({
     event.preventDefault();
     const trimmed = query.trim();
     if (!trimmed) return;
+    setOpen(false);
+    onNavigate?.();
     if (active >= 0 && flat[active]) {
-      setOpen(false);
       router.push(flat[active].href);
       return;
     }
-    setOpen(false);
     router.push(`/products?q=${encodeURIComponent(trimmed)}`);
+  }
+
+  function go() {
+    setOpen(false);
+    onNavigate?.();
   }
 
   return (
@@ -143,7 +153,7 @@ export function SearchBox({
       ref={rootRef}
       role="search"
       onSubmit={submit}
-      className={`relative ${variant === "desktop" ? "hidden h-11 flex-1 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3 md:flex" : "flex h-11 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3"} ${className}`}
+      className={`relative ${variant === "desktop" ? "hidden h-11 flex-1 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3 md:flex" : "flex h-11 min-w-0 flex-1 items-center gap-2 rounded-lg bg-[#f0f0f1] px-3"} ${className}`}
     >
       <SearchIcon className="size-5 shrink-0 text-mute" />
       <input
@@ -156,6 +166,7 @@ export function SearchBox({
           setOpen(true);
         }}
         onFocus={() => setOpen(true)}
+        autoFocus={autoFocus}
         onKeyDown={(event) => {
           if (event.key === "ArrowDown") {
             event.preventDefault();
@@ -174,7 +185,7 @@ export function SearchBox({
         role="combobox"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-controls="search-suggestions"
+        aria-controls={suggestionsId}
         aria-autocomplete="list"
         autoComplete="off"
         className="h-full w-full bg-transparent text-xs outline-none placeholder:text-mute"
@@ -189,7 +200,7 @@ export function SearchBox({
 
       {open && query.trim().length >= 2 ? (
         <div
-          id="search-suggestions"
+          id={suggestionsId}
           role="listbox"
           className="absolute inset-x-0 top-[calc(100%+6px)] z-[60] overflow-hidden rounded-xl border border-line bg-paper shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)]"
         >
@@ -204,7 +215,7 @@ export function SearchBox({
                       <Link
                         key={product.id}
                         href={`/products/${product.slug}`}
-                        onClick={() => setOpen(false)}
+                        onClick={go}
                         role="option"
                         aria-selected={index === active}
                         onMouseEnter={() => setActive(index)}
@@ -250,7 +261,7 @@ export function SearchBox({
                       <Link
                         key={category.slug}
                         href={`/products?category=${category.slug}`}
-                        onClick={() => setOpen(false)}
+                        onClick={go}
                         role="option"
                         aria-selected={index === active}
                         onMouseEnter={() => setActive(index)}
@@ -275,7 +286,7 @@ export function SearchBox({
                       <Link
                         key={brand.slug}
                         href={`/brands/${brand.slug}`}
-                        onClick={() => setOpen(false)}
+                        onClick={go}
                         role="option"
                         aria-selected={index === active}
                         onMouseEnter={() => setActive(index)}
@@ -295,7 +306,7 @@ export function SearchBox({
 
               <Link
                 href={`/products?q=${encodeURIComponent(query.trim())}`}
-                onClick={() => setOpen(false)}
+                onClick={go}
                 className="flex items-center justify-center gap-1.5 border-t border-line bg-[#f7f7f8] px-4 py-2.5 text-[10.5px] font-bold text-coral transition hover:bg-[#fff0f3]"
               >
                 مشاهدهٔ همهٔ نتایج برای «{query.trim()}»

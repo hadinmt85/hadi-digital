@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArcMark } from "@/components/brand-logo";
 import { CategoryIcon } from "@/components/category-icon";
 import { SearchBox } from "@/components/search-box";
@@ -14,6 +14,7 @@ import {
   HeartIcon,
   LogoutIcon,
   MenuIcon,
+  SearchIcon,
   UserIcon,
 } from "@/components/icons";
 import { navCategories } from "@/lib/nav-categories";
@@ -38,7 +39,9 @@ export function SiteHeader() {
   const { count, ready } = useCart();
   const { count: favoriteCount, ready: wishlistReady } = useWishlist();
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [user, setUser] = useState<{ username: string } | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     let active = true;
@@ -66,8 +69,26 @@ export function SiteHeader() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!searchOpen) return;
+
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") setSearchOpen(false);
+    }
+    function onPointer(event: MouseEvent) {
+      if (!headerRef.current?.contains(event.target as Node)) setSearchOpen(false);
+    }
+
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onPointer);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onPointer);
+    };
+  }, [searchOpen]);
+
   return (
-    <header className="sticky top-0 z-50 bg-paper">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-paper">
       <div className="border-b border-line">
         <div className="container-x flex h-8 items-center justify-between text-[10.5px] text-mute">
           <div className="hidden items-center gap-4 sm:flex">
@@ -145,6 +166,20 @@ export function SiteHeader() {
               ) : null}
             </Link>
 
+            <button
+              type="button"
+              onClick={() => {
+                setSearchOpen((value) => !value);
+                setOpen(false);
+              }}
+              aria-expanded={searchOpen}
+              aria-controls="mobile-search-panel"
+              aria-label={searchOpen ? "بستن جستجو" : "جستجو"}
+              className="grid size-10 place-items-center rounded-lg border border-line transition hover:bg-[#f7f7f8] md:hidden"
+            >
+              <SearchIcon className="size-5" />
+            </button>
+
             <Link
               href="/cart"
               aria-label="سبد خرید"
@@ -163,7 +198,10 @@ export function SiteHeader() {
 
             <button
               type="button"
-              onClick={() => setOpen((value) => !value)}
+              onClick={() => {
+                setOpen((value) => !value);
+                setSearchOpen(false);
+              }}
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "بستن منو" : "باز کردن منو"}
@@ -174,6 +212,26 @@ export function SiteHeader() {
           </div>
         </div>
       </div>
+
+      {searchOpen ? (
+        <div id="mobile-search-panel" className="border-b border-line bg-paper md:hidden">
+          <div className="container-x flex items-center gap-2 py-2.5">
+            <SearchBox
+              variant="panel"
+              autoFocus
+              onNavigate={() => setSearchOpen(false)}
+            />
+            <button
+              type="button"
+              onClick={() => setSearchOpen(false)}
+              aria-label="بستن جستجو"
+              className="grid size-10 shrink-0 place-items-center rounded-lg border border-line text-mute transition hover:bg-[#f7f7f8] hover:text-ink"
+            >
+              <CloseIcon className="size-4" />
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       <div className="hidden border-b border-line lg:block">
         <nav className="container-x flex h-10 items-center gap-0.5 overflow-hidden text-[11.5px]">
@@ -212,8 +270,6 @@ export function SiteHeader() {
           className="max-h-[72vh] overflow-y-auto border-b border-line bg-paper lg:hidden"
         >
           <div className="container-x space-y-3 py-4">
-            <SearchBox variant="mobile" />
-
             <p className="text-[10px] font-extrabold text-mute">دسته‌بندی کالاها</p>
             <div className="grid grid-cols-3 gap-1.5">
               {navCategories.map((category) => (

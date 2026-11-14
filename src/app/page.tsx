@@ -16,7 +16,7 @@ import { brandToSlug } from "@/lib/brands";
 import { getCategories, getProducts } from "@/lib/data";
 import { discountPercent, faNumber, toman } from "@/lib/format";
 
-const brands = ["آیریس", "نیوا", "کوب", "هایپر", "پیکسا", "زنیت", "رودی", "ایرو"];
+const brands = ["Sony", "Samsung", "Xiaomi", "JBL", "Logitech", "Anker", "DJI", "Lenovo"];
 
 const trustItems = [
   { icon: TruckIcon, title: "ارسال سریع", text: "تهران ۲۴ ساعته" },

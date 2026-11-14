@@ -24,14 +24,14 @@ export function ProductForm({ categories }: { categories: Category[] }) {
         <label htmlFor="name" className="mb-1.5 block text-xs font-bold text-ink-soft">
           نام محصول
         </label>
-        <input id="name" name="name" className="field" placeholder="هدفون بی‌سیم آیریس پرو" required />
+        <input id="name" name="name" className="field" placeholder="هدفون بی‌سیم سونی WH-1000XM5" required />
       </div>
 
       <div>
         <label htmlFor="brand" className="mb-1.5 block text-xs font-bold text-ink-soft">
           برند
         </label>
-        <input id="brand" name="brand" className="field" placeholder="آیریس" required />
+        <input id="brand" name="brand" className="field" placeholder="Sony" required />
       </div>
 
       <div>

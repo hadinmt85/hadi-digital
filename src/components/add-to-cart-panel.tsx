@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/components/cart-provider";
-import { MinusIcon, PlusIcon } from "@/components/icons";
+import { CartIcon, MinusIcon, PlusIcon } from "@/components/icons";
 import type { CartLine } from "@/lib/types";
 
 export function AddToCartPanel({
@@ -17,41 +17,44 @@ export function AddToCartPanel({
   const router = useRouter();
   const [qty, setQty] = useState(1);
   const max = Math.max(1, stock);
+  const soldOut = stock === 0;
 
   return (
-    <div className="space-y-3">
-      <div className="flex flex-wrap items-center gap-3">
-        <div className="flex h-12 items-center gap-1 rounded-full border border-line bg-white px-1.5">
+    <div className="space-y-2">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[9px] font-bold text-mute">تعداد</span>
+        <div className="flex h-9 items-center gap-0.5 rounded-lg border border-line bg-white px-1">
           <button
             type="button"
             onClick={() => setQty((value) => Math.min(max, value + 1))}
             disabled={qty >= max}
             aria-label="افزایش تعداد"
-            className="grid size-9 place-items-center rounded-full text-ink transition hover:bg-ink/5 disabled:opacity-30"
+            className="grid size-7 place-items-center rounded-md text-ink transition hover:bg-ink/5 disabled:opacity-30"
           >
-            <PlusIcon className="size-4" />
+            <PlusIcon className="size-3.5" />
           </button>
-          <span className="w-8 text-center text-sm font-black">{qty}</span>
+          <span className="w-7 text-center text-[11px] font-black">{qty}</span>
           <button
             type="button"
             onClick={() => setQty((value) => Math.max(1, value - 1))}
             disabled={qty <= 1}
             aria-label="کاهش تعداد"
-            className="grid size-9 place-items-center rounded-full text-ink transition hover:bg-ink/5 disabled:opacity-30"
+            className="grid size-7 place-items-center rounded-md text-ink transition hover:bg-ink/5 disabled:opacity-30"
           >
-            <MinusIcon className="size-4" />
+            <MinusIcon className="size-3.5" />
           </button>
         </div>
-
-        <button
-          type="button"
-          onClick={() => add(line, qty)}
-          disabled={stock === 0}
-          className="btn btn-primary h-12 flex-1 px-5 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          {stock === 0 ? "ناموجود" : "افزودن به سبد خرید"}
-        </button>
       </div>
+
+      <button
+        type="button"
+        onClick={() => add(line, qty)}
+        disabled={soldOut}
+        className="btn btn-primary h-11 w-full text-[11px] disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        <CartIcon className="size-4" />
+        {soldOut ? "ناموجود" : "افزودن به سبد خرید"}
+      </button>
 
       <button
         type="button"
@@ -60,8 +63,8 @@ export function AddToCartPanel({
             router.push("/cart");
           }
         }}
-        disabled={stock === 0}
-        className="btn btn-ghost h-12 w-full disabled:cursor-not-allowed disabled:opacity-40"
+        disabled={soldOut}
+        className="btn btn-ghost h-9 w-full text-[9.5px] disabled:cursor-not-allowed disabled:opacity-40"
       >
         خرید سریع و تسویه
       </button>

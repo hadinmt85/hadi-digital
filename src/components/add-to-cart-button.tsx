@@ -8,10 +8,12 @@ export function AddToCartButton({
   line,
   variant = "icon",
   disabled = false,
+  className = "",
 }: {
   line: Omit<CartLine, "qty">;
   variant?: "icon" | "full";
   disabled?: boolean;
+  className?: string;
 }) {
   const { add } = useCart();
 
@@ -21,9 +23,9 @@ export function AddToCartButton({
         type="button"
         disabled={disabled}
         onClick={() => add(line)}
-        className="btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-40"
+        className={`btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-40 ${className}`}
       >
-        <PlusIcon className="size-5" />
+        <PlusIcon className="size-4" />
         {disabled ? "ناموجود" : "افزودن به سبد خرید"}
       </button>
     );

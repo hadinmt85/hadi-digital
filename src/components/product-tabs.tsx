@@ -39,7 +39,7 @@ export function ProductTabs({
   return (
     <section
       id="product-content"
-      className="mt-3.5 scroll-mt-28 overflow-hidden rounded-[10px] border border-line bg-paper"
+      className="mt-3.5 scroll-mt-32 overflow-hidden rounded-[10px] border border-line bg-paper"
     >
       <div
         className="flex h-[50px] items-center gap-5 overflow-x-auto border-b border-line/70 px-4 sm:h-[52px] sm:gap-7 sm:px-5"

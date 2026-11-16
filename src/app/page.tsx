@@ -16,7 +16,6 @@ import { ProductCard, ProductGrid } from "@/components/product-card";
 import { PersonalizedRails } from "@/components/personalized-rails";
 import { brandToSlug } from "@/lib/brands";
 import { getCategories, getProducts } from "@/lib/data";
-import { discountPercent, faNumber, toman } from "@/lib/format";
 
 const brands = ["Sony", "Samsung", "Xiaomi", "JBL", "Logitech", "Anker", "DJI", "Lenovo"];
 
@@ -40,109 +39,12 @@ export default async function HomePage() {
 
   const deals = products.filter((product) => product.oldPrice).slice(0, 5);
   const popular = products.slice(0, 10);
-  const spotlight =
-    products.find((product) => product.slug === "iris-pro-headphones") ?? products[0];
   const gaming = products.find((product) => product.categorySlug === "gaming");
   const phone = products.find((product) => product.categorySlug === "mobile");
-  const spotlightOff = spotlight ? discountPercent(spotlight.price, spotlight.oldPrice) : 0;
 
   return (
     <div className="container-x space-y-3 py-4">
       <BannerSlider />
-      {/* hero */}
-      <section className="grid gap-3 rounded-xl border border-line bg-paper p-2.5 lg:grid-cols-[212px_1fr_196px]">
-        <aside className="min-w-0">
-          <ul className="no-scrollbar flex gap-1 overflow-x-auto pb-1 lg:block lg:space-y-0 lg:overflow-visible lg:border-e lg:border-line lg:pe-1.5 lg:pb-0">
-            {categories.map((category) => (
-              <li key={category.slug} className="shrink-0 lg:block">
-                <Link
-                  href={`/products?category=${category.slug}`}
-                  className="flex items-center justify-between gap-2 whitespace-nowrap rounded-md px-2.5 py-1.5 text-[11px] text-ink-soft transition hover:bg-[#f5f5f6] hover:text-ink lg:text-[11.5px]"
-                >
-                  <span>{category.name}</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="hidden size-3 shrink-0 text-[#c2c2c9] lg:block"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    aria-hidden="true"
-                  >
-                    <path d="m14 6-6 6 6 6" />
-                  </svg>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
-
-        <div
-          className="relative flex min-h-[300px] items-center overflow-hidden rounded-lg p-6 text-white sm:p-7"
-          style={{ backgroundImage: "linear-gradient(140deg,#3f4064,#ef4056 58%,#ff6b81)" }}
-        >
-          <div className="grid-dots pointer-events-none absolute inset-0 opacity-30" aria-hidden />
-          {spotlight?.image ? (
-            <Image
-              src={spotlight.image}
-              alt=""
-              width={320}
-              height={320}
-              priority
-              className="absolute -bottom-12 -left-14 hidden size-[300px] rotate-[-8deg] rounded-full object-cover shadow-2xl sm:block"
-            />
-          ) : null}
-          <div className="relative z-10 max-w-[280px]">
-            <span className="inline-block rounded-full bg-coral px-2.5 py-1 text-[10px] font-black text-white">
-              حراج پاییزه Hadi Digital
-            </span>
-            <h1 className="mt-3 text-[26px] font-black leading-[1.4] sm:text-[30px]">
-              تا ۴۰٪ تخفیف روی گجت‌های منتخب
-            </h1>
-            <p className="mt-2 max-w-[260px] text-[11px] leading-6 text-white/70">
-              هدفون، ساعت هوشمند و لوازم گیمینگ؛ با گارانتی ۱۸ ماهه و ارسال سریع.
-            </p>
-            <Link
-              href="/products?sort=cheap"
-              className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-white px-4 py-2.5 text-[11.5px] font-extrabold text-ink transition hover:bg-cream"
-            >
-              خرید با تخفیف
-              <ArrowLeftIcon className="size-4" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="hidden flex-col gap-3 lg:flex">
-          <Link
-            href={spotlight ? `/products/${spotlight.slug}` : "/products"}
-            className="flex flex-1 flex-col justify-between gap-3 rounded-lg bg-ink p-4 text-white"
-          >
-            <span className="text-[9px] font-bold text-white/55">پیشنهاد ویژه اعضا</span>
-            <b className="text-[14px] font-black leading-6">
-              {spotlight ? spotlight.name : "پیشنهادهای امروز"}
-            </b>
-            {spotlight ? (
-              <span className="text-[11px] font-black text-white">
-                {toman(spotlight.price)}
-                {spotlightOff > 0 ? (
-                  <span className="ms-1.5 text-[9px] font-bold text-[#ffb3bd]">
-                    {faNumber(spotlightOff)}٪
-                  </span>
-                ) : null}
-              </span>
-            ) : null}
-            <span className="text-[10px] font-bold text-white/80">مشاهده محصول ←</span>
-          </Link>
-          <Link
-            href="/products"
-            className="flex flex-1 flex-col justify-between gap-3 rounded-lg bg-coral p-4 text-white"
-          >
-            <span className="text-[9px] font-bold text-white/70">ارسال رایگان</span>
-            <b className="text-[14px] font-black leading-6">سفارش بالای ۲ میلیون</b>
-            <span className="text-[10px] font-bold">شروع خرید ←</span>
-          </Link>
-        </div>
-      </section>
-
       {/* sub banners */}
       <section className="grid gap-3 sm:grid-cols-2">
         <Link

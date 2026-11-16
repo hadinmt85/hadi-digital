@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import { ArrowLeftIcon } from "@/components/icons";
 
 const slides = [
-  { src: "/banners/card-game.webp", alt: "کارت بازی", href: "/products?category=gaming" },
-  { src: "/banners/black-friday.webp", alt: "بلک فرایدی", href: "/products" },
   { src: "/banners/fast-delivery.webp", alt: "ارسال زیر ۳ ساعت", href: "/products" },
   { src: "/banners/bange.webp", alt: "بنج", href: "/brands/bange" },
   { src: "/banners/watches.webp", alt: "ساعت مچی", href: "/products?category=wearables" },

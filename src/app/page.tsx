@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CategoryIcon } from "@/components/category-icon";
+import { BannerSlider } from "@/components/banner-slider";
 import { DealCountdown } from "@/components/deal-countdown";
 import {
   ArrowLeftIcon,
@@ -47,6 +48,7 @@ export default async function HomePage() {
 
   return (
     <div className="container-x space-y-3 py-4">
+      <BannerSlider />
       {/* hero */}
       <section className="grid gap-3 rounded-xl border border-line bg-paper p-2.5 lg:grid-cols-[212px_1fr_196px]">
         <aside className="min-w-0">
